@@ -10,6 +10,7 @@ import { Home } from './components/Home';
 import { Projects } from './components/Projects';
 import { AntiResume } from './components/AntiResume';
 import { Music } from './components/Music';
+import { Minesweeper } from './components/Minesweeper';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='/projects' element={<Projects />} />
           <Route path='/music' element={<Music />} />
           <Route path='/antiresume' element={<AntiResume />} />
+          <Route path='/minesweeper' element={<Minesweeper />} />
           <Route path='*' element={<Navigate to='home' />} />
         </Routes>
     </Router>
