@@ -9,6 +9,7 @@ import { Menu } from "./shared/components/Menu";
 import { Home } from './components/Home';
 import { Projects } from './components/Projects';
 import { AntiResume } from './components/AntiResume';
+import { Music } from './components/Music';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path='/home' element={<Home />} />
           <Route path='/projects' element={<Projects />} />
+          <Route path='/music' element={<Music />} />
           <Route path='/antiresume' element={<AntiResume />} />
           <Route path='*' element={<Navigate to='home' />} />
         </Routes>

@@ -29,7 +29,8 @@ export const Menu = () => {
         <Tabs value={value} onChange={handleChange}>
             <LinkTab label="Home" href="/home" data-value={0}/>
             <LinkTab label="Projects" href="projects" data-value={1}/>
-            <LinkTab label="Anti-Resume" href="antiresume" data-value={2}/>
+            <LinkTab label="Music" href="music" data-value={2}/>
+            <LinkTab label="Anti-Resume" href="antiresume" data-value={3}/>
         </Tabs>
     );
 }
