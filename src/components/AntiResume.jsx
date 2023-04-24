@@ -10,7 +10,9 @@ const StartButton = () => {
 
     return (
         <div>
-            <button onClick={handleClick}>Click to start</button>
+            {!isClicked && (
+                <button onClick={handleClick}>Click to start</button>
+            )}
             {isClicked && <AntiResumeContent />}
         </div>
     )
@@ -22,7 +24,7 @@ export const AntiResume = () => {
             <h1>Anti-Resume</h1>
             <p>
                 Welcome to the Anti-Resume. This is a page designed to showcase
-                web design practices that you SHOULDN'T do.
+                web design practices that you SHOULD NOT do.
                 If this page annoys you, that means it's working as intended.
             </p>
             <p>
