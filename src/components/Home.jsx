@@ -8,7 +8,7 @@ export const Home = () => {
         <FlexContainer flexDirection='column' alignItems="flex-start" justifyContent='flex-start' width='auto'>
             <h1>Justin Luce</h1>
             <Img 
-                src="/Headshot.jpg"
+                src="/images/Headshot.jpg"
                 alt="Justin Luce"
                 width="200"
                 clipPath="circle()"
