@@ -14,6 +14,16 @@ export const AntiResumeContent = () => {
 
     return (
         <div>
+        <h2>
+            You are required to sign up to access the rest of this page. 
+            Don't worry, your information will not be used maliciously. 
+            In fact, it won't even be saved at all. If you're paranoid,
+            you can use fake information or check the&nbsp;
+            <a href="https://github.com/justinluce/luce-website">source code.</a>
+        </h2>
+        <h6>
+            <s>Please give me your data anyway.</s>
+        </h6>
             <form>
                 <label>
                     Name:
