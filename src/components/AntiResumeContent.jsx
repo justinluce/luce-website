@@ -52,7 +52,7 @@ const Captcha = () => {
     return (
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
             <img height={300} width={200}
-            src="/images/WheresWaldoCaptcha1.png" />
+            src="/images/WheresWaldoCaptcha.png" />
         </div>
     );
 };
