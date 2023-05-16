@@ -47,6 +47,16 @@ const Keyboard = ({ targetInput, setTargetInput }) => {
     );    
 }
 
+const Captcha = () => {
+    const [isSolved, setIsSolved] = useState(false);
+    return (
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
+            <img height={300} width={200}
+            src="/images/WheresWaldoCaptcha1.png" />
+        </div>
+    );
+};
+
 export const AntiResumeContent = () => {
     const [number, setNumber] = useState(0);
     const [name, setName] = useState('');
@@ -154,6 +164,17 @@ export const AntiResumeContent = () => {
                     />
                     {formatNumber(number)}
                 </label>
+                <br></br>
+                <Captcha />
+                <br></br>
+                <button disabled={
+                    name == '' || 
+                    email == '' ||
+                    number == 0
+                }
+                    >
+                    Submit
+                </button>
             </form>
             {activeInput && (
                 <div onMouseDown={(e) => e.preventDefault()}>
