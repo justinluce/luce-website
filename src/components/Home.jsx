@@ -28,8 +28,8 @@ export const Home = () => {
                 that is focused on full-stack web development. I teach the Re-Entry Program, 
                 a coding bootcamp designed for incarcerated individuals, 
                 as well as an online course. I have created multiple video games 
-                using Gamemaker Studio, Godot, and Unity, and 
-                I have extensive experience working with Java, JavaScript, and C#.
+                using Unity, Godot, and Gamemaker Studio. 
+                I also have extensive experience working with Java, JavaScript, and C#.
             </p>
             <p>
                 This is my website, where you can find a collection of things I've made.
