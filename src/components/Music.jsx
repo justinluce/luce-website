@@ -27,13 +27,13 @@ export const Music = () => {
                 <audio controls>
                     <source src="/music/TranceIsDead.wav"></source>
                 </audio>
+                Spontaneous Recovery:
+                <audio controls>
+                    <source src="/music/SpontaneousRecovery.wav"></source>
+                </audio>
                 You're really icing my bread, man:
                 <audio controls>
                     <source src="/music/You'reReallyIcingMyBreadMan.wav"></source>
-                </audio>
-                Spontaneous Combustion:
-                <audio controls>
-                    <source src="/music/SpontaneousCombustion.wav"></source>
                 </audio>
             </H4>
         </div>
