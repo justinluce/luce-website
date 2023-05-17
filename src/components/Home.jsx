@@ -37,7 +37,7 @@ export const Home = () => {
                 (including this website!), and video game development.
             </p>
             <p>
-                To contact me, please do so at 
+                To contact me, please do so at&nbsp;
                 <a href="mailto: jpluce99@gmail.com">
                 jpluce99@gmail.com
                 </a>
