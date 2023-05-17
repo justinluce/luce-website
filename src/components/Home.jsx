@@ -1,22 +1,23 @@
 import React from 'react';
 import { Img } from '../shared/styled/Img';
 import { FlexContainer } from '../shared/styled/FlexContainer';
+import { Typography } from '@mui/material';
 
 export const Home = () => {
     return (
         <div>
-        <FlexContainer flexDirection='column' alignItems="flex-start" justifyContent='flex-start' width='auto'>
-            <h1>
+        <FlexContainer style={{marginTop: '0'}} flexDirection='column' alignItems="flex-start" justifyContent='flex-start' width='auto'>
+            <Typography variant='h2'>
                 Justin Luce
                 <a href='https://github.com/justinluce'>
                     <img 
                         alt="GitHub Logo"
-                        width={25}
-                        height={25}
+                        width={35}
+                        height={35}
                         src="/images/github-mark.png"
                     />
                 </a>
-            </h1>
+            </Typography>
             <Img 
                 src="/images/Headshot.jpg"
                 alt="Justin Luce"
@@ -28,8 +29,8 @@ export const Home = () => {
                 that is focused on full-stack web development. I teach the Re-Entry Program, 
                 a coding bootcamp designed for incarcerated individuals, 
                 as well as an online course. I have created multiple video games 
-                using Gamemaker Studio, Godot, and Unity, and 
-                I have extensive experience working with Java, JavaScript, and C#.
+                using Unity, Godot, and Gamemaker Studio. 
+                I also have extensive experience working with Java, JavaScript, and C#.
             </p>
             <p>
                 This is my website, where you can find a collection of things I've made.
@@ -37,12 +38,12 @@ export const Home = () => {
                 (including this website!), and video game development.&nbsp;
                 <strong>This site is currently a work-in-progress</strong>, so it's mostly just for music currently.
             </p>
-            <p>
+            <footer style={{position: 'absolute', bottom: '10px'}}>
                 To contact me, please do so at&nbsp;
                 <a href="mailto: jpluce99@gmail.com">
                 jpluce99@gmail.com
                 </a>
-            </p>
+            </footer>
         </FlexContainer>
         </div>
     );
