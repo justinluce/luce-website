@@ -37,12 +37,12 @@ export const Home = () => {
                 (including this website!), and video game development.&nbsp;
                 <strong>This site is currently a work-in-progress</strong>, so it's mostly just for music currently.
             </p>
-            <p>
+            <footer>
                 To contact me, please do so at&nbsp;
                 <a href="mailto: jpluce99@gmail.com">
                 jpluce99@gmail.com
                 </a>
-            </p>
+            </footer>
         </FlexContainer>
         </div>
     );
