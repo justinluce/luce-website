@@ -34,7 +34,8 @@ export const Home = () => {
             <p>
                 This is my website, where you can find a collection of things I've made.
                 This ranges from coding projects, to music, to web development 
-                (including this website!), and video game development.
+                (including this website!), and video game development.&nbsp;
+                <strong>This site is currently a work-in-progress</strong>, so it's mostly just for music currently.
             </p>
             <p>
                 To contact me, please do so at&nbsp;
