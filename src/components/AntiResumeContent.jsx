@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from '../shared/styled/Keyboard.module.css';
+import { Typography } from '@mui/material';
 
 const Keyboard = ({ targetInput, setTargetInput }) => {
     const handleClick = (char) => {
@@ -123,12 +124,17 @@ export const AntiResumeContent = () => {
             You are required to sign up to access the rest of this page. 
             Don't worry, your information will not be used maliciously. 
             In fact, it won't even be saved at all. If you're paranoid,
-            you can use fake information or check the&nbsp;
+            you can use fake information, or check the&nbsp;
             <a href="https://github.com/justinluce/luce-website">source code.</a>
         </h2>
         <h6>
             <s>Please give me your data anyway.</s>
         </h6>
+        <p>
+            <strong>Currently, this is all of the content for this page.</strong> In the future,
+            I plan on adding a pop quiz, extra (actually functional) captchas,
+            and a 'rate your experience' survey. 
+        </p>
             <form>
                 <label>
                     Name:
