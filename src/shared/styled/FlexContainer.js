@@ -3,9 +3,9 @@ import styled from "@emotion/styled";
 export const FlexContainer = styled.div((props) => ({
     display: "flex",
     flexDirection: props.flexDirection || 'column',
-    alignItems: props.alignItems || 'stretch',
+    alignItems: 'center',
     flexWrap: "wrap",
-    margin: "5px",
+    margin: "20px",
     width: props.width || 'auto',
     "&>*": {
         flexBasis: getBasis(props) || props.basis || 'auto',
