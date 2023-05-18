@@ -5,7 +5,7 @@ import { Typography } from '@mui/material';
 
 export const Home = () => {
     return (
-        <div style={{fontSize: '30px'}}>
+        <div style={{fontSize: '30px', display: 'flex', flexDirection: 'column'}}>
         <FlexContainer style={{marginTop: '0'}} flexDirection='column' alignItems="flex-start" justifyContent='flex-start' width='auto'>
             <Typography variant='h1'>
                 Justin Luce
@@ -38,13 +38,13 @@ export const Home = () => {
                 (including this website!), and video game development.&nbsp;
                 <strong>This site is currently a work-in-progress</strong>, so it's mostly just for music currently.
             </p>
-            <footer style={{position: 'absolute', bottom: '10px'}}>
+        </FlexContainer>
+            <footer style={{marginTop: '50px', textAlign: 'center'}}>
                 To contact me, please do so at&nbsp;
                 <a href="mailto: jpluce99@gmail.com">
                 jpluce99@gmail.com
                 </a>
             </footer>
-        </FlexContainer>
         </div>
     );
 }
