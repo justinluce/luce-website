@@ -2,7 +2,8 @@
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 5px;
-    width: 60vw;
+    width: 70vw;
+    height: 50vh;
     margin-top: 10px;
 }
 
