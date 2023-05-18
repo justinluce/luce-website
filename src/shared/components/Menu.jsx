@@ -9,7 +9,7 @@ function LinkTab(props) {
     const navigate = useNavigate();
     return (
       <Tab
-        style={{ fontSize: '2rem', height: '3rem', marginTop: '1rem'}}
+        style={{ fontSize: '2rem', height: '3rem', marginTop: '1rem', width: '100vw'}}
         component="a"
         onClick={(event) => {
             event.preventDefault();
@@ -27,7 +27,7 @@ function LinkTab(props) {
 export const Menu = () => {
     const { value, handleChange } = useMenuContext();
     return (
-        <Tabs value={value} onChange={handleChange}>
+        <Tabs value={value} onChange={handleChange} centered>
             <LinkTab label="Home" href="/home" data-value={0}/>
             <LinkTab label="Projects" href="projects" data-value={1}/>
             <LinkTab label="Music" href="music" data-value={2}/>
