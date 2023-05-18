@@ -136,18 +136,19 @@ export const AntiResumeContent = () => {
             and a 'rate your experience' survey. 
         </p>
             <form>
-                <label>
+                <label style={{marginRight: '10px'}}>
                     Name:
-                    <input 
+                    <input
                         readOnly 
                         type="text" 
                         name="name" 
                         value={name} 
                         onMouseDown={() => handleInputMouseDown('name')}
                         onBlur={handleInputBlur}
+                        style={{width: '200px', height: '30px', marginLeft: '10px'}}
                         />
                 </label>
-                <label>
+                <label style={{marginRight: '10px'}}>
                     Email:
                     <input 
                         readOnly 
@@ -156,6 +157,7 @@ export const AntiResumeContent = () => {
                         value={email} 
                         onMouseDown={() => handleInputMouseDown('email')}
                         onBlur={handleInputBlur}
+                        style={{width: '200px', height: '30px', marginLeft: '10px'}}
                     />
                 </label>
                 <label>
@@ -167,6 +169,7 @@ export const AntiResumeContent = () => {
                         step="1"
                         value={number}
                         onChange={handleNumber}
+                        style={{width: '200px', height: '30px', marginLeft: '10px', marginRight: '10px'}}
                     />
                     {formatNumber(number)}
                 </label>
