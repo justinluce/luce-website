@@ -5,15 +5,15 @@ import { Typography } from '@mui/material';
 
 export const Home = () => {
     return (
-        <div>
+        <div style={{fontSize: '30px'}}>
         <FlexContainer style={{marginTop: '0'}} flexDirection='column' alignItems="flex-start" justifyContent='flex-start' width='auto'>
-            <Typography variant='h2'>
+            <Typography variant='h1'>
                 Justin Luce
                 <a href='https://github.com/justinluce'>
                     <img 
                         alt="GitHub Logo"
-                        width={35}
-                        height={35}
+                        width={50}
+                        height={50}
                         src="/images/github-mark.png"
                     />
                 </a>
@@ -21,7 +21,7 @@ export const Home = () => {
             <Img 
                 src="/images/Headshot.jpg"
                 alt="Justin Luce"
-                width="200"
+                width="400"
                 clipPath="circle()"
             />
             <p>

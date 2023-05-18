@@ -1,9 +1,9 @@
 import { Typography } from "@mui/material";
 export const Minesweeper = () => {
     return (
-        <div>
+        <div style={{marginLeft: '10px', marginRight: '10px', marginTop: '10px', fontSize: '30px'}}>
             <Typography 
-            variant='h2'
+            variant='h1'
             textAlign={'center'}
             >
             Minesweeper

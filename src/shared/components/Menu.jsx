@@ -9,6 +9,7 @@ function LinkTab(props) {
     const navigate = useNavigate();
     return (
       <Tab
+        style={{ fontSize: '2rem', height: '3rem', marginTop: '1rem'}}
         component="a"
         onClick={(event) => {
             event.preventDefault();

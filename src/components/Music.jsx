@@ -5,25 +5,24 @@ import { Typography } from '@mui/material';
 
 export const Music = () => {
     return (
-        <div style={{marginLeft: '10px', marginRight: '10px'}}>
+        <div style={{marginLeft: '10px', marginRight: '10px', marginTop: '10px', fontSize: '30px'}}>
             <Typography 
-            variant='h2'
+            variant='h1'
             textAlign={'center'}
             >
             Music
                 <Typography 
-                variant='h6'
                 display={'flex'}
                 gap={5}
                 justifyContent={'center'}>
                     <a href="https://justinluce.bandcamp.com/">
-                        <img height={'25px'} width={'25px'} src='/images/bandcampLogo.png' />
+                        <img height={'50px'} width={'50px'} src='/images/bandcampLogo.png' />
                     </a>
                     <a href="https://open.spotify.com/artist/573dtuK21aJkt06VtA2hB1?si=x9cBXYPlSFGNylB-DcsodQ">
-                        <img height={'25px'} width={'25px'} src='/images/spotifyLogo.png' />
+                        <img height={'50px'} width={'50px'} src='/images/spotifyLogo.png' />
                     </a>
                     <a href="https://music.apple.com/us/artist/justin-luce/1615409470">
-                        <img height={'25px'} width={'25px'} src='/images/appleMusicLogo.png' />
+                        <img height={'50px'} width={'50px'} src='/images/appleMusicLogo.png' />
                     </a>
                 </Typography>
             </Typography>
@@ -34,27 +33,33 @@ export const Music = () => {
                     however I would still describe the genre of these songs as "video game soundtrack".
                     Some of these songs will probably be used in my games in the future.
                 </p>
-            <Typography variant='h4' textAlign={'center'}>
+            <Typography variant='h3' textAlign={'center'}>
                 Personal Favorites:
             </Typography>
-            <Typography variant='h6'>
-                <FlexContainer>
-                    Trance Is Dead:
-                    <audio controls>
-                        <source src="/music/TranceIsDead.wav"></source>
-                    </audio>
-                </FlexContainer>
+            <Typography variant='h5'>
                 <FlexContainer>
                     Spontaneous Recovery:
+                    <div style={{ transform: 'scale(1.5)', marginTop: '30px'}}>
                     <audio controls>
                         <source src="/music/SpontaneousRecovery.wav"></source>
                     </audio>
+                    </div>
+                </FlexContainer>
+                <FlexContainer>
+                    Trance Is Dead:
+                    <div style={{ transform: 'scale(1.5)', marginTop: '30px' }}>
+                    <audio controls>
+                        <source src="/music/TranceIsDead.wav"></source>
+                    </audio>
+                    </div>
                 </FlexContainer>
                 <FlexContainer>
                     You're really icing my bread, man:
+                    <div style={{ transform: 'scale(1.5)', marginTop: '30px' }}>
                     <audio controls>
                         <source src="/music/You'reReallyIcingMyBreadMan.wav"></source>
                     </audio>
+                    </div>
                 </FlexContainer>
             </Typography>
         </div>

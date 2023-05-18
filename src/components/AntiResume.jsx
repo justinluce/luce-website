@@ -10,9 +10,9 @@ const StartButton = () => {
     }
 
     return (
-        <div>
+        <div style={{fontSize: '30px'}}>
             {!isClicked && (
-                <button onClick={handleClick}>Click to start</button>
+                <button style={{width: '125px', height: '40px', }} onClick={handleClick}>Click to start</button>
             )}
             {isClicked && <AntiResumeContent />}
         </div>
@@ -21,9 +21,9 @@ const StartButton = () => {
 
 export const AntiResume = () => {
     return (
-        <div>
+        <div style={{marginLeft: '10px', marginRight: '10px', marginTop: '10px', fontSize: '30px'}}>
             <Typography 
-            variant='h2'
+            variant='h1'
             textAlign={'center'}
             >
             Anti-Resume
