@@ -31,6 +31,7 @@ export const AntiResume = () => {
             <p style={{marginLeft: '10px', marginRight: '10px'}}>
                 Welcome to the Anti-Resume. This is a page designed to showcase
                 web design practices that you SHOULD NOT do.
+                //!TODO: This sucks, make it better
                 <br />
                 <br />
                 If this page annoys you, that means it's working as intended.
