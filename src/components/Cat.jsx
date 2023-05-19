@@ -3,13 +3,25 @@ export const Cat = () => {
     return (
         <div style={{marginLeft: '10px', marginRight: '10px', marginTop: '10px', fontSize: '30px'}}>
             <Typography 
-            variant='h1'
-            textAlign={'center'}
+                variant='h1'
+                textAlign={'center'}
+                style={{marginBottom: '0', lineHeight: '1'}}
             >
-            Cat
+                Cat
             </Typography>
-            <div style={{display: 'flex', justifyContent: 'center', marginTop: '50px'}}>
-                <img height={400} src='images/underConstruction2.png' />
+            <div style={{display: 'flex', justifyContent: 'center'}}>
+                <img 
+                    style={{
+                        transform: 'scale(.7)', 
+                        display: 'block', 
+                        position: 'relative', 
+                        top: '-150px',
+                        marginBottom: '-300px'
+                        }} 
+                    alt="George, an orange cat, looking at you from behind some leaves."
+                    title="Cat"
+                    src='images/georgeBehindPlant.jpg' 
+                />
             </div>
         </div>
     );
