@@ -5,8 +5,8 @@ import { Typography } from '@mui/material';
 
 export const Home = () => {
     return (
-        //!TODO: Put styling elsewhere
         <div style={{fontSize: '30px', display: 'flex', flexDirection: 'column'}}>
+        {/*//!TODO: Put styling elsewhere*/}
         <FlexContainer style={{marginTop: '0'}} flexDirection='column' alignItems="flex-start" justifyContent='flex-start' width='auto'>
             <Typography variant='h1'>
                 Justin Luce

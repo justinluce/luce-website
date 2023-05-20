@@ -33,7 +33,7 @@ function LinkTab(props) {
 export const Menu = () => {
     const { value, handleChange } = useMenuContext();
 
-    //!TODO: Put this in a CSS file
+    {/*//TODO: Put this in a CSS file*/}
     const tabStyle = {
       display: 'flex',
       flexWrap: 'nowrap',
