@@ -23,6 +23,12 @@ export const Cat = () => {
                     src='images/georgeBehindPlant.jpg' 
                 />
             </div>
+            <Typography
+                variant="h5"
+                textAlign={'center'}
+            >
+                Cat
+            </Typography>
         </div>
     );
 }

@@ -49,7 +49,7 @@ const Keyboard = ({ targetInput, setTargetInput }) => {
 }
 
 const Captcha = () => {
-    //!TODO: Make the captcha actually work
+    {/* TODO: Make the captcha actually work */}
     const [isSolved, setIsSolved] = useState(false);
     return (
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
@@ -181,8 +181,8 @@ export const AntiResumeContent = () => {
                         setTargetInput={handleKeyboardInput} />
                 </div>
             )}
-            //!TODO: Stop with the brs
-            //!TODO: Make the captcha appear only after the form is filled out
+            {/*//TODO: Stop with the brs
+            //TODO: Make the captcha appear only after the form is filled out*/}
                 <br></br>
                 <Captcha />
                 <br></br>
