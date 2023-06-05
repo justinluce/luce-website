@@ -22,7 +22,6 @@ function LinkTab(props) {
               const value = parseInt(event.currentTarget.getAttribute('data-value', 10));
               navigate(href);
               setValue(value);
-              console.log(value);
           }}
           {...props}
       />
