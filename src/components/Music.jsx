@@ -1,7 +1,6 @@
 import { FlexContainer } from '../shared/styled/FlexContainer';
-import { P } from '../shared/styled/P';
-// import { H1, H2, H3, H4 } from '../shared/styled/Heading';
 import { Typography } from '@mui/material';
+import "../shared/styled/Music.css"
 
 export const Music = () => {
     return (
