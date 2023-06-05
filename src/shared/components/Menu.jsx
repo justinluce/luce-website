@@ -40,7 +40,7 @@ export const Menu = () => {
       overflowX: 'auto',
       width: '100%',
       justifyContent: 'center',
-      '@media (max-width: 600px)': {
+      '@media (maxWidth: 600px)': {
         justifyContent: 'space-between',
       }
     };
