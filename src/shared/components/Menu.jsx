@@ -32,14 +32,14 @@ function LinkTab(props) {
 export const Menu = () => {
     const { value, handleChange } = useMenuContext();
 
-    //!TODO: Put this in a CSS file
+    {/*//TODO: Put this in a CSS file*/}
     const tabStyle = {
       display: 'flex',
       flexWrap: 'nowrap',
       overflowX: 'auto',
       width: '100%',
       justifyContent: 'center',
-      '@media (max-width: 600px)': {
+      '@media (maxWidth: 600px)': {
         justifyContent: 'space-between',
       }
     };

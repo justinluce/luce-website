@@ -5,8 +5,8 @@ import { Typography } from '@mui/material';
 
 export const Home = () => {
     return (
-        //!TODO: Put styling elsewhere
         <div style={{fontSize: '30px', display: 'flex', flexDirection: 'column'}}>
+        {/*//!TODO: Put styling elsewhere*/}
         <FlexContainer style={{marginTop: '0'}} flexDirection='column' alignItems="flex-start" justifyContent='flex-start' width='auto'>
             <Typography variant='h1'>
                 Justin Luce
@@ -36,8 +36,8 @@ export const Home = () => {
             <p>
                 This is my website, where you can find a collection of things I've made.
                 This ranges from coding projects, to music, to web development 
-                (including this website!), and video game development.&nbsp;
-                <strong>This site is currently a work-in-progress</strong>, so it's mostly just for music currently.
+                (including this website!), and video game development. There is also Cat.&nbsp;
+                <strong>This site is currently a work-in-progress</strong>, so it's mostly just for music right now.
             </p>
         </FlexContainer>
             <footer style={{marginTop: '50px', textAlign: 'center'}}>
