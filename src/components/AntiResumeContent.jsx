@@ -79,9 +79,16 @@ const Captcha = () => {
     {/* TODO: Make the captcha actually work */}
     // const [isSolved, setIsSolved] = useState(false);
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
-            <img height={900} width={600}
-            src="/images/WheresWaldoCaptcha.png" />
+
+        <div style={{ marginTop: '20px' }}>
+            <p><strong>Are you human?</strong></p>
+            <p>A and B are positive constants. Find the value of a.</p>
+            <img height={150} width={400}
+            src="/images/CalculusProblem.png" />
+            <br></br>
+            Answer:
+            <br></br>
+            <textarea style={{width: '400px', height: '150px', marginTop: '20px'}}></textarea>
         </div>
     );
 };
