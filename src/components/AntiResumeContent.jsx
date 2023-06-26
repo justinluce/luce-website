@@ -252,7 +252,7 @@ export const AntiResumeContent = () => {
                     number == 0
                 }
                     >
-                    Submit
+                    Sign Up
                 </button>
             </form>
         </div>
