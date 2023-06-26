@@ -76,19 +76,17 @@ const Keyboard = ({ setTargetInput }) => {
 
 
 const Captcha = () => {
-    {/* TODO: Make the captcha actually work */}
-    // const [isSolved, setIsSolved] = useState(false);
+    const [isSolved, setIsSolved] = useState(false);
     return (
 
         <div style={{ marginTop: '20px' }}>
             <p><strong>Are you human?</strong></p>
-            <p>A and B are positive constants. Find the value of a.</p>
-            <img height={150} width={400}
-            src="/images/CalculusProblem.png" />
+            <img height={200} width={500}
+            src="/images/mathProblem.png" />
             <br></br>
             Answer:
             <br></br>
-            <textarea style={{width: '400px', height: '150px', marginTop: '20px'}}></textarea>
+            <textarea style={{width: '500px', height: '200px', marginTop: '20px', fontSize: '24px'}}></textarea>
         </div>
     );
 };
@@ -186,7 +184,7 @@ export const AntiResumeContent = () => {
         </h6>
         <p>
             <strong>Currently, this is all of the content for this page.</strong> In the future,
-            I plan on adding a pop quiz, extra (actually functional) captchas,
+            I plan on adding a pop quiz, extra captchas,
             and a 'rate your experience' survey. 
         </p>
         {clicked && 
