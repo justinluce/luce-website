@@ -146,6 +146,11 @@ export const AntiResumeContent = () => {
         }
     };
 
+    const handleSignUp = (e) => {
+        e.preventDefault();
+        //TODO: Sign the user up to access the rest of the page
+    }
+
     useEffect(() => {
         const handleClickOutside = (event) => {
           if (
@@ -251,6 +256,7 @@ export const AntiResumeContent = () => {
                     email == '' ||
                     number == 0
                 }
+                    onClick={(e) => handleSignUp(e)}
                     >
                     Sign Up
                 </button>
