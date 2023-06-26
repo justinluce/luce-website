@@ -146,6 +146,11 @@ export const AntiResumeContent = () => {
         }
     };
 
+    const handleSignUp = (e) => {
+        e.preventDefault();
+        //TODO: Sign the user up to access the rest of the page
+    }
+
     useEffect(() => {
         const handleClickOutside = (event) => {
           if (
@@ -185,7 +190,7 @@ export const AntiResumeContent = () => {
         <p>
             <strong>Currently, this is all of the content for this page.</strong> In the future,
             I plan on adding a pop quiz, extra captchas,
-            and a 'rate your experience' survey. 
+            a 'rate your experience' survey, and mock sign up functionality. 
         </p>
         {clicked && 
         <div>
@@ -251,8 +256,9 @@ export const AntiResumeContent = () => {
                     email == '' ||
                     number == 0
                 }
+                    onClick={(e) => handleSignUp(e)}
                     >
-                    Submit
+                    Sign Up
                 </button>
             </form>
         </div>
