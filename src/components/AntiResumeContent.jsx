@@ -190,7 +190,7 @@ export const AntiResumeContent = () => {
         <p>
             <strong>Currently, this is all of the content for this page.</strong> In the future,
             I plan on adding a pop quiz, extra captchas,
-            and a 'rate your experience' survey. 
+            a 'rate your experience' survey, and mock sign up functionality. 
         </p>
         {clicked && 
         <div>
