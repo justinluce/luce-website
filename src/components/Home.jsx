@@ -20,7 +20,7 @@ export const Home = () => {
                 </a>
             </Typography>
             <Img 
-                src="/images/Headshot.jpg"
+                src="/images/headshot.jpg"
                 alt="Justin Luce"
                 width="400"
                 clipPath="circle()"
