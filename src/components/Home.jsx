@@ -12,6 +12,7 @@ export const Home = () => {
                 Justin Luce
                 <a href='https://github.com/justinluce'>
                     <img 
+                        title="GitHub Logo"
                         alt="GitHub Logo"
                         width={50}
                         height={50}
@@ -21,7 +22,8 @@ export const Home = () => {
             </Typography>
             <Img 
                 src="/images/headshot.jpg"
-                alt="Justin Luce"
+                title="Justin Luce"
+                alt="Image of Justin Luce"
                 width="400"
                 clipPath="circle()"
             />
