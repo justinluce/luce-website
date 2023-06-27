@@ -12,6 +12,7 @@ export const Home = () => {
                 Justin Luce
                 <a href='https://github.com/justinluce'>
                     <img 
+                        title="GitHub Logo"
                         alt="GitHub Logo"
                         width={50}
                         height={50}
@@ -21,7 +22,8 @@ export const Home = () => {
             </Typography>
             <Img 
                 src="/images/headshot.jpg"
-                alt="Justin Luce"
+                title="Justin Luce"
+                alt="Image of Justin Luce"
                 width="400"
                 clipPath="circle()"
             />
@@ -31,7 +33,7 @@ export const Home = () => {
                 a coding bootcamp designed for incarcerated individuals, 
                 as well as an online course. I have created multiple video games 
                 using Unity, Godot, and Gamemaker Studio. 
-                I also have extensive experience working with Java, JavaScript, and C#.
+                I also have extensive experience working with JavaScript, Java, and C#.
             </p>
             <p>
                 This is my website, where you can find a collection of things I've made.
