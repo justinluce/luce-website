@@ -31,7 +31,7 @@ export const Home = () => {
                 a coding bootcamp designed for incarcerated individuals, 
                 as well as an online course. I have created multiple video games 
                 using Unity, Godot, and Gamemaker Studio. 
-                I also have extensive experience working with Java, JavaScript, and C#.
+                I also have extensive experience working with JavaScript, Java, and C#.
             </p>
             <p>
                 This is my website, where you can find a collection of things I've made.
