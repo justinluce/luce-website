@@ -10,7 +10,7 @@ import { Home } from './components/Home';
 import { Projects } from './components/Projects';
 import { AntiResume } from './components/AntiResume';
 import { Music } from './components/Music';
-import { Minesweeper } from './components/Minesweeper';
+import Minesweeper from './components/Minesweeper';
 import { Cat } from './components/Cat';
 
 function App() {
