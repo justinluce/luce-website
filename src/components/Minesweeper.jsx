@@ -79,14 +79,14 @@ return (
             textAlign={'center'}>
             Minesweeper
         </Typography>
-        <button onClick={resetBoard} style={{ margin: '20px', height: '40px', width: '160px' }}>Reset</button>
+        <button onMouseUp={resetBoard} style={{ margin: '20px', height: '40px', width: '160px' }}>Reset</button>
         <div style={{ margin: 'auto', display: 'block', maxWidth: 'fit-content', border: '2px solid black'}}>
             {board.map((row, i) => (
                 <div key={i} style={{ fontSize: 0, lineHeight: 0, textAlign: 'center'}}>
             {row.map((col, j) => (
                 <button 
                     key={j}
-                    onClick={() => revealSquare(i, j)}
+                    onMouseUp={() => revealSquare(i, j)}
                     onContextMenu={(e) => toggleFlag(e, i, j)}
                     style={{ border: 'none', background: 'none', padding: 0, margin: 0, fontSize: '1rem', verticalAlign: 'top' }}
                     >
