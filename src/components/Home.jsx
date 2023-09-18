@@ -44,8 +44,8 @@ export const Home = () => {
         </FlexContainer>
             <footer style={{marginTop: '50px', textAlign: 'center'}}>
                 To contact me, please do so at&nbsp;
-                <a href="mailto: jpluce99@gmail.com">
-                jpluce99@gmail.com
+                <a href="mailto: justinlucedev@gmail.com">
+                justinlucedev@gmail.com
                 </a>
             </footer>
         </div>
