@@ -1,9 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Img } from '../shared/styled/Img';
 import { FlexContainer } from '../shared/styled/FlexContainer';
 import { Typography } from '@mui/material';
 
 export const Home = () => {
+
+    // Preloading slows down the loading of the home page,
+    // but its effects are probably negligable.
+    useEffect(() => {
+        const githubPreload = new Image();
+        githubPreload.src = '/images/github-mark.png';
+        const headshotPreload = new Image();
+        headshotPreload.src = '/images/headshot.jpg';
+        const constructionPreload = new Image();
+        constructionPreload.src = 'images/underConstruction2.png';
+        const bandcampPreload = new Image();
+        bandcampPreload.src = '/images/bandcampLogo.png';
+        const spotifyPreload = new Image();
+        spotifyPreload.src = '/images/spotifyLogo.png';
+        const applePreload = new Image();
+        applePreload.src = `/images/appleMusicLogo.png`;
+        const catPreload = new Image();
+        catPreload.src = '/images/georgeBehindPlant.jpg';
+    }, []);
+
     return (
         <div style={{fontSize: '30px', display: 'flex', flexDirection: 'column'}}>
         {/*//!TODO: Put styling elsewhere*/}

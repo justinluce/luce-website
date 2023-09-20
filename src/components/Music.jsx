@@ -1,8 +1,10 @@
+import { useEffect } from 'react';
 import { FlexContainer } from '../shared/styled/FlexContainer';
 import { Typography } from '@mui/material';
 import "../shared/styled/Music.css"
 
 export const Music = () => {
+
     return (
         <div style={{marginLeft: '10px', marginRight: '10px', marginTop: '10px', fontSize: '30px'}}>
             <Typography 
