@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Typography } from "@mui/material";
 
 export const Cat = () => {
