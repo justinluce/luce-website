@@ -67,8 +67,9 @@ export const Music = () => {
                 <Typography variant='h3' textAlign={'center'}>
                     Albums and Singles
                 </Typography>   
-                <FlexContainer>
-                    <Typography variant='h6' textAlign={'center'}>
+                <FlexContainer flexDirection={'row'}>
+                    <FlexContainer>
+                    <Typography variant='h5' textAlign={'center'}>
                         Single - Out Of My Mind
                     </Typography>
                     <a href='https://justinluce.bandcamp.com/track/out-of-my-mind' target='_blank'>
@@ -79,7 +80,9 @@ export const Music = () => {
                             width="400"
                         />
                     </a>
-                    <Typography variant='h6' textAlign={'center'}>
+                    </FlexContainer>
+                    <FlexContainer>
+                    <Typography variant='h5' textAlign={'center'}>
                         Single - Spontaneous Recovery
                     </Typography>
                     <a href='https://justinluce.bandcamp.com/track/spontaneous-recovery-2' target='_blank'>
@@ -90,7 +93,9 @@ export const Music = () => {
                             width="400"
                         />
                     </a>
-                    <Typography variant='h6' textAlign={'center'}>
+                    </FlexContainer>
+                    <FlexContainer>
+                    <Typography variant='h5' textAlign={'center'}>
                         Album - Lethological
                     </Typography>
                     <a href='https://justinluce.bandcamp.com/album/lethological' target='_blank'>
@@ -101,7 +106,9 @@ export const Music = () => {
                             width="400"
                         />
                     </a>
-                    <Typography variant='h6' textAlign={'center'}>
+                    </FlexContainer>
+                    <FlexContainer>
+                    <Typography variant='h5' textAlign={'center'}>
                         Album - Welcome to the Aether
                     </Typography> 
                     <a href='https://justinluce.bandcamp.com/album/welcome-to-the-aether' target='_blank'>
@@ -112,6 +119,7 @@ export const Music = () => {
                             width="400"
                         />
                     </a>
+                    </FlexContainer>
                 </FlexContainer>
             </Typography>
         </div>
