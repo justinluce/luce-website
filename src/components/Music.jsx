@@ -40,7 +40,7 @@ export const Music = () => {
             </Typography>
             <Typography variant='h5'>
                 <FlexContainer>
-                    Spontaneous Recovery:
+                    Spontaneous Recovery
                     <div style={{ transform: 'scale(1.5)', marginTop: '30px'}}>
                     <audio controls>
                         <source src="/music/SpontaneousRecovery.wav"></source>
@@ -48,7 +48,7 @@ export const Music = () => {
                     </div>
                 </FlexContainer>
                 <FlexContainer>
-                    Trance Is Dead:
+                    Trance Is Dead
                     <div style={{ transform: 'scale(1.5)', marginTop: '30px' }}>
                     <audio controls>
                         <source src="/music/TranceIsDead.wav"></source>
@@ -56,7 +56,7 @@ export const Music = () => {
                     </div>
                 </FlexContainer>
                 <FlexContainer>
-                    You're really icing my bread, man:
+                    You're really icing my bread, man
                     <div style={{ transform: 'scale(1.5)', marginTop: '30px' }}>
                     <audio controls>
                         <source src="/music/You'reReallyIcingMyBreadMan.wav"></source>
