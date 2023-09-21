@@ -65,7 +65,7 @@ export const Music = () => {
                     </div>
                 </FlexContainer>
                 <Typography variant='h3' textAlign={'center'}>
-                    Albums
+                    Albums and Singles
                 </Typography>   
                 <FlexContainer>
                     <Typography variant='h6' textAlign={'center'}>
