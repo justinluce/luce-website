@@ -3,6 +3,7 @@ import { Typography } from '@mui/material';
 import "../shared/styled/Music.css"
 
 export const Music = () => {
+
     return (
         <div style={{marginLeft: '10px', marginRight: '10px', marginTop: '10px', fontSize: '30px'}}>
             <Typography 
@@ -15,13 +16,13 @@ export const Music = () => {
                 gap={5}
                 justifyContent={'center'}>
                     <a href="https://justinluce.bandcamp.com/">
-                        <img height={'50px'} width={'50px'} src='/images/bandcampLogo.png' />
+                        <img height={'50px'} width={'50px'} src='/images/bandcampLogo.png' alt='Bandcamp Logo'/>
                     </a>
                     <a href="https://open.spotify.com/artist/573dtuK21aJkt06VtA2hB1?si=x9cBXYPlSFGNylB-DcsodQ">
-                        <img height={'50px'} width={'50px'} src='/images/spotifyLogo.png' />
+                        <img height={'50px'} width={'50px'} src='/images/spotifyLogo.png' alt='Spotify Logo' />
                     </a>
                     <a href="https://music.apple.com/us/artist/justin-luce/1615409470">
-                        <img height={'50px'} width={'50px'} src='/images/appleMusicLogo.png' />
+                        <img height={'50px'} width={'50px'} src='/images/appleMusicLogo.png' alt='Apple Music Logo' />
                     </a>
                 </Typography>
             </Typography>

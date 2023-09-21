@@ -39,8 +39,8 @@ export const AntiResume = () => {
                 <a href="https://www.linkedin.com/in/justin-luce-77260419a">LinkedIn Page</a>.
                 <br />
                 <br />
-            <StartButton />
             </p>
+            <StartButton />
         </div>
     );
 }

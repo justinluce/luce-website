@@ -1,30 +1,56 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from '../shared/styled/Keyboard.module.css';
-import { Typography } from '@mui/material';
 
-const Keyboard = ({ targetInput, setTargetInput }) => {
+const initialKeys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@.-_'.split('');
+// Add Backspace and Space to the initial keys array
+const backspaceIndex = Math.floor(Math.random() * (initialKeys.length + 1));
+initialKeys.splice(backspaceIndex, 0, { char: 'Backspace', isBackspace: true });
+
+const spaceIndex = Math.floor(Math.random() * (initialKeys.length + 1));
+initialKeys.splice(spaceIndex, 0, { char: 'Space', isBackspace: false });
+
+const Keyboard = ({ setTargetInput }) => {
+    const shuffleKeys = (keysArray) => {
+        return keysArray.sort(() => Math.random() - 0.5);
+    };
+
+    const [keys, setKeys] = useState(
+        shuffleKeys([...initialKeys])
+    );
+
+
     const handleClick = (char) => {
-        setTargetInput((prev) => prev + char);
+        if (char === 'Space') {
+            setTargetInput((prev) => prev + ' ');
+        } else {
+            setTargetInput((prev) => prev + char);
+        }
+
+        // shuffle keys after every key click
+        setKeys(shuffleKeys([...keys]));
     };
 
     const handleBackspace = () => {
         setTargetInput((prev) => prev.slice(0, -1));
     };
 
-    const initialKeys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@.-_';
-    const keys = initialKeys
-    .split('')
-    .sort(() => Math.random() - 0.5)
-    .map((char) => ({ char, isBackspace: false }));
-
-    const backspaceIndex = Math.floor(Math.random() * (keys.length + 1));
-    keys.splice(backspaceIndex, 0, { char: 'Backspace', isBackspace: true });
-
-
     return (
         <div className={styles.Keyboard}>
-            {keys.map((item) => (
-                item.isBackspace ? (
+            {keys.map((item, index) => {
+                if (typeof item === 'string') {
+                    return (
+                        <button
+                            type='button'
+                            key={index}
+                            onClick={() => handleClick(item)}
+                            className={styles.key}
+                        >
+                            {item}
+                        </button>
+                    );
+                }
+
+                return item.isBackspace ? (
                     <button
                         type='button'
                         key={item.char}
@@ -38,23 +64,29 @@ const Keyboard = ({ targetInput, setTargetInput }) => {
                         type='button'
                         key={item.char}
                         onClick={() => handleClick(item.char)}
-                        className={styles.key}
+                        className={`${styles.key} ${styles.space}`}
                     >
                         {item.char}
                     </button>
-                )
-            ))}
+                );
+            })}
         </div>
-    );    
-}
+    );  
+}  
+
 
 const Captcha = () => {
-    {/* TODO: Make the captcha actually work */}
     const [isSolved, setIsSolved] = useState(false);
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
-            <img height={900} width={600}
-            src="/images/WheresWaldoCaptcha.png" />
+
+        <div style={{ marginTop: '20px' }}>
+            <p><strong>Are you human?</strong></p>
+            <img height={200} width={500}
+            src="/images/mathProblem.png" />
+            <br></br>
+            Answer:
+            <br></br>
+            <textarea style={{width: '500px', height: '200px', marginTop: '20px', fontSize: '24px'}}></textarea>
         </div>
     );
 };
@@ -63,8 +95,11 @@ export const AntiResumeContent = () => {
     const [number, setNumber] = useState(0);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [time, setTime] = useState(0);
     const [activeInput, setActiveInput] = useState(null);
     const [preventHide, setPreventHide] = useState(false);
+    const [intervalID, setIntervalID] = useState(null);
+    const [clicked, setClicked] = useState(false);
     const focusedInput = useRef(null);
 
     const handleNumber = (e) => {
@@ -78,6 +113,13 @@ export const AntiResumeContent = () => {
 
     const handleInputFocus = (input) => {
         setActiveInput(input);
+        if (!clicked) {
+            setClicked(true);
+        }
+        if (!intervalID) {
+            const id = setInterval(() => setTime(prevTime => prevTime + 1), 1000);
+            setIntervalID(id);
+        }
     }
 
     const handleInputBlur = () => {
@@ -85,6 +127,9 @@ export const AntiResumeContent = () => {
             setActiveInput(null);
         }
         setPreventHide(false);
+
+        clearInterval(intervalID);
+        setIntervalID(null);
     }
 
     const handleInputMouseDown = (input) => {
@@ -100,6 +145,11 @@ export const AntiResumeContent = () => {
             setEmail(value);
         }
     };
+
+    const handleSignUp = (e) => {
+        e.preventDefault();
+        //TODO: Sign the user up to access the rest of the page
+    }
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -119,6 +169,12 @@ export const AntiResumeContent = () => {
         };
     }, [activeInput]);
 
+    useEffect(() => {
+        return () => {
+            clearInterval(intervalID);
+        };
+    }, []);
+
     return (
         <div>
         <h2>
@@ -133,9 +189,16 @@ export const AntiResumeContent = () => {
         </h6>
         <p>
             <strong>Currently, this is all of the content for this page.</strong> In the future,
-            I plan on adding a pop quiz, extra (actually functional) captchas,
-            and a 'rate your experience' survey. 
+            I plan on adding a pop quiz, extra captchas,
+            a 'rate your experience' survey, and mock sign up functionality. 
         </p>
+        {clicked && 
+        <div>
+            <p><strong>How fast can you write your name and email?</strong>
+            <br></br>
+            Time: {time}</p>
+        </div>
+            }
             <form>
                 <label style={{marginRight: '10px'}}>
                     Name:
@@ -146,6 +209,7 @@ export const AntiResumeContent = () => {
                         value={name} 
                         onMouseDown={() => handleInputMouseDown('name')}
                         onBlur={handleInputBlur}
+                        onFocus={() => handleInputFocus('name')}
                         style={{width: '200px', height: '30px', marginLeft: '10px'}}
                         />
                 </label>
@@ -158,6 +222,7 @@ export const AntiResumeContent = () => {
                         value={email} 
                         onMouseDown={() => handleInputMouseDown('email')}
                         onBlur={handleInputBlur}
+                        onFocus={() => handleInputFocus('email')}
                         style={{width: '200px', height: '30px', marginLeft: '10px'}}
                     />
                 </label>
@@ -191,8 +256,9 @@ export const AntiResumeContent = () => {
                     email == '' ||
                     number == 0
                 }
+                    onClick={(e) => handleSignUp(e)}
                     >
-                    Submit
+                    Sign Up
                 </button>
             </form>
         </div>

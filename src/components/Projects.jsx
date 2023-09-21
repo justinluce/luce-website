@@ -11,7 +11,7 @@ export const Projects = () => {
             Projects
             </Typography>
             <div style={{display: 'flex', justifyContent: 'center', marginTop: '50px'}}>
-                <img height={400} src='images/underConstruction2.png' />
+                <img height={400} src='images/underConstruction2.png' alt='Page is under construction'/>
             </div>
         </div>
     );

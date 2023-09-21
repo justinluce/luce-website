@@ -1,3 +1,3 @@
 Source files for my website.
 
-Website will be hosted on justinlucedev.com
+Website is hosted on justinlucedev.com
