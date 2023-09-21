@@ -1,5 +1,6 @@
 import { FlexContainer } from '../shared/styled/FlexContainer';
 import { Typography } from '@mui/material';
+import { Img } from '../shared/styled/Img';
 import "../shared/styled/Music.css"
 
 export const Music = () => {
@@ -36,7 +37,7 @@ export const Music = () => {
                     Some of these songs will probably be used in my games in the future.
                 </p>
             <Typography variant='h3' textAlign={'center'}>
-                Personal Favorites:
+                Personal Favorites
             </Typography>
             <Typography variant='h5'>
                 <FlexContainer>
@@ -62,6 +63,55 @@ export const Music = () => {
                         <source src="/music/You'reReallyIcingMyBreadMan.wav"></source>
                     </audio>
                     </div>
+                </FlexContainer>
+                <Typography variant='h3' textAlign={'center'}>
+                    Albums
+                </Typography>   
+                <FlexContainer>
+                    <Typography variant='h6' textAlign={'center'}>
+                        Single - Out Of My Mind
+                    </Typography>
+                    <a href='https://justinluce.bandcamp.com/track/out-of-my-mind' target='_blank'>
+                        <Img 
+                            src="/images/outOfMyMind.jpg"
+                            title="Out Of My Mind"
+                            alt="Single titled Out Of My Mind"
+                            width="400"
+                        />
+                    </a>
+                    <Typography variant='h6' textAlign={'center'}>
+                        Single - Spontaneous Recovery
+                    </Typography>
+                    <a href='https://justinluce.bandcamp.com/track/spontaneous-recovery-2' target='_blank'>
+                        <Img 
+                            src="/images/spontaneousRecovery.jpg"
+                            title="Spontaneous Recovery"
+                            alt="Single titled Spontaneous Recovery"
+                            width="400"
+                        />
+                    </a>
+                    <Typography variant='h6' textAlign={'center'}>
+                        Album - Lethological
+                    </Typography>
+                    <a href='https://justinluce.bandcamp.com/album/lethological' target='_blank'>
+                        <Img 
+                            src="/images/lethological.jpg"
+                            title="Lethological"
+                            alt="Ablum titled Lethological"
+                            width="400"
+                        />
+                    </a>
+                    <Typography variant='h6' textAlign={'center'}>
+                        Album - Welcome to the Aether
+                    </Typography> 
+                    <a href='https://justinluce.bandcamp.com/album/welcome-to-the-aether' target='_blank'>
+                        <Img 
+                            src="/images/welcomeToTheAether.jpg"
+                            title="Welcome to the Aether"
+                            alt="Single titled Out Of My Mind"
+                            width="400"
+                        />
+                    </a>
                 </FlexContainer>
             </Typography>
         </div>
