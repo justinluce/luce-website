@@ -39,7 +39,6 @@ const Minesweeper = () => {
 
   const [board, setBoard] = useState(createBoard(size, mines));
   const [gameOver, setGameOver] = useState(false);
-  adskjlfasf
 
   const revealSquare = (row, col) => {
     if (gameOver || board[row][col].revealed || board[row][col].flagged) return;
