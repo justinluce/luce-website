@@ -22,6 +22,14 @@ export const Home = () => {
         applePreload.src = `/images/appleMusicLogo.png`;
         const catPreload = new Image();
         catPreload.src = '/images/georgeBehindPlant.jpg';
+        const outOfMyMind = new Image();
+        outOfMyMind.src = '/images/outOfMyMind.jpg';
+        const spontaneousRecovery = new Image();
+        spontaneousRecovery.src = '/images/spontaneousRecovery.jpg';
+        const lethological = new Image();
+        lethological.src = '/images/lethological.jpg';
+        const welcomeToTheAether = new Image();
+        welcomeToTheAether.src = '/images/welcomeToTheAether.jpg';
     }, []);
 
     return (
