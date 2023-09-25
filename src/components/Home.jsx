@@ -8,10 +8,6 @@ export const Home = () => {
     // Preloading slows down the loading of the home page,
     // but its effects are probably negligable.
     useEffect(() => {
-        const githubPreload = new Image();
-        githubPreload.src = '/images/github-mark.png';
-        const headshotPreload = new Image();
-        headshotPreload.src = '/images/headshot.jpg';
         const constructionPreload = new Image();
         constructionPreload.src = 'images/underConstruction2.png';
         const bandcampPreload = new Image();
@@ -51,7 +47,7 @@ export const Home = () => {
             <img 
                 src="/images/headshot.jpg"
                 title="Justin Luce"
-                alt="Image of Justin Luce"
+                alt="Justin Luce Headshot."
                 width="400"
                 clipPath="circle()"
             />

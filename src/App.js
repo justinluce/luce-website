@@ -24,7 +24,7 @@ function App() {
           <Route path='/antiresume' element={<AntiResume />} />
           <Route path='/minesweeper' element={<Minesweeper />} />
           <Route path='/cat' element={<Cat />} />
-          <Route path='*' element={<Navigate to='home' />} />
+          {/* <Route path='*' element={<Navigate to='home' />} /> */}
         </Routes>
     </Router>
   );
