@@ -48,7 +48,7 @@ export const Home = () => {
                     />
                 </a>
             </Typography>
-            <Img 
+            <img 
                 src="/images/headshot.jpg"
                 title="Justin Luce"
                 alt="Image of Justin Luce"
