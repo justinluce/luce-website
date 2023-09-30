@@ -80,6 +80,7 @@ return (
             Minesweeper
         </Typography>
         <button onMouseUp={resetBoard} style={{ margin: '20px', height: '40px', width: '160px' }}>Reset</button>
+        <h4>This game is definitely working as intended.</h4>
         <div style={{ margin: 'auto', display: 'block', maxWidth: 'fit-content', border: '2px solid black'}}>
             {board.map((row, i) => (
                 <div key={i} style={{ fontSize: 0, lineHeight: 0, textAlign: 'center'}}>
