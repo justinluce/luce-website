@@ -197,6 +197,9 @@ export const AntiResumeContent = () => {
             <p><strong>How fast can you write your name and email?</strong>
             <br></br>
             Time: {time}</p>
+            {/* TODO: Once they finish writing their name, 
+                display a leaderboard of fake users with fake times 
+                and put their name at the bottom */}
         </div>
             }
             <form>
