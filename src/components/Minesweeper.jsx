@@ -48,7 +48,6 @@ const Minesweeper = () => {
 
     if (board[row][col].value === -1) {
         setGameOver(true);
-        // alert('Game over! You hit a mine.');
         setBoard(newBoard);
         return;
     }
