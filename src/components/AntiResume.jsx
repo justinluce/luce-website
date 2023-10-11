@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {AntiResumeContent} from './AntiResumeContent';
+import React, { useState } from 'react';
+import { AntiResumeContent } from './AntiResumeContent';
 import { Typography } from '@mui/material';
 
 const StartButton = () => {
