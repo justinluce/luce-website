@@ -88,20 +88,23 @@ return (
                 {board.map((row, i) => (
                     <div key={i} style={{ fontSize: 0, lineHeight: 0, textAlign: 'center'}}>
                 {row.map((col, j) => (
-                    <button 
-                        key={j}
-                        onMouseUp={(e) => revealSquare(e, i, j)}
-                        onContextMenu={(e) => toggleFlag(e, i, j)}
-                        style={{ border: 'none', background: 'none', padding: 0, margin: 0, fontSize: '1rem', verticalAlign: 'top' }}
-                        >
-                        {col.revealed ? 
-                            (col.value === -1 ? 
-                            <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/TileExploded.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Mine" /> : 
-                            <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/Tile${col.value}.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Tile" />) : 
-                            col.flagged ? 
-                            <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/TileFlag.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Flag" /> :
-                            <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/TileUnknown.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Empty Tile" />}
-                      </button>
+                  <button 
+                      key={j}
+                      onMouseUp={(e) => revealSquare(e, i, j)}
+                      onContextMenu={(e) => toggleFlag(e, i, j)}
+                      style={{ border: 'none', background: 'none', padding: 0, margin: 0, fontSize: '1rem', verticalAlign: 'top' }}
+                    >
+                    {col.revealed ? 
+                      (
+                      col.value === -1 ? 
+                        <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/TileExploded.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Mine" /> : 
+                        <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/Tile${col.value}.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Tile" />
+                      ) 
+                      : col.flagged ? 
+                        <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/TileFlag.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Flag" /> :
+                        <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/TileUnknown.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Empty Tile" />
+                    }
+                  </button>
                 ))}
               </div>
             ))}
