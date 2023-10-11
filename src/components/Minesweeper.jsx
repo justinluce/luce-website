@@ -1,42 +1,26 @@
 import { Typography } from "@mui/material";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../App.css';
-
-const incrementAdjacentTiles = (board, row, col, size) => {
-    for(let i = Math.max(row - 1, 0); i <= Math.min(row + 1, size - 1); i++) {
-      for(let j = Math.max(col - 1, 0); j <= Math.min(col + 1, size - 1); j++) {
-        if(board[i][j].value !== -1) {
-          board[i][j].value += 1;
-        }
-      }
-    }
-  };
-  
-  const createBoard = (size, mines) => {
-    const board = Array(size).fill(0).map(() => Array(size).fill(null).map(() => ({value: 0, revealed: false, flagged: false})));
-  
-    for(let i = 0; i < mines; i++) {
-      let row, col;
-  
-      do {
-        row = Math.floor(Math.random() * size);
-        col = Math.floor(Math.random() * size);
-      } while(board[row][col].value === -1);
-  
-      board[row][col] = {value: -1, revealed: false};
-  
-      incrementAdjacentTiles(board, row, col, size);
-    }
-  
-    return board;
-  };
   
 const Minesweeper = () => {
   const size = 10;
   const mines = 10;
 
-  const [board, setBoard] = useState(createBoard(size, mines));
+  const [board, setBoard] = useState([]);
   const [gameOver, setGameOver] = useState(false);
+  const worker = useRef(null);
+
+  useEffect(() => {
+    worker.current = new Worker(`${process.env.PUBLIC_URL}/workers/boardWorker.js`);
+
+    worker.current.onmessage = function(e) {
+      setBoard(e.data);
+    }
+
+    worker.current.postMessage({ size, mines });
+
+    return () => worker.current.terminate();
+  }, []);
 
   const revealSquare = (e, row, col) => {
     if (e.button !== 0 ) return;
@@ -67,8 +51,8 @@ const toggleFlag = (e, row, col) => {
   };
 
 const resetBoard = () => {
-    setBoard(createBoard(size, mines));
     setGameOver(false);
+    worker.current.postMessage({ size, mines });
 };
 
 return (
