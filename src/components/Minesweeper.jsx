@@ -81,7 +81,7 @@ return (
             Minesweeper
         </Typography>
         <button onMouseUp={resetBoard} style={{ margin: '20px', height: '40px', width: '160px' }}>Reset</button>
-        <h4>This game is definitely working as intended.</h4>
+        <h4>This game is for sure working as intended.</h4>
         <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
           <div style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)' }}>
               {gameOver && <h3>You lost!</h3>}
@@ -103,7 +103,7 @@ return (
                             col.flagged ? 
                             <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/TileFlag.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Flag" /> :
                             <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/TileUnknown.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Empty Tile" />}
-                        </button>
+                      </button>
                 ))}
               </div>
             ))}
