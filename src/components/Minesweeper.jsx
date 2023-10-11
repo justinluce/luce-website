@@ -18,7 +18,6 @@ const incrementAdjacentTiles = (board, row, col, size) => {
     for(let i = 0; i < mines; i++) {
       let row, col;
   
-      // Make sure to place the mine on a tile that is not already a mine
       do {
         row = Math.floor(Math.random() * size);
         col = Math.floor(Math.random() * size);
@@ -26,7 +25,6 @@ const incrementAdjacentTiles = (board, row, col, size) => {
   
       board[row][col] = {value: -1, revealed: false};
   
-      // Call the helper function
       incrementAdjacentTiles(board, row, col, size);
     }
   
@@ -40,16 +38,18 @@ const Minesweeper = () => {
   const [board, setBoard] = useState(createBoard(size, mines));
   const [gameOver, setGameOver] = useState(false);
 
-  const revealSquare = (row, col) => {
+  const revealSquare = (e, row, col) => {
+    if (e.button !== 0 ) return;
+
     if (gameOver || board[row][col].revealed || board[row][col].flagged) return;
 
     let newBoard = JSON.parse(JSON.stringify(board)); 
     newBoard[row][col].revealed = true;
 
     //TODO: This does not end the game for some reason
-    if (board[row][col].value === 'X') {
+    if (board[row][col].value === -1) {
         setGameOver(true);
-        alert('Game over! You hit a mine.');
+        // alert('Game over! You hit a mine.');
         setBoard(newBoard);
         return;
     }
@@ -59,6 +59,7 @@ const Minesweeper = () => {
 
 const toggleFlag = (e, row, col) => {
     e.preventDefault();
+    e.stopPropagation();
 
     if (gameOver || board[row][col].revealed) return;
 
@@ -81,28 +82,33 @@ return (
         </Typography>
         <button onMouseUp={resetBoard} style={{ margin: '20px', height: '40px', width: '160px' }}>Reset</button>
         <h4>This game is definitely working as intended.</h4>
-        <div style={{ margin: 'auto', display: 'block', maxWidth: 'fit-content', border: '2px solid black'}}>
-            {board.map((row, i) => (
-                <div key={i} style={{ fontSize: 0, lineHeight: 0, textAlign: 'center'}}>
-            {row.map((col, j) => (
-                <button 
-                    key={j}
-                    onMouseUp={() => revealSquare(i, j)}
-                    onContextMenu={(e) => toggleFlag(e, i, j)}
-                    style={{ border: 'none', background: 'none', padding: 0, margin: 0, fontSize: '1rem', verticalAlign: 'top' }}
-                    >
-                    {col.revealed ? 
-                        (col.value === -1 ? 
-                        <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/TileExploded.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Mine" /> : 
-                        <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/Tile${col.value}.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Tile" />) : 
-                        col.flagged ? 
-                        <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/TileFlag.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Flag" /> :
-                        <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/TileUnknown.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Empty Tile" />}
-                    </button>
+        <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+          <div style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)' }}>
+              {gameOver && <h3>You lost!</h3>}
+          </div>
+            <div style={{ margin: 'auto', display: 'block', maxWidth: 'fit-content', border: '2px solid black'}}>
+                {board.map((row, i) => (
+                    <div key={i} style={{ fontSize: 0, lineHeight: 0, textAlign: 'center'}}>
+                {row.map((col, j) => (
+                    <button 
+                        key={j}
+                        onMouseUp={(e) => revealSquare(e, i, j)}
+                        onContextMenu={(e) => toggleFlag(e, i, j)}
+                        style={{ border: 'none', background: 'none', padding: 0, margin: 0, fontSize: '1rem', verticalAlign: 'top' }}
+                        >
+                        {col.revealed ? 
+                            (col.value === -1 ? 
+                            <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/TileExploded.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Mine" /> : 
+                            <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/Tile${col.value}.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Tile" />) : 
+                            col.flagged ? 
+                            <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/TileFlag.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Flag" /> :
+                            <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/TileUnknown.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Empty Tile" />}
+                        </button>
+                ))}
+              </div>
             ))}
           </div>
-        ))}
-    </div>
+        </div>
     </div>
   );  
 };
