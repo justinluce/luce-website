@@ -46,7 +46,6 @@ const Minesweeper = () => {
     let newBoard = JSON.parse(JSON.stringify(board)); 
     newBoard[row][col].revealed = true;
 
-    //TODO: This does not end the game for some reason
     if (board[row][col].value === -1) {
         setGameOver(true);
         // alert('Game over! You hit a mine.');
