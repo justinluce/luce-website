@@ -3,11 +3,15 @@ import { Typography } from '@mui/material';
 import { FlexContainer } from '../shared/styled/FlexContainer';
 import { Img } from '../shared/styled/Img';
 import { useNavigate } from 'react-router-dom';
+import { useMenuContext } from '../context/MenuContext';
 
 export const Projects = () => {
     const navigate = useNavigate();
+    const { setValue } = useMenuContext();
+
     const handleClick = () => {
         navigate('/minesweeper');
+        setValue(4);
     }
 
     return (
