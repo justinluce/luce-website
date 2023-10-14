@@ -48,7 +48,7 @@ const generateFakeUsers = (userTime, numUsers = 9) => {
     return selectedUsers.sort((a, b) => parseFloat(a.time) - parseFloat(b.time));
 };
 
-const Leaderboard = ({ userTime, inputName }) => {
+const Leaderboard = React.memo(({ userTime, inputName }) => {
     const fakeUsers = generateFakeUsers(userTime);
     const formattedUserTime = formatUserTime(userTime);
 
@@ -73,13 +73,13 @@ const Leaderboard = ({ userTime, inputName }) => {
                     ))}
                     <tr>
                         <td>{fakeUsers.length + 1}</td>
-                        <td>{inputName}(you)</td>
+                        <td>{inputName} (you)</td>
                         <td>{formattedUserTime}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     );
-};
+});
 
 export default Leaderboard;
