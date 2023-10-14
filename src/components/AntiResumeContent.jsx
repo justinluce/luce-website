@@ -5,7 +5,6 @@ import Leaderboard from '../shared/components/Leaderboard.jsx';
 import '../shared/styled/AntiResume.css';
 
 const initialKeys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@.-_'.split('');
-// Add Backspace and Space to the initial keys array
 const backspaceIndex = Math.floor(Math.random() * (initialKeys.length + 1));
 initialKeys.splice(backspaceIndex, 0, { char: 'Backspace', isBackspace: true });
 
@@ -29,12 +28,12 @@ const Keyboard = ({ setTargetInput }) => {
             setTargetInput((prev) => prev + char);
         }
 
-        // shuffle keys after every key click
         setKeys(shuffleKeys([...keys]));
     };
 
     const handleBackspace = () => {
         setTargetInput((prev) => prev.slice(0, -1));
+        setKeys(shuffleKeys([...keys]));
     };
 
     return (
@@ -81,7 +80,6 @@ const Keyboard = ({ setTargetInput }) => {
 const Captcha = () => {
     const [isSolved, setIsSolved] = useState(false);
     return (
-
         <div style={{ marginTop: '20px' }}>
             <p><strong>Are you human?</strong></p>
             <img height={200} width={500}

@@ -1,6 +1,5 @@
 import React from 'react';
 
-    
 const getRandomUsers = (userList, numUsers) => {
     const shuffled = userList.sort(() => 0.5 - Math.random());
     return shuffled.slice(0, numUsers);
