@@ -6,6 +6,11 @@ const getRandomUsers = (userList, numUsers) => {
     return shuffled.slice(0, numUsers);
 };
 
+const formatUserTime = (time) => {
+    const randomDecimal = (Math.random() * 0.999).toFixed(3).substr(2);
+    return `${time}.${randomDecimal}`;
+};
+
 const generateFakeUsers = (userTime, numUsers = 10) => {
     const fakeUsers = [
         "xyoloswaglordx",
@@ -43,6 +48,7 @@ const generateFakeUsers = (userTime, numUsers = 10) => {
 
 const Leaderboard = ({ userTime }) => {
     const fakeUsers = generateFakeUsers(userTime);
+    const formattedUserTime = formatUserTime(userTime);
 
     return (
         <div>
@@ -53,7 +59,7 @@ const Leaderboard = ({ userTime }) => {
                         {user.name}: {user.time} seconds
                     </li>
                 ))}
-                <li><strong>You:</strong> {userTime} seconds</li>
+                <li><strong>You:</strong> {formattedUserTime} seconds</li>
             </ul>
         </div>
     );
