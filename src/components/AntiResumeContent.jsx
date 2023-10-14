@@ -294,7 +294,7 @@ export const AntiResumeContent = () => {
                 </div>
                 </>
             ) : (
-                done && <Leaderboard userTime={time} />
+                done && <Leaderboard inputName={name} userTime={time} />
             )}
             {/*//TODO: Stop with the brs
             //TODO: Make the captcha appear only after the form is filled out*/}
