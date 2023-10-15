@@ -44,7 +44,7 @@ export const Music = () => {
                     Spontaneous Recovery
                     <div style={{ transform: 'scale(1.5)', marginTop: '30px'}}>
                     <audio controls>
-                        <source src="/music/SpontaneousRecovery.wav"></source>
+                        <source src="/music/SpontaneousRecovery.mp3"></source>
                     </audio>
                     </div>
                 </FlexContainer>
@@ -52,7 +52,7 @@ export const Music = () => {
                     Trance Is Dead
                     <div style={{ transform: 'scale(1.5)', marginTop: '30px' }}>
                     <audio controls>
-                        <source src="/music/TranceIsDead.wav"></source>
+                        <source src="/music/TranceIsDead.mp3"></source>
                     </audio>
                     </div>
                 </FlexContainer>
@@ -60,7 +60,7 @@ export const Music = () => {
                     You're really icing my bread, man
                     <div style={{ transform: 'scale(1.5)', marginTop: '30px' }}>
                     <audio controls>
-                        <source src="/music/You'reReallyIcingMyBreadMan.wav"></source>
+                        <source src="/music/You'reReallyIcingMyBreadMan.mp3"></source>
                     </audio>
                     </div>
                 </FlexContainer>
