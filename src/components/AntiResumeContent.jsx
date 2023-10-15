@@ -104,6 +104,8 @@ export const AntiResumeContent = () => {
     const [showModal, setShowModal] = useState(false);
     const [done, setDone] = useState(false);
     const focusedInput = useRef(null);
+    const nameRef = useRef(null);
+    const emailRef = useRef(null);
 
     const handleNumber = (e) => {
         setNumber(e.target.value);
@@ -155,7 +157,15 @@ export const AntiResumeContent = () => {
         //TODO: Sign the user up to access the rest of the page
     }
 
+    const handleModalClose = () => {
+        setShowModal(false);
+        setClicked(true);
+        setActiveInput('name');
+        focusedInput.current === 'name' ? nameRef.current.focus() : emailRef.current.focus();
+    }
+
     useEffect(() => {
+        console.log(activeInput);
         const handleClickOutside = (event) => {
           if (
             activeInput &&
@@ -206,12 +216,11 @@ export const AntiResumeContent = () => {
             In the future, I plan on adding a pop quiz, extra captchas,
             a 'rate your experience' survey, and mock sign up functionality. 
         </p>
-        {(showModal && !clicked)&&
+        {(showModal && !clicked) &&
             <Modal 
                 isOpen={showModal} 
                 onClose={() => {
-                    setShowModal(false);
-                    setClicked(true);
+                    handleModalClose();
                 }}>
                 <h2>Are You Ready?</h2>
                 <p>
@@ -226,6 +235,7 @@ export const AntiResumeContent = () => {
                 <label style={{marginRight: '10px'}}>
                     Name:
                     <input
+                        ref={nameRef}
                         readOnly 
                         type="text" 
                         name="name" 
@@ -242,7 +252,8 @@ export const AntiResumeContent = () => {
                 </label>
                 <label style={{marginRight: '10px'}}>
                     Email:
-                    <input 
+                    <input
+                        ref={emailRef}
                         readOnly 
                         type="text" 
                         name="email" 
