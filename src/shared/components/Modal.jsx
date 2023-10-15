@@ -28,6 +28,7 @@ const Modal = ({ isOpen, onClose, children }) => {
       <div className={`modal-content ${isAnimatingOut ? 'modal-disappear' : 'modal-appear'}`}>
         {children}
         <button 
+          style={{padding: '5px'}}
           onClick={handleClose}>I Am Ready</button>
       </div>
     </div>
