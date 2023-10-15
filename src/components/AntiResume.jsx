@@ -12,7 +12,9 @@ const StartButton = () => {
     return (
         <div style={{fontSize: '30px'}}>
             {!isClicked && (
-                <button style={{width: '125px', height: '40px', }} onClick={handleClick}>Click to start</button>
+                <div style={{textAlign: 'center'}}>
+                <button style={{width: '125px', height: '40px', textAlign: 'center'}} onClick={handleClick}>Click to start</button>
+                </div>
             )}
             {isClicked && <AntiResumeContent />}
         </div>

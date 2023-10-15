@@ -3,15 +3,26 @@ body {
     margin-right: 20px;
 }
 
+button {
+    cursor: pointer;
+}
+
+.form {
+    text-align: center;
+}
+
+.signUp {
+    width: 150px;
+    height: auto;
+    padding: 10px;
+    margin-bottom: 10px;
+}
 
 .small {
     display: block;
     margin-top: 20px;
     font-size: 12px;
-}
-
-button {
-    cursor: pointer;
+    white-space: nowrap;
 }
 
 .doneButton {
