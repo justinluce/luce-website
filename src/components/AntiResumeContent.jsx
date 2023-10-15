@@ -222,7 +222,8 @@ export const AntiResumeContent = () => {
                 isOpen={showModal} 
                 onClose={() => {
                     handleModalClose();
-                }}>
+                }}
+                >
                 <h2>Are You Ready?</h2>
                 <p>
                     Once you click the button below, a timer will start. 
@@ -238,6 +239,7 @@ export const AntiResumeContent = () => {
                     <input
                         ref={nameRef}
                         readOnly 
+                        disabled={done}
                         type="text" 
                         name="name" 
                         value={name} 
@@ -255,7 +257,8 @@ export const AntiResumeContent = () => {
                     Email:
                     <input
                         ref={emailRef}
-                        readOnly 
+                        readOnly
+                        disabled={done}
                         type="text" 
                         name="email" 
                         value={email} 
@@ -272,6 +275,7 @@ export const AntiResumeContent = () => {
                 <label>
                     Phone Number:
                     <input 
+                        disabled={done}
                         type="range"
                         min="0"
                         max="9999999999"
@@ -298,6 +302,7 @@ export const AntiResumeContent = () => {
                     <button
                         onClick={handleDone}
                         className='doneButton'
+                        disabled={!name || !email || !number}
                     >
                         Done
                     </button>
@@ -316,6 +321,7 @@ export const AntiResumeContent = () => {
                     disabled={
                         name == '' || 
                         email == '' ||
+                        number == 0 ||
                         captchaValue.trim() == ''
                     }
                     onClick={(e) => handleSignUp(e)}

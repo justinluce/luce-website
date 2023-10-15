@@ -27,7 +27,8 @@ const Modal = ({ isOpen, onClose, children }) => {
     <div className="modal-overlay">
       <div className={`modal-content ${isAnimatingOut ? 'modal-disappear' : 'modal-appear'}`}>
         {children}
-        <button onClick={handleClose}>I Am Ready</button>
+        <button 
+          onClick={handleClose}>I Am Ready</button>
       </div>
     </div>
   );
