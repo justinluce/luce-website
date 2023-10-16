@@ -12,6 +12,7 @@ import { AntiResume } from './components/AntiResume';
 import { Music } from './components/Music';
 import Minesweeper from './components/Minesweeper';
 import { Cat } from './components/Cat';
+import { Chatroom } from './components/Chatroom';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path='/projects' element={<Projects />} />
           <Route path='/music' element={<Music />} />
+          <Route path='/chatroom' element={<Chatroom />} />
           <Route path='/antiresume' element={<AntiResume />} />
           <Route path='/minesweeper' element={<Minesweeper />} />
           <Route path='/cat' element={<Cat />} />

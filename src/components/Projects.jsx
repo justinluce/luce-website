@@ -29,8 +29,13 @@ export const Projects = () => {
             <FlexContainer flexDirection='row'>
                 <div onClick={() => handleClick()}
                     style={{border: '2px solid black', width: '30%', height: '25%'}}>
-                    Minesweeper
+                    <div style={{borderBottom: '2px solid black'}}>Minesweeper</div>
                     <Img src='/images/minesweeper.png' />
+                </div>
+                <div onClick={() => handleClick()}
+                    style={{border: '2px solid black', width: '30%', height: '25%'}}>
+                    <div style={{borderBottom: '2px solid black'}}>Portfolio Website</div>
+                    <Img src='/images/website.png' />
                 </div>
             </FlexContainer>
         </div>
