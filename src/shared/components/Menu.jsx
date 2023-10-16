@@ -54,9 +54,10 @@ export const Menu = () => {
             <LinkTab label="Home" href="/home" data-value={0}/>
             <LinkTab label="Projects" href="projects" data-value={1}/>
             <LinkTab label="Music" href="music" data-value={2}/>
-            <LinkTab label="Anti-Resume" href="antiresume" data-value={3}/>
-            <LinkTab label="Minesweeper" href="minesweeper" data-value={4}/>
-            <LinkTab label="Cat" href="cat" data-value={5}/>
+            <LinkTab label="Chatroom" href="chatroom" data-value={3} />
+            <LinkTab label="Anti-Resume" href="antiresume" data-value={4}/>
+            <LinkTab label="Minesweeper" href="minesweeper" data-value={5}/>
+            <LinkTab label="Cat" href="cat" data-value={6}/>
         </Tabs>
     );
 }
