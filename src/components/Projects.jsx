@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Typography } from '@mui/material';
 import { FlexContainer } from '../shared/styled/FlexContainer';
 import { Img } from '../shared/styled/Img';
-import { useNavigate } from 'react-router-dom';
-import { useMenuContext } from '../context/MenuContext';
+import { MinesweeperDetails } from './projects/MinesweeperDetails';
+import { WebsiteDetails } from './projects/WebsiteDetails';
+
 
 export const Projects = () => {
-    const navigate = useNavigate();
-    const { setValue } = useMenuContext();
+    const [projectOpen, setProjectOpen] = useState(null);
 
-    const handleClick = () => {
-        navigate('/minesweeper');
-        setValue(4);
+    const handleClick = (path) => {
+        switch (path) {
+            case 'minesweeper':
+                setProjectOpen('minesweeper');
+                break;
+            case 'website':
+                setProjectOpen('website');
+                break;
+        }
     }
 
     return (
@@ -27,17 +33,19 @@ export const Projects = () => {
             </div>
 
             <FlexContainer flexDirection='row'>
-                <div onClick={() => handleClick()}
+                <div onClick={() => handleClick('minesweeper')}
                     style={{border: '2px solid black', width: '30%', height: '25%'}}>
                     <div style={{borderBottom: '2px solid black'}}>Minesweeper</div>
                     <Img src='/images/minesweeper.png' />
                 </div>
-                <div onClick={() => handleClick()}
+                <div onClick={() => handleClick('website')}
                     style={{border: '2px solid black', width: '30%', height: '25%'}}>
                     <div style={{borderBottom: '2px solid black'}}>Portfolio Website</div>
                     <Img src='/images/website.png' />
                 </div>
             </FlexContainer>
+            {projectOpen === 'minesweeper' && <MinesweeperDetails />}
+            {projectOpen === 'website' && <WebsiteDetails />}
         </div>
     );
 }
