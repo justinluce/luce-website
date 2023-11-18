@@ -75,7 +75,7 @@ export const Music = () => {
                     <a href='https://justinluce.bandcamp.com/album/remless' target='_blank'>
                         <Img 
                             src="/images/remless.jpg"
-                            title="Out Of My Mind"
+                            title="REMLESS"
                             alt="Album titled REMLESS"
                             width="400"
                         />
