@@ -57,10 +57,10 @@ export const Music = () => {
                     </div>
                 </FlexContainer>
                 <FlexContainer>
-                    You're really icing my bread, man
+                    Housekeeping
                     <div style={{ transform: 'scale(1.5)', marginTop: '30px' }}>
                     <audio controls>
-                        <source src="/music/You'reReallyIcingMyBreadMan.mp3"></source>
+                        <source src="/music/Housekeeping.mp3"></source>
                     </audio>
                     </div>
                 </FlexContainer>
@@ -68,6 +68,19 @@ export const Music = () => {
                     Albums and Singles
                 </Typography>   
                 <FlexContainer flexDirection={'row'}>
+                <FlexContainer>
+                    <Typography variant='h5' textAlign={'center'}>
+                        Album - REMLESS
+                    </Typography>
+                    <a href='https://justinluce.bandcamp.com/album/remless' target='_blank'>
+                        <Img 
+                            src="/images/remless.jpg"
+                            title="Out Of My Mind"
+                            alt="Album titled REMLESS"
+                            width="400"
+                        />
+                    </a>
+                    </FlexContainer>
                     <FlexContainer>
                     <Typography variant='h5' textAlign={'center'}>
                         Single - Out Of My Mind
