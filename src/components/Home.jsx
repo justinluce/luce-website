@@ -72,6 +72,7 @@ export const Home = () => {
                 justinlucedev@gmail.com
                 </a>
             </footer>
+            <h3>new text</h3>
         </div>
     );
 }
