@@ -34,7 +34,7 @@ const generateFakeUsers = (userTime, numUsers = 9) => {
         "FatalDestiny",
         "FaZe_Quickscope_G0d",
         "ShadowAssassin_07",
-        "Lvl38FrostMage",
+        "[BANNED USER]",
         "Lvl70FeralDruid"
     ];
     
