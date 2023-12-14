@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from '../shared/styled/Keyboard.module.css';
+import Modal from '../shared/components/Modal.jsx';
+import Leaderboard from '../shared/components/Leaderboard.jsx';
+import '../shared/styled/AntiResume.css';
 
 const initialKeys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@.-_'.split('');
-// Add Backspace and Space to the initial keys array
 const backspaceIndex = Math.floor(Math.random() * (initialKeys.length + 1));
 initialKeys.splice(backspaceIndex, 0, { char: 'Backspace', isBackspace: true });
 
@@ -26,59 +28,58 @@ const Keyboard = ({ setTargetInput }) => {
             setTargetInput((prev) => prev + char);
         }
 
-        // shuffle keys after every key click
         setKeys(shuffleKeys([...keys]));
     };
 
     const handleBackspace = () => {
         setTargetInput((prev) => prev.slice(0, -1));
+        setKeys(shuffleKeys([...keys]));
     };
 
     return (
-        <div className={styles.Keyboard}>
-            {keys.map((item, index) => {
-                if (typeof item === 'string') {
-                    return (
+        <div className={styles.container}>
+            <div className={styles.Keyboard}>
+                {keys.map((item, index) => {
+                    if (typeof item === 'string') {
+                        return (
+                            <button
+                                type='button'
+                                key={index}
+                                onClick={() => handleClick(item)}
+                                className={styles.key}
+                            >
+                                {item}
+                            </button>
+                        );
+                    }
+
+                    return item.isBackspace ? (
                         <button
                             type='button'
-                            key={index}
-                            onClick={() => handleClick(item)}
-                            className={styles.key}
+                            key={item.char}
+                            onClick={handleBackspace}
+                            className={`${styles.key} ${styles.backspace}`}
                         >
-                            {item}
+                            {item.char}
+                        </button>
+                    ) : (
+                        <button
+                            type='button'
+                            key={item.char}
+                            onClick={() => handleClick(item.char)}
+                            className={`${styles.key} ${styles.space}`}
+                        >
+                            {item.char}
                         </button>
                     );
-                }
-
-                return item.isBackspace ? (
-                    <button
-                        type='button'
-                        key={item.char}
-                        onClick={handleBackspace}
-                        className={`${styles.key} ${styles.backspace}`}
-                    >
-                        {item.char}
-                    </button>
-                ) : (
-                    <button
-                        type='button'
-                        key={item.char}
-                        onClick={() => handleClick(item.char)}
-                        className={`${styles.key} ${styles.space}`}
-                    >
-                        {item.char}
-                    </button>
-                );
-            })}
+                })}
+            </div>
         </div>
     );  
 }  
 
-
-const Captcha = () => {
-    const [isSolved, setIsSolved] = useState(false);
+const Captcha = ({ setCaptchaValue }) => {
     return (
-
         <div style={{ marginTop: '20px' }}>
             <p><strong>Are you human?</strong></p>
             <img height={200} width={500}
@@ -86,7 +87,9 @@ const Captcha = () => {
             <br></br>
             Answer:
             <br></br>
-            <textarea style={{width: '500px', height: '200px', marginTop: '20px', fontSize: '24px'}}></textarea>
+            <textarea 
+                onChange={e => setCaptchaValue(e.target.value)}
+                style={{width: '500px', height: '200px', marginTop: '20px', fontSize: '24px'}}></textarea>
         </div>
     );
 };
@@ -100,7 +103,12 @@ export const AntiResumeContent = () => {
     const [preventHide, setPreventHide] = useState(false);
     const [intervalID, setIntervalID] = useState(null);
     const [clicked, setClicked] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const [done, setDone] = useState(false);
+    const [captchaValue, setCaptchaValue] = useState('');
     const focusedInput = useRef(null);
+    const nameRef = useRef(null);
+    const emailRef = useRef(null);
 
     const handleNumber = (e) => {
         setNumber(e.target.value);
@@ -112,13 +120,11 @@ export const AntiResumeContent = () => {
     }
 
     const handleInputFocus = (input) => {
-        setActiveInput(input);
-        if (!clicked) {
-            setClicked(true);
-        }
-        if (!intervalID) {
-            const id = setInterval(() => setTime(prevTime => prevTime + 1), 1000);
-            setIntervalID(id);
+        if (!showModal && !clicked) {
+            setShowModal(true);
+            console.log("showmodal is true");
+        } else {
+            setActiveInput(input);
         }
     }
 
@@ -127,9 +133,6 @@ export const AntiResumeContent = () => {
             setActiveInput(null);
         }
         setPreventHide(false);
-
-        clearInterval(intervalID);
-        setIntervalID(null);
     }
 
     const handleInputMouseDown = (input) => {
@@ -146,12 +149,26 @@ export const AntiResumeContent = () => {
         }
     };
 
+    const handleDone = (e) => {
+        e.preventDefault();
+        setDone(true);
+        clearInterval(intervalID);
+    }
+
     const handleSignUp = (e) => {
         e.preventDefault();
         //TODO: Sign the user up to access the rest of the page
     }
 
+    const handleModalClose = () => {
+        setShowModal(false);
+        setClicked(true);
+        setActiveInput('name');
+        focusedInput.current === 'name' ? nameRef.current.focus() : emailRef.current.focus();
+    }
+
     useEffect(() => {
+        console.log(activeInput);
         const handleClickOutside = (event) => {
           if (
             activeInput &&
@@ -170,6 +187,16 @@ export const AntiResumeContent = () => {
     }, [activeInput]);
 
     useEffect(() => {
+        if (!showModal && clicked) {
+            const id = setInterval(() => setTime(prevTime => prevTime + 1), 1000);
+            setIntervalID(id);
+            return () => {
+                clearInterval(id);
+            }
+        }
+    }, [showModal, clicked]);
+
+    useEffect(() => {
         return () => {
             clearInterval(intervalID);
         };
@@ -177,58 +204,78 @@ export const AntiResumeContent = () => {
 
     return (
         <div>
-        <h2>
+        <h2 style={{marginBottom: '10px'}}>
             You are required to sign up to access the rest of this page. 
             Don't worry, your information will not be used maliciously. 
             In fact, it won't even be saved at all. If you're paranoid,
             you can use fake information, or check the&nbsp;
-            <a href="https://github.com/justinluce/luce-website">source code.</a>
+            <a href="https://github.com/justinluce/luce-website">source code.</a>&nbsp;
+            <s className='small' style={{display: 'inline'}}>Please give me your data anyway.</s>
         </h2>
-        <h6>
-            <s>Please give me your data anyway.</s>
-        </h6>
-        <p>
-            <strong>Currently, this is all of the content for this page.</strong> In the future,
-            I plan on adding a pop quiz, extra captchas,
+        <p style={{marginBottom: '10px'}}>
+            <strong>Currently, this is all of the content for this page.</strong>&nbsp; 
+            In the future, I plan on adding a pop quiz, extra captchas,
             a 'rate your experience' survey, and mock sign up functionality. 
         </p>
-        {clicked && 
-        <div>
-            <p><strong>How fast can you write your name and email?</strong>
-            <br></br>
-            Time: {time}</p>
-        </div>
-            }
-            <form>
+        {(showModal && !clicked) &&
+            <Modal 
+                isOpen={showModal} 
+                onClose={() => {
+                    handleModalClose();
+                }}
+                >
+                <h2>Are You Ready?</h2>
+                <p>
+                    Once you click the button below, a timer will start. 
+                    You must enter your name and email as fast as possible.
+                    You will be put on a leaderboard with other real* users according to your time.
+                    <span className='small'>*the users are not real</span>
+                </p>
+            </Modal>
+        }
+            <form className='form'>
                 <label style={{marginRight: '10px'}}>
                     Name:
                     <input
+                        ref={nameRef}
                         readOnly 
+                        disabled={done}
                         type="text" 
                         name="name" 
                         value={name} 
                         onMouseDown={() => handleInputMouseDown('name')}
                         onBlur={handleInputBlur}
-                        onFocus={() => handleInputFocus('name')}
+                        onFocus={() => {
+                            if (showModal === false) {
+                                handleInputFocus('name')
+                            }
+                        }}
                         style={{width: '200px', height: '30px', marginLeft: '10px'}}
                         />
                 </label>
                 <label style={{marginRight: '10px'}}>
                     Email:
-                    <input 
-                        readOnly 
+                    <input
+                        ref={emailRef}
+                        readOnly
+                        disabled={done}
                         type="text" 
                         name="email" 
                         value={email} 
                         onMouseDown={() => handleInputMouseDown('email')}
                         onBlur={handleInputBlur}
-                        onFocus={() => handleInputFocus('email')}
+                        onFocus={() => {
+                            if (showModal === false) {
+                                handleInputFocus('email')
+                            }
+                        }}
                         style={{width: '200px', height: '30px', marginLeft: '10px'}}
                     />
                 </label>
                 <label>
                     Phone Number:
                     <input 
+                        disabled={done}
                         type="range"
                         min="0"
                         max="9999999999"
@@ -239,25 +286,46 @@ export const AntiResumeContent = () => {
                     />
                     {formatNumber(number)}
                 </label>
-            {activeInput && (
+            {clicked && !done ? (
+                <>
+                <div>
+                    <p><strong>How fast can you write your name and email?</strong>
+                    <br></br>
+                    Time: {time}</p>
+                </div>
                 <div onMouseDown={(e) => e.preventDefault()}>
                     <Keyboard 
                         targetInput={focusedInput.current === 'name' ? name : email} 
                         setTargetInput={handleKeyboardInput} />
                 </div>
+                <div className='center'>
+                    <button
+                        onClick={handleDone}
+                        className='doneButton'
+                        disabled={!name || !email || !number}
+                    >
+                        Done
+                    </button>
+                </div>
+                </>
+            ) : (
+                done && <Leaderboard inputName={name} userTime={time} />
             )}
             {/*//TODO: Stop with the brs
             //TODO: Make the captcha appear only after the form is filled out*/}
                 <br></br>
-                <Captcha />
+                <Captcha setCaptchaValue={setCaptchaValue}/>
                 <br></br>
-                <button disabled={
-                    name == '' || 
-                    email == '' ||
-                    number == 0
-                }
+                <button
+                    className='signUp'
+                    disabled={
+                        name == '' || 
+                        email == '' ||
+                        number == 0 ||
+                        captchaValue.trim() == ''
+                    }
                     onClick={(e) => handleSignUp(e)}
-                    >
+                >
                     Sign Up
                 </button>
             </form>

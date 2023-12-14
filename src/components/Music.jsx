@@ -44,7 +44,7 @@ export const Music = () => {
                     Spontaneous Recovery
                     <div style={{ transform: 'scale(1.5)', marginTop: '30px'}}>
                     <audio controls>
-                        <source src="/music/SpontaneousRecovery.wav"></source>
+                        <source src="/music/SpontaneousRecovery.mp3"></source>
                     </audio>
                     </div>
                 </FlexContainer>
@@ -52,51 +52,38 @@ export const Music = () => {
                     Trance Is Dead
                     <div style={{ transform: 'scale(1.5)', marginTop: '30px' }}>
                     <audio controls>
-                        <source src="/music/TranceIsDead.wav"></source>
+                        <source src="/music/TranceIsDead.mp3"></source>
                     </audio>
                     </div>
                 </FlexContainer>
                 <FlexContainer>
-                    You're really icing my bread, man
+                    Housekeeping
                     <div style={{ transform: 'scale(1.5)', marginTop: '30px' }}>
                     <audio controls>
-                        <source src="/music/You'reReallyIcingMyBreadMan.wav"></source>
+                        <source src="/music/Housekeeping.mp3"></source>
                     </audio>
                     </div>
                 </FlexContainer>
                 <Typography variant='h3' textAlign={'center'}>
-                    Albums and Singles
+                    Albums
                 </Typography>   
-                <FlexContainer flexDirection={'row'}>
-                    <FlexContainer>
+                <FlexContainer flexDirection={'row'} justifyContent={'center'}>
+                <FlexContainer>
                     <Typography variant='h5' textAlign={'center'}>
-                        Single - Out Of My Mind
+                        REMLESS
                     </Typography>
-                    <a href='https://justinluce.bandcamp.com/track/out-of-my-mind' target='_blank'>
+                    <a href='https://justinluce.bandcamp.com/album/remless' target='_blank'>
                         <Img 
-                            src="/images/outOfMyMind.jpg"
-                            title="Out Of My Mind"
-                            alt="Single titled Out Of My Mind"
+                            src="/images/remless.jpg"
+                            title="REMLESS"
+                            alt="Album titled REMLESS"
                             width="400"
                         />
                     </a>
                     </FlexContainer>
                     <FlexContainer>
                     <Typography variant='h5' textAlign={'center'}>
-                        Single - Spontaneous Recovery
-                    </Typography>
-                    <a href='https://justinluce.bandcamp.com/track/spontaneous-recovery-2' target='_blank'>
-                        <Img 
-                            src="/images/spontaneousRecovery.jpg"
-                            title="Spontaneous Recovery"
-                            alt="Single titled Spontaneous Recovery"
-                            width="400"
-                        />
-                    </a>
-                    </FlexContainer>
-                    <FlexContainer>
-                    <Typography variant='h5' textAlign={'center'}>
-                        Album - Lethological
+                        Lethological
                     </Typography>
                     <a href='https://justinluce.bandcamp.com/album/lethological' target='_blank'>
                         <Img 
@@ -109,13 +96,44 @@ export const Music = () => {
                     </FlexContainer>
                     <FlexContainer>
                     <Typography variant='h5' textAlign={'center'}>
-                        Album - Welcome to the Aether
+                        Welcome to the Aether
                     </Typography> 
                     <a href='https://justinluce.bandcamp.com/album/welcome-to-the-aether' target='_blank'>
                         <Img 
                             src="/images/welcomeToTheAether.jpg"
                             title="Welcome to the Aether"
                             alt="Single titled Out Of My Mind"
+                            width="400"
+                        />
+                    </a>
+                    </FlexContainer>
+                </FlexContainer>
+                <Typography variant='h3' textAlign={'center'}>
+                    Singles
+                </Typography> 
+                <FlexContainer flexDirection={'row'} justifyContent={'center'}>
+                    <FlexContainer>
+                    <Typography variant='h5' textAlign={'center'}>
+                        Out Of My Mind
+                    </Typography>
+                    <a href='https://justinluce.bandcamp.com/track/out-of-my-mind' target='_blank'>
+                        <Img 
+                            src="/images/outOfMyMind.jpg"
+                            title="Out Of My Mind"
+                            alt="Single titled Out Of My Mind"
+                            width="400"
+                        />
+                    </a>
+                    </FlexContainer>
+                    <FlexContainer>
+                    <Typography variant='h5' textAlign={'center'}>
+                        Spontaneous Recovery
+                    </Typography>
+                    <a href='https://justinluce.bandcamp.com/track/spontaneous-recovery-2' target='_blank'>
+                        <Img 
+                            src="/images/spontaneousRecovery.jpg"
+                            title="Spontaneous Recovery"
+                            alt="Single titled Spontaneous Recovery"
                             width="400"
                         />
                     </a>
