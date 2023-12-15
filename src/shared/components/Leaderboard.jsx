@@ -66,7 +66,9 @@ const Leaderboard = React.memo(({ userTime, inputName }) => {
                     {fakeUsers.map((user, index) => (
                         <tr key={index}>
                             <td>{index + 1}</td>
-                            <td>{user.name}</td>
+                            <td style={{ color: user.name === '[BANNED USER]' ? 'red' : 'inherit'}}>
+                                {user.name}
+                            </td>
                             <td>{user.time}</td>
                         </tr>
                     ))}
