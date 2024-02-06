@@ -13,6 +13,7 @@ import { Music } from './components/Music';
 import Minesweeper from './components/Minesweeper';
 import { Cat } from './components/Cat';
 import { Chatroom } from './components/Chatroom';
+import { PennyBot } from './components/projects/PennyBot';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path='/antiresume' element={<AntiResume />} />
           <Route path='/minesweeper' element={<Minesweeper />} />
           <Route path='/cat' element={<Cat />} />
+          <Route path='/penny' element={<PennyBot />} />
           <Route path='*' element={<Navigate to='home' />} />
         </Routes>
     </Router>

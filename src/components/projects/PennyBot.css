@@ -1,0 +1,55 @@
+* {
+    font-family: sans-serif, serif, -apple-system, cursive;
+    overflow: hidden;
+}
+.mainContainer {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    margin-right: auto;
+    margin-left: auto;
+}
+.container {
+    display: flex;
+    margin-top: 5vh;
+    height: 80%;
+    width: 80%;
+    border: 2px solid black;
+}
+.chat {
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid black;
+    height: 100%;
+    width: 60%;
+}
+.chatList {
+    list-style-type: none;
+    width: 100%;
+    height: 93%;
+    background-color: cadetblue;
+}
+.textboxHolder {
+    display: flex;
+    align-self: flex-end;
+    height: 7%;
+    width: 100%;
+    background-color: white;
+}
+.textbox {
+    height: 100%;
+    width: 100%;
+    font-size: xx-large;
+    resize: none;
+}
+.sendButton {
+    width: 10%;
+    height: 100%;
+    align-self: flex-end;
+}
+.penny {
+    height: 100%;
+    width: 40%;
+}
