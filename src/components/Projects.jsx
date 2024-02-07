@@ -4,6 +4,7 @@ import { FlexContainer } from '../shared/styled/FlexContainer';
 import { Img } from '../shared/styled/Img';
 import { MinesweeperDetails } from './projects/MinesweeperDetails';
 import { WebsiteDetails } from './projects/WebsiteDetails';
+import { PennyBotDetails } from './projects/PennyBotDetails';
 
 
 export const Projects = () => {
@@ -16,6 +17,9 @@ export const Projects = () => {
                 break;
             case 'website':
                 setProjectOpen('website');
+                break;
+            case 'penny':
+                setProjectOpen('penny');
                 break;
         }
     }
@@ -43,9 +47,15 @@ export const Projects = () => {
                     <div style={{borderBottom: '2px solid black'}}>Portfolio Website</div>
                     <Img src='/images/website.png' />
                 </div>
+                <div onClick={() => handleClick('penny')}
+                    style={{border: '2px solid black', width: '30%', height: '25%'}}>
+                    <div style={{borderBottom: '2px solid black'}}>Penny Bot</div>
+                    <Img src='/images/website.png' />
+                </div>
             </FlexContainer>
             {projectOpen === 'minesweeper' && <MinesweeperDetails />}
             {projectOpen === 'website' && <WebsiteDetails />}
+            {projectOpen === 'penny' && <PennyBotDetails />}
         </div>
     );
 }
