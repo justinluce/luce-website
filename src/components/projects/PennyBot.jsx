@@ -91,9 +91,9 @@ export const PennyBot = () => {
                     </button>
                   </div>
                 </div>
-                </div>
                 <div className='penny'>
 
+                </div>
                 </div>
         </div>
     );
