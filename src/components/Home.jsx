@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Img } from '../shared/styled/Img';
 import { FlexContainer } from '../shared/styled/FlexContainer';
 import { Typography } from '@mui/material';
 
@@ -31,10 +30,10 @@ export const Home = () => {
     return (
         <div style={{fontSize: '30px', display: 'flex', flexDirection: 'column'}}>
         {/*//!TODO: Put styling elsewhere*/}
-        <FlexContainer style={{marginTop: '0'}} flexDirection='column' alignItems="flex-start" justifyContent='flex-start' width='auto'>
-            <Typography variant='h1'>
+        <FlexContainer style={{marginTop: '0'}} flexDirection="column" alignItems="flex-start" justifyContent="flex-start" width="auto">
+            <Typography variant="h1">
                 Justin Luce
-                <a href='https://github.com/justinluce'>
+                <a href="https://github.com/justinluce">
                     <img 
                         title="GitHub Logo"
                         alt="GitHub Logo"
@@ -44,14 +43,20 @@ export const Home = () => {
                     />
                 </a>
             </Typography>
-            <Img 
-                src="/images/luceHeadshot.jpg"
-                title="Justin Luce"
-                alt="Justin Luce Headshot."
-                width="400"
-                clipPath="circle()"
-            />
-            <p>
+            <div style={{ width: "400px", height: "400px", overflow: "hidden", borderRadius: "50%", marginBottom: "20px" }}>
+                <img 
+                    src="/images/headshot4.jpg"
+                    title="Justin Luce"
+                    alt="Justin Luce Headshot."
+                    style={{
+                        width: "100%", 
+                        height: "100%", 
+                        objectFit: "cover", 
+                        objectPosition: "20% 50%"
+                    }}
+                />
+            </div>
+            <p style={{marginBottom: "20px"}}>
                 Hello! I'm Justin Luce. I am currently an instructor for Midland's Code Academy 
                 that is focused on full-stack web development. I teach the Re-Entry Program, 
                 a coding bootcamp designed for incarcerated individuals, 
@@ -63,7 +68,8 @@ export const Home = () => {
                 This is my website, where you can find a collection of things I've made.
                 This ranges from coding projects, to music, to web development 
                 (including this website!), and video game development. There is also Cat.&nbsp;
-                <strong>This site is currently a work-in-progress</strong>, so it's mostly just for music right now.
+                <strong>This site is perpetually a work-in-progress</strong>
+                , as I'll continue creating new things over time.
             </p>
         </FlexContainer>
             <footer style={{marginTop: '50px', textAlign: 'center'}}>
