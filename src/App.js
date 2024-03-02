@@ -28,6 +28,7 @@ function App() {
           <Route path='/minesweeper' element={<Minesweeper />} />
           <Route path='/cat' element={<Cat />} />
           <Route path='/penny' element={<PennyBot />} />
+          <Route path='/' element={<Home />} />
           {/* <Route path='*' element={<Navigate to='home' />} /> */}
         </Routes>
     </Router>

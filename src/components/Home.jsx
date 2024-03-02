@@ -45,7 +45,7 @@ export const Home = () => {
             </Typography>
             <div style={{ width: "400px", height: "400px", overflow: "hidden", borderRadius: "50%", marginBottom: "20px" }}>
                 <img 
-                    src="/images/headshot.jpg"
+                    src="/images/luceHeadshot.jpg"
                     title="Justin Luce"
                     alt="Justin Luce Headshot."
                     style={{
