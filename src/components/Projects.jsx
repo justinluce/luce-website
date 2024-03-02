@@ -45,12 +45,12 @@ export const Projects = () => {
                 <div onClick={() => handleClick('website')}
                     style={{border: '2px solid black', width: '30%', height: '25%'}}>
                     <div style={{borderBottom: '2px solid black'}}>Portfolio Website</div>
-                    <Img src='/images/website.png' />
+                    <Img src='/images/websiteProject.png' />
                 </div>
                 <div onClick={() => handleClick('penny')}
                     style={{border: '2px solid black', width: '30%', height: '25%'}}>
                     <div style={{borderBottom: '2px solid black'}}>Penny Bot</div>
-                    <Img src='/images/website.png' />
+                    <Img src='/images/pennyProject.png' />
                 </div>
             </FlexContainer>
             {projectOpen === 'minesweeper' && <MinesweeperDetails />}
