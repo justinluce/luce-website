@@ -14,24 +14,28 @@ import Minesweeper from './components/Minesweeper';
 import { Cat } from './components/Cat';
 import { Chatroom } from './components/Chatroom';
 import { PennyBot } from './components/projects/PennyBot';
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (
-    <Router>
-      <Menu />
-        <Routes>
-          <Route path='/home' element={<Home />} />
-          <Route path='/projects' element={<Projects />} />
-          <Route path='/music' element={<Music />} />
-          <Route path='/chatroom' element={<Chatroom />} />
-          <Route path='/antiresume' element={<AntiResume />} />
-          <Route path='/minesweeper' element={<Minesweeper />} />
-          <Route path='/cat' element={<Cat />} />
-          <Route path='/penny' element={<PennyBot />} />
-          <Route path='/' element={<Home />} />
-          {/* <Route path='*' element={<Navigate to='home' />} /> */}
-        </Routes>
-    </Router>
+    <>
+      <Analytics />
+      <Router>
+        <Menu />
+          <Routes>
+            <Route path='/home' element={<Home />} />
+            <Route path='/projects' element={<Projects />} />
+            <Route path='/music' element={<Music />} />
+            <Route path='/chatroom' element={<Chatroom />} />
+            <Route path='/antiresume' element={<AntiResume />} />
+            <Route path='/minesweeper' element={<Minesweeper />} />
+            <Route path='/cat' element={<Cat />} />
+            <Route path='/penny' element={<PennyBot />} />
+            <Route path='/' element={<Home />} />
+            {/* <Route path='*' element={<Navigate to='home' />} /> */}
+          </Routes>
+      </Router>
+    </>
   );
 }
 
