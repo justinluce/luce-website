@@ -3,17 +3,24 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { useNavigate } from 'react-router-dom';
 import { useMenuContext } from '../../context/MenuContext';
+import './Menu.css';
+
+//TODO Put CSS in CSS file
 
 function LinkTab(props) {
   const { setValue } = useMenuContext();
   const navigate = useNavigate();
   return (
       <Tab
-          style={{ 
+          sx={{
               fontSize: '2rem', 
               height: '3rem', 
               marginTop: '1rem',
               width: '100vw',
+              color: 'default',
+              '&.Mui-selected': { 
+                color: 'black',
+              }
           }}
           component="a"
           onClick={(event) => {
@@ -32,24 +39,18 @@ function LinkTab(props) {
 export const Menu = () => {
     const { value, handleChange } = useMenuContext();
 
-    {/*//TODO: Put this in a CSS file*/}
-    const tabStyle = {
-      display: 'flex',
-      flexWrap: 'nowrap',
-      overflowX: 'auto',
-      width: '100%',
-      justifyContent: 'center',
-      '@media (maxWidth: 600px)': {
-        justifyContent: 'space-between',
-      }
-    };
     return (
         <Tabs 
         value={value} 
         onChange={handleChange} 
         variant="scrollable"
         scrollButtons="auto"
-        style={tabStyle}
+        className='main'
+        sx={{
+            '.MuiTabs-indicator': {
+                backgroundColor: 'black',
+            }
+        }}
         >
             <LinkTab label="Home" href="/home" data-value={0}/>
             <LinkTab label="Projects" href="projects" data-value={1}/>
