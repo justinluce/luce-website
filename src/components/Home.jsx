@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { FlexContainer } from '../shared/styled/FlexContainer';
 import { Typography } from '@mui/material';
+import html2canvas from 'html2canvas';
 
 export const Home = () => {
 
@@ -25,6 +26,33 @@ export const Home = () => {
         lethological.src = '/images/lethological.jpg';
         const welcomeToTheAether = new Image();
         welcomeToTheAether.src = '/images/welcomeToTheAether.jpg';
+        
+        // Was trying to have this page take a screenshot of itself so I can display it on the project page,
+        // that way the screenshot of the website on the projects page is always automatically updated.
+        // This kind of sucks - it slows down the site and it doesn't even work particularly well in terms of display.
+        // Might as well just manually take a new picture of the site whenever I make major changes to the main page.
+        
+        // const captureWidth = 1920;
+        // const captureHeight = 1080;
+
+        // document.body.style.width = `${captureWidth}px`;
+        // document.body.style.height = `${captureHeight}px`;
+
+        // html2canvas(document.body, {
+        //     width: captureWidth,
+        //     height: captureHeight,
+        //     useCORS: true,
+        //     onclone: (document) => {
+        //         document.body.style.width = '100%';
+        //         document.body.style.height = '100%';
+        //     }
+        // }).then(canvas => {
+        //     const img = canvas.toDataURL('image/png');
+        //     sessionStorage.setItem('mainScreenshot', img);
+
+        //     document.body.style.width = '';
+        //     document.body.style.height = '';
+        // });
     }, []);
 
     return (

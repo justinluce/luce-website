@@ -9,6 +9,16 @@ import { PennyBotDetails } from './projects/PennyBotDetails';
 
 export const Projects = () => {
     const [projectOpen, setProjectOpen] = useState(null);
+    
+    // Remnants of the screenshot display functionality
+    
+    // const [screenshot, setScreenshot] = useState('');
+    // useEffect(() => {
+    //     const img = sessionStorage.getItem('mainScreenshot');
+    //     if (img) {
+    //      setScreenshot(img);
+    //     }
+    // }, []);
 
     const handleClick = (path) => {
         switch (path) {
@@ -35,7 +45,6 @@ export const Projects = () => {
             <div style={{display: 'flex', justifyContent: 'center', marginTop: '50px'}}>
                 <img height={400} src='images/underConstruction2.png' alt='Page is under construction'/>
             </div>
-
             <FlexContainer flexDirection='row'>
                 <div onClick={() => handleClick('minesweeper')}
                     style={{border: '2px solid black', width: '30%', height: '25%'}}>
