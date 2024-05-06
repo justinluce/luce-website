@@ -5,6 +5,7 @@
     width: 100vw;
     justify-content: center;
     background-color: rgb(120, 224, 224);
+    padding-left: 0;
 }
 
 @media (max-width: 600px) {

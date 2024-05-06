@@ -1,10 +1,11 @@
 import { FlexContainer } from '../shared/styled/FlexContainer';
 import { Typography } from '@mui/material';
 import { Img } from '../shared/styled/Img';
-import "../shared/styled/Music.css"
+import "../shared/styled/Music.css";
 
 export const Music = () => {
 
+    //!TODO: Put all styling in a CSS file
     return (
         <div style={{marginLeft: '10px', marginRight: '10px', marginTop: '10px', fontSize: '30px'}}>
             <Typography 

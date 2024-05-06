@@ -49,7 +49,8 @@ export const Menu = () => {
         sx={{
             '.MuiTabs-indicator': {
                 backgroundColor: 'black',
-            }
+            },
+            flexGrow: 1,
         }}
         >
             <LinkTab label="Home" href="/home" data-value={0}/>
