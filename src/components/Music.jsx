@@ -65,7 +65,7 @@ export const Music = () => {
                     </div>
                 </FlexContainer>
                 <Typography variant='h3' textAlign={'center'}>
-                    Albums
+                    EPs
                 </Typography>   
                 <FlexContainer flexDirection={'row'} justifyContent={'center'}>
                 <FlexContainer>
@@ -76,7 +76,7 @@ export const Music = () => {
                         <Img 
                             src="/images/remless.jpg"
                             title="REMLESS"
-                            alt="Album titled REMLESS"
+                            alt="EP titled REMLESS"
                             width="400"
                         />
                     </a>
@@ -89,7 +89,7 @@ export const Music = () => {
                         <Img 
                             src="/images/lethological.jpg"
                             title="Lethological"
-                            alt="Ablum titled Lethological"
+                            alt="EP titled Lethological"
                             width="400"
                         />
                     </a>
@@ -102,7 +102,7 @@ export const Music = () => {
                         <Img 
                             src="/images/welcomeToTheAether.jpg"
                             title="Welcome to the Aether"
-                            alt="Single titled Out Of My Mind"
+                            alt="EP titled Welcome to the Aether"
                             width="400"
                         />
                     </a>
