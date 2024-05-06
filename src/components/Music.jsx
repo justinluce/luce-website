@@ -114,6 +114,19 @@ export const Music = () => {
                 </Typography> 
                 <FlexContainer flexDirection={'row'} justifyContent={'center'}>
                     <FlexContainer>
+                        <Typography variant='h5' textAlign={'center'}>
+                            Spontaneous Parallelism
+                        </Typography>
+                        <a href='https://justinluce.bandcamp.com/track/spontaneous-parallelism' target='_blank'>
+                            <Img 
+                                src="/images/spontaneousParallelism.jpg"
+                                title="Spontaneous Paralellism"
+                                alt="Single titled Spontaneous Parallelism"
+                                width="400"
+                            />
+                        </a>
+                    </FlexContainer>
+                    <FlexContainer>
                     <Typography variant='h5' textAlign={'center'}>
                         Out Of My Mind
                     </Typography>
@@ -127,17 +140,17 @@ export const Music = () => {
                     </a>
                     </FlexContainer>
                     <FlexContainer>
-                    <Typography variant='h5' textAlign={'center'}>
-                        Spontaneous Recovery
-                    </Typography>
-                    <a href='https://justinluce.bandcamp.com/track/spontaneous-recovery-2' target='_blank'>
-                        <Img 
-                            src="/images/spontaneousRecovery.jpg"
-                            title="Spontaneous Recovery"
-                            alt="Single titled Spontaneous Recovery"
-                            width="400"
-                        />
-                    </a>
+                        <Typography variant='h5' textAlign={'center'}>
+                            Spontaneous Recovery
+                        </Typography>
+                        <a href='https://justinluce.bandcamp.com/track/spontaneous-recovery-2' target='_blank'>
+                            <Img 
+                                src="/images/spontaneousRecovery.jpg"
+                                title="Spontaneous Recovery"
+                                alt="Single titled Spontaneous Recovery"
+                                width="400"
+                            />
+                        </a>
                     </FlexContainer>
                 </FlexContainer>
             </Typography>
