@@ -208,7 +208,7 @@ export const AntiResumeContent = () => {
     }, [showCookiesModal])
 
     return (
-        <div>
+        <div className='contentContainer'>
         {showCookiesModal &&     
             <Modal
                 isOpen={showCookiesModal}

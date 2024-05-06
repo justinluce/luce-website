@@ -23,10 +23,10 @@ const StartButton = () => {
 
 export const AntiResume = () => {
     return (
-        <div style={{marginLeft: '10px', marginRight: '10px', marginTop: '10px', fontSize: '30px'}}>
+        <div className='antiContainer'>
             <Typography 
-            variant='h1'
-            textAlign={'center'}
+                variant='h1'
+                textAlign={'center'}
             >
             Anti-Resume
             </Typography>
