@@ -103,7 +103,8 @@ export const AntiResumeContent = () => {
     const [preventHide, setPreventHide] = useState(false);
     const [intervalID, setIntervalID] = useState(null);
     const [clicked, setClicked] = useState(false);
-    const [showModal, setShowModal] = useState(false);
+    const [showReadyModal, setShowReadyModal] = useState(false);
+    const [showCookiesModal, setShowCookiesModal] = useState(false);
     const [done, setDone] = useState(false);
     const [captchaValue, setCaptchaValue] = useState('');
     const focusedInput = useRef(null);
@@ -120,9 +121,9 @@ export const AntiResumeContent = () => {
     }
 
     const handleInputFocus = (input) => {
-        if (!showModal && !clicked) {
-            setShowModal(true);
-            console.log("showmodal is true");
+        if (!showReadyModal && !clicked) {
+            setShowReadyModal(true);
+            console.log("showReadyModal is true");
         } else {
             setActiveInput(input);
         }
@@ -161,14 +162,13 @@ export const AntiResumeContent = () => {
     }
 
     const handleModalClose = () => {
-        setShowModal(false);
+        setShowReadyModal(false);
         setClicked(true);
         setActiveInput('name');
         focusedInput.current === 'name' ? nameRef.current.focus() : emailRef.current.focus();
     }
 
     useEffect(() => {
-        console.log(activeInput);
         const handleClickOutside = (event) => {
           if (
             activeInput &&
@@ -187,23 +187,42 @@ export const AntiResumeContent = () => {
     }, [activeInput]);
 
     useEffect(() => {
-        if (!showModal && clicked) {
+        if (!showReadyModal && clicked) {
             const id = setInterval(() => setTime(prevTime => prevTime + 1), 1000);
             setIntervalID(id);
             return () => {
                 clearInterval(id);
             }
         }
-    }, [showModal, clicked]);
+    }, [showReadyModal, clicked]);
 
     useEffect(() => {
+        setShowCookiesModal(true);
         return () => {
             clearInterval(intervalID);
         };
     }, []);
 
+    useEffect(() =>{
+        console.log(showCookiesModal);
+    }, [showCookiesModal])
+
     return (
         <div>
+        {showCookiesModal &&     
+            <Modal
+                isOpen={showCookiesModal}
+                onClose={() => {
+                   setShowCookiesModal(false)
+                }}
+                cookie={"cookie"}
+            >
+                <h2>This site uses cookies</h2>
+                <p>because I am very hungry and cookies are my favorite food.</p>
+                <p>Give me all of your cookies.</p>
+                <span className='small'>(for legal reasons this is a joke)</span>
+            </Modal>
+        }
         <h2 style={{marginBottom: '10px'}}>
             You are required to sign up to access the rest of this page. 
             Don't worry, your information will not be used maliciously. 
@@ -217,9 +236,9 @@ export const AntiResumeContent = () => {
             In the future, I plan on adding a pop quiz, extra captchas,
             a 'rate your experience' survey, and mock sign up functionality. 
         </p>
-        {(showModal && !clicked) &&
+        {(showReadyModal && !clicked) &&
             <Modal 
-                isOpen={showModal} 
+                isOpen={showReadyModal} 
                 onClose={() => {
                     handleModalClose();
                 }}
@@ -246,7 +265,7 @@ export const AntiResumeContent = () => {
                         onMouseDown={() => handleInputMouseDown('name')}
                         onBlur={handleInputBlur}
                         onFocus={() => {
-                            if (showModal === false) {
+                            if (showReadyModal === false) {
                                 handleInputFocus('name')
                             }
                         }}
@@ -265,7 +284,7 @@ export const AntiResumeContent = () => {
                         onMouseDown={() => handleInputMouseDown('email')}
                         onBlur={handleInputBlur}
                         onFocus={() => {
-                            if (showModal === false) {
+                            if (showReadyModal === false) {
                                 handleInputFocus('email')
                             }
                         }}

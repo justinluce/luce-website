@@ -21,6 +21,10 @@
     animation-fill-mode: forwards;
 }
 
+.modal-cookie {
+    
+}
+
 .modal-appear {
     animation-name: fadeInDown;
 }
