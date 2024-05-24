@@ -4,9 +4,9 @@ onmessage = function(e) {
     const incrementAdjacentTiles = (board, row, col, size) => {
         for(let i = Math.max(row - 1, 0); i <= Math.min(row + 1, size - 1); i++) {
             for(let j = Math.max(col - 1, 0); j <= Math.min(col + 1, size - 1); j++) {
-            if(board[i][j].value !== -1) {
-                board[i][j].value += 1;
-            }
+                if(board[i][j].value !== -1) {
+                    board[i][j].value += 1;
+                }
             }
         }
     };
@@ -18,8 +18,8 @@ onmessage = function(e) {
             let row, col;
         
             do {
-            row = Math.floor(Math.random() * size);
-            col = Math.floor(Math.random() * size);
+                row = Math.floor(Math.random() * size);
+                col = Math.floor(Math.random() * size);
             } while(board[row][col].value === -1);
         
             board[row][col] = {value: -1, revealed: false};

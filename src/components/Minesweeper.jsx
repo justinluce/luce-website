@@ -3,8 +3,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import '../App.css';
   
 const Minesweeper = () => {
-  const size = 10;
-  const mines = 10;
+  const [size, setSize] = useState(10);
+  const [mines, setMines] = useState(10);
 
   const [board, setBoard] = useState([]);
   const [gameOver, setGameOver] = useState(false);
@@ -50,24 +50,38 @@ const toggleFlag = (e, row, col) => {
     setBoard(newBoard);
   };
 
-const resetBoard = () => {
+const resetBoard = (size = 10, mines = 10) => {
     setGameOver(false);
+    console.log(size, mines);
     worker.current.postMessage({ size, mines });
 };
+
+const boardSize = (e) => {
+    const value = e.target.value;
+    const [size, mines] = value.split(',').map(Number);
+    setMines(mines);
+    setSize(size);
+    resetBoard(size, mines);
+}
 
 return (
     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
         <Typography 
             variant='h1'
             textAlign={'center'}>
-            Minesweeper
+            Minesweeper(WIP)
         </Typography>
-        <button onMouseUp={resetBoard} style={{ margin: '20px', height: '40px', width: '160px' }}>Reset</button>
-        <h4>This game is for sure working as intended.</h4>
+        <button onMouseUp={() => resetBoard(size, mines)} style={{ margin: '20px', height: '40px', width: '160px' }}>Reset</button>
+        <div className="game-options">
+          <label htmlFor="boardSize">Board size</label>
+          <select onChange={boardSize}>
+            <option value="10,10">10x10, 10 mines</option>
+            <option value="16,40">16x16, 40 mines</option>
+            <option value="22,99">22x22, 99 mines</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
         <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-          <div style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)' }}>
-              {gameOver && <h3>You lost!</h3>}
-          </div>
             <div style={{ margin: 'auto', display: 'block', maxWidth: 'fit-content', border: '2px solid black'}}>
                 {board.map((row, i) => (
                     <div key={i} style={{ fontSize: 0, lineHeight: 0, textAlign: 'center'}}>
