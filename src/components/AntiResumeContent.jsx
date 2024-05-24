@@ -218,7 +218,9 @@ export const AntiResumeContent = () => {
                 cookie={"cookie"}
             >
                 <h2>This site uses cookies</h2>
-                <p>because I am very hungry and cookies are my favorite food.</p>
+                <br />
+                <p>because I am very hungry.</p>
+                <br />
                 <p>Give me all of your cookies.</p>
                 <span className='small'>(for legal reasons this is a joke)</span>
             </Modal>
@@ -308,7 +310,7 @@ export const AntiResumeContent = () => {
             {clicked && !done ? (
                 <>
                 <div>
-                    <p><strong>How fast can you write your name and email?</strong>
+                    <p><strong>How fast can you write your name, email, and phone number?</strong>
                     <br></br>
                     Time: {time}</p>
                 </div>

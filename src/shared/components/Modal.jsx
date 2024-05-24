@@ -25,11 +25,19 @@ const Modal = ({ isOpen, onClose, children, cookie }) => {
 
   return (
     <div className="modal-overlay">
-      <div className={`${cookie ? 'modal-cookies' : 'modal-content'} ${isAnimatingOut ? 'modal-disappear' : 'modal-appear'}`}>
+      <div className={`modal-content ${isAnimatingOut ? 'modal-disappear' : 'modal-appear'}`}>
         {children}
         <button 
           style={{padding: '5px'}}
-          onClick={handleClose}>I Am Ready</button>
+          onClick={handleClose}>
+          {cookie ? (
+            <p>Okay?</p>
+          )
+          :
+          (
+            <p>Ready</p>
+          )}
+        </button>
       </div>
     </div>
   );
