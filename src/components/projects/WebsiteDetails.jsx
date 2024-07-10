@@ -4,15 +4,16 @@ import { Typography } from '@mui/material';
 export const WebsiteDetails = () => {
 
     return (
-        <div style={{marginLeft: '10px', marginRight: '10px', marginTop: '10px', fontSize: '30px'}}>
+        <div className='mainProjectContainer'>
             <Typography 
-            variant='h4'
-            textAlign={'center'}
+                variant='h4'
+                textAlign={'center'}
+                style={{ marginBottom: '10px' }}
             >
-            Website Details
+            <h4>Portfolio Website</h4>
             </Typography>
-            <div style={{display: 'flex', justifyContent: 'center', marginTop: '50px'}}>
-                <img height={400} src='images/underConstruction2.png' alt='Page is under construction'/>
+            <div className='downloadLinks'>
+                <a href='https://github.com/justinluce/luce-website'>Github Repository</a>
             </div>
         </div>
     );
