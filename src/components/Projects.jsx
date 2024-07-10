@@ -1,70 +1,88 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef, useReducer } from 'react';
 import { Typography } from '@mui/material';
 import { FlexContainer } from '../shared/styled/FlexContainer';
 import { Img } from '../shared/styled/Img';
 import { MinesweeperDetails } from './projects/MinesweeperDetails';
 import { WebsiteDetails } from './projects/WebsiteDetails';
-import { PennyBotDetails } from './projects/PennyBotDetails';
-
+import { FeverDreamDetails } from './projects/FeverDreamDetails';
+import '../shared/styled/Projects.css';
 
 export const Projects = () => {
-    const [projectOpen, setProjectOpen] = useState(null);
-    
-    // Remnants of the screenshot display functionality
-    
-    // const [screenshot, setScreenshot] = useState('');
-    // useEffect(() => {
-    //     const img = sessionStorage.getItem('mainScreenshot');
-    //     if (img) {
-    //      setScreenshot(img);
-    //     }
-    // }, []);
+    const [projectOpen, setProjectOpen] = useState(1);
+    const projectList = [
+        'minesweeper',
+        'feverDream',
+        'website',
+    ];
+    const projectCount = projectList.length;
+    const galleryRef = useRef(null);
 
-    const handleClick = (path) => {
-        switch (path) {
-            case 'minesweeper':
-                setProjectOpen('minesweeper');
-                break;
-            case 'website':
-                setProjectOpen('website');
-                break;
-            case 'penny':
-                setProjectOpen('penny');
-                break;
+    const handleClick = (index) => {
+        setProjectOpen(index);
+    }
+
+    const handleLeftArrowClick = () => {
+        setProjectOpen((prevProject) => (prevProject === 0 ? projectCount - 1 : prevProject - 1));
+    };
+
+    const handleRightArrowClick = () => {
+        setProjectOpen((prevProject) => (prevProject === projectCount - 1 ? 0 : prevProject + 1));
+    };
+
+    const getClassName = (index) => {
+        if (index === projectOpen) return 'projectCard active';
+        if ((index + 1) % projectCount === projectOpen) return 'projectCard left';
+        if ((index - 1 + projectCount) % projectCount === projectOpen) return 'projectCard right';
+        return 'projectCard';
+    };
+
+    function handleArrowKeys(e) {
+        if (e.key == "ArrowLeft") {
+            e.preventDefault();
+            handleLeftArrowClick();
         }
+        if (e.key == "ArrowRight") {
+            e.preventDefault();
+            handleRightArrowClick();
+        }
+        galleryRef.current.focus();
     }
 
     return (
-        <div style={{marginLeft: '10px', marginRight: '10px', marginTop: '10px', fontSize: '30px'}}>
-            <Typography 
-            variant='h1'
-            textAlign={'center'}
-            >
-            Projects
+        <div className='mainProjectContainer' onKeyDown={handleArrowKeys} ref={galleryRef} tabIndex={0}>
+            <Typography variant='h1' textAlign={'center'}>
+                Projects
             </Typography>
-            <div style={{display: 'flex', justifyContent: 'center', marginTop: '50px'}}>
-                <img height={400} src='images/underConstruction2.png' alt='Page is under construction'/>
-            </div>
-            <FlexContainer flexDirection='row'>
-                <div onClick={() => handleClick('minesweeper')}
-                    style={{border: '2px solid black', width: '30%', height: '25%'}}>
-                    <div style={{borderBottom: '2px solid black'}}>Minesweeper</div>
-                    <Img src='/images/minesweeper.png' />
-                </div>
-                <div onClick={() => handleClick('website')}
-                    style={{border: '2px solid black', width: '30%', height: '25%'}}>
-                    <div style={{borderBottom: '2px solid black'}}>Portfolio Website</div>
-                    <Img src='/images/websiteProject.png' />
-                </div>
-                <div onClick={() => handleClick('penny')}
-                    style={{border: '2px solid black', width: '30%', height: '25%'}}>
-                    <div style={{borderBottom: '2px solid black'}}>Penny Bot</div>
-                    <Img src='/images/pennyProject.png' />
+            <FlexContainer className="galleryContainer">
+                {projectList.map((project, index) => (
+                    <div
+                        key={project}
+                        onClick={() => handleClick(index)}
+                        className={getClassName(index)}
+                    >
+                        <div style={{ borderBottom: '2px solid black' }}>
+                            {project.charAt(0).toUpperCase() + project.slice(1)}
+                        </div>
+                        <Img src={`/images/${project}.png`} height={'350px'} width={'400px'} />
+                    </div>
+                ))}
+                <div className='arrowContainer'>
+                    <img
+                        src='/images/leftArrow.png'
+                        className='arrow leftArrow'
+                        onClick={handleLeftArrowClick}
+                    />
+                    <img
+                        src='/images/leftArrow.png'
+                        className='arrow rightArrow'
+                        onClick={handleRightArrowClick}
+                    />
                 </div>
             </FlexContainer>
-            {projectOpen === 'minesweeper' && <MinesweeperDetails />}
-            {projectOpen === 'website' && <WebsiteDetails />}
-            {projectOpen === 'penny' && <PennyBotDetails />}
+
+            {projectOpen === 0 && <MinesweeperDetails />}
+            {projectOpen === 1 && <FeverDreamDetails />}
+            {projectOpen === 2 && <WebsiteDetails />}
         </div>
     );
-}
+};

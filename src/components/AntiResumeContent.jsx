@@ -219,20 +219,22 @@ export const AntiResumeContent = () => {
             >
                 <h2>This site uses cookies</h2>
                 <br />
-                <p>because I am very hungry.</p>
-                <br />
                 <p>Give me all of your cookies.</p>
+                <br />
+                <p>No, you cannot opt out.</p>
                 <span className='small'>(for legal reasons this is a joke)</span>
             </Modal>
         }
-        <h2 style={{marginBottom: '10px'}}>
-            You are required to sign up to access the rest of this page. 
-            Don't worry, your information will not be used maliciously. 
-            In fact, it won't even be saved at all. If you're paranoid,
-            you can use fake information, or check the&nbsp;
-            <a href="https://github.com/justinluce/luce-website">source code.</a>&nbsp;
-            <s className='small' style={{display: 'inline'}}>Please give me your data anyway.</s>
-        </h2>
+        <div style={{marginBottom: '10px'}}>
+            <h2 style={{textAlign: 'center', marginBottom: '40px'}}>You are required to sign up to access the rest of this page.</h2>
+            <p>
+                Don't worry, your information will not be used maliciously. 
+                In fact, it won't even be saved at all. If you're paranoid,
+                you can use fake information, or check the&nbsp;
+                <a href="https://github.com/justinluce/luce-website">source code.</a>&nbsp;
+                <s className='small' style={{display: 'inline'}}>Please give me your data anyway.</s>
+            </p>
+        </div>
         <p style={{marginBottom: '10px'}}>
             <strong>Currently, this is all of the content for this page.</strong>&nbsp; 
             In the future, I plan on adding a pop quiz, extra captchas,
