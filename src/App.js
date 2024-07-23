@@ -12,6 +12,7 @@ import { AntiResume } from './components/AntiResume';
 import { Music } from './components/Music';
 import Minesweeper from './components/Minesweeper';
 import { Cat } from './components/Cat';
+import { Chess } from './components/Chess';
 import { Chatroom } from './components/Chatroom';
 import { PennyBot } from './components/projects/PennyBot';
 import { Analytics } from "@vercel/analytics/react"
@@ -30,6 +31,7 @@ function App() {
             <Route path='/antiresume' element={<AntiResume />} />
             <Route path='/minesweeper' element={<Minesweeper />} />
             <Route path='/cat' element={<Cat />} />
+            <Route path='/chess' element={<Chess />} />
             <Route path='/penny' element={<PennyBot />} />
             <Route path='/' element={<Home />} />
             {/* <Route path='*' element={<Navigate to='home' />} /> */}

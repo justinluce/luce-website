@@ -5,6 +5,7 @@ import { Img } from '../shared/styled/Img';
 import { MinesweeperDetails } from './projects/MinesweeperDetails';
 import { WebsiteDetails } from './projects/WebsiteDetails';
 import { FeverDreamDetails } from './projects/FeverDreamDetails';
+import { ChessDetails } from './projects/ChessDetails';
 import '../shared/styled/Projects.css';
 
 export const Projects = () => {
@@ -13,6 +14,7 @@ export const Projects = () => {
         'minesweeper',
         'feverDream',
         'website',
+        'chess',
     ];
     const projectCount = projectList.length;
     const galleryRef = useRef(null);
@@ -83,6 +85,7 @@ export const Projects = () => {
             {projectOpen === 0 && <MinesweeperDetails />}
             {projectOpen === 1 && <FeverDreamDetails />}
             {projectOpen === 2 && <WebsiteDetails />}
+            {projectOpen === 3 && <ChessDetails />}
         </div>
     );
 };
