@@ -257,7 +257,7 @@ export const AntiResumeContent = () => {
             </Modal>
         }
             <form className='form'>
-                <label style={{marginRight: '10px'}}>
+                <label style={{ marginRight: '10px' }}>
                     Name:
                     <input
                         ref={nameRef}
@@ -273,9 +273,10 @@ export const AntiResumeContent = () => {
                                 handleInputFocus('name')
                             }
                         }}
-                        style={{width: '200px', height: '30px', marginLeft: '10px'}}
+                        style={{width: '20vw', height: '50px', marginLeft: '10px'}}
                         />
                 </label>
+                <br />
                 <label style={{marginRight: '10px'}}>
                     Email:
                     <input
@@ -292,9 +293,10 @@ export const AntiResumeContent = () => {
                                 handleInputFocus('email')
                             }
                         }}
-                        style={{width: '200px', height: '30px', marginLeft: '10px'}}
+                        style={{width: '20vw', height: '50px', marginLeft: '15px'}}
                     />
                 </label>
+                <br />
                 <label>
                     Phone Number:
                     <input 
@@ -305,13 +307,13 @@ export const AntiResumeContent = () => {
                         step="1"
                         value={number}
                         onChange={handleNumber}
-                        style={{width: '200px', height: '30px', marginLeft: '10px', marginRight: '10px'}}
+                        style={{width: '20vw', height: '50px', marginLeft: '10px', marginRight: '10px'}}
                     />
                     {formatNumber(number)}
                 </label>
             {clicked && !done ? (
                 <>
-                <div>
+                <div style={{marginTop: '10px'}}>
                     <p><strong>How fast can you write your name, email, and phone number?</strong>
                     <br></br>
                     Time: {time}</p>
