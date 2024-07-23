@@ -2,8 +2,8 @@
     position: absolute;
     flex-wrap: wrap;
     display: flex;
-    width: 1200px;
-    height: 1200px;
+    width: 1000px;
+    height: 1000px;
 }
 
 .chessPieces > div > img {
@@ -20,8 +20,8 @@
 
 .boardContainer {
     background-color: burlywood;
-    width: 1200px;
-    height: 1200px;
+    width: 1000px;
+    height: 1000px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -36,6 +36,4 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
 }
