@@ -31,6 +31,7 @@
 
 .projectCard.active {
     transform: translateX(0) scale(1);
+    z-index: 10;
 }
 
 .projectCard.left {
