@@ -5,6 +5,11 @@ export const Chess = () => {
     const [selectedPiece, setSelectedPiece] = useState();
     const [turn, setTurn] = useState('White');
     const [winner, setWinner] = useState();
+    const [promotionPosition, setPromotionPosition] = useState({ top: 0, left: 0 });
+    const [promotionPiece, setPromotionPiece] = useState(null);
+    const [showPromotion, setShowPromotion] = useState(false);
+    const [promotionColor ,setPromotionColor] = useState("");
+
     // Imports the images from the cards folder. 'true' is telling it to include all folders within the cards folder
     const images = require.context('../ChessPieces', true);
 
@@ -55,12 +60,6 @@ export const Chess = () => {
         return (row + col) % 2 === 0 ? '' : 'black';
     }
     
-    // 1. Function that says who wins when their king is taken and also stops the game from crashing (done)
-    // 2. If they're in check, calculate if they're in checkmate
-    // 3. Don't let them put themselves in check
-    // 4. Officially end the game (done)
-
-    // Function for calculating if the king is in check
     function isInCheck(currentTurn) {
         const king = pieces.find(piece => piece.src.includes(currentTurn + "King"));
         if (!king) {
@@ -71,7 +70,6 @@ export const Chess = () => {
         let kingPosition = king.currentPosition;
 
         return pieces.some(item => {
-            // Ternary operator
             if (item.src.includes(currentTurn === "White" ? "Black" : "White")) {
                 return movePieces(item, { currentPosition: kingPosition, src: `${currentTurn}King` });
             }
@@ -228,9 +226,27 @@ export const Chess = () => {
         }
     }, [turn]);
 
+    useEffect(() => {
+        const pawns = pieces.filter((item) => item.src.includes("Pawn"));
+
+        pawns.forEach(item => {
+            const row = item.src.includes("White") ? 8 : 1;
+            if (item.currentPosition.substring(1, 2) == row) {
+                setShowPromotion(true);
+                setPromotionPiece(item);
+                setPromotionColor(item.src.includes("White") ? "White" : "Black")
+                const element = document.querySelector(`[data-position="${item.currentPosition}"]`);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    setPromotionPosition({ top: rect.top - 50, left: rect.left });
+                }
+            }
+        });
+    }, [pieces]);
+
     function squareClicked(item) {
-        // Check if there's a winner
-        if (winner) {
+        // Check if there's a winner or a pending promotion
+        if (winner || showPromotion) {
             return;
         }
 
@@ -265,6 +281,12 @@ export const Chess = () => {
         }
     }
 
+    function promotePawn(type) {
+        promotionPiece.src = `${promotionColor}${type}`;
+        console.log(`${promotionColor}${type}`);
+        setShowPromotion(false);
+    }
+
     return (
         <div className='mainContainer'>
             {winner && (
@@ -276,9 +298,10 @@ export const Chess = () => {
                         item.src !== 'null' ? (
                             <div className='piece' draggable
                                 style={{ backgroundColor: selectedPiece === item ? 'green' : setBackgroundColor(index) }} 
+                                data-position={item.currentPosition}
                                 onClick={() => squareClicked(item)}>
                                 <img
-                                    src={ require(`../ChessPieces/${item.src}.png`)}    
+                                    src={ require(`../ChessPieces/${item.src}.png`)}
                                 />
                             </div>
                         )
@@ -287,6 +310,14 @@ export const Chess = () => {
                     ))}
                 </div>
             </div>
+            {showPromotion && (
+                <div className='promotion' style={{ top: promotionPosition.top, left: promotionPosition.left }}>
+                    <img onClick={() => promotePawn("Queen")} src={ require(`../ChessPieces/${promotionColor}Queen.png`) } />
+                    <img onClick={() => promotePawn("Rook1")} src={ require(`../ChessPieces/${promotionColor}Rook1.png`) } />
+                    <img onClick={() => promotePawn("Bishop1")} src={ require(`../ChessPieces/${promotionColor}Bishop1.png`) } />
+                    <img onClick={() => promotePawn("Knight1")} src={ require(`../ChessPieces/${promotionColor}Knight1.png`) } />
+                </div>
+            )}
         </div>
     )
 }
