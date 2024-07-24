@@ -2,7 +2,7 @@
     position: absolute;
     flex-wrap: wrap;
     display: flex;
-    width: 50%;
+    width: 40%;
     height: 80%;
 }
 
@@ -21,7 +21,7 @@
 
 .boardContainer {
     background-color: burlywood;
-    width: 50vw;
+    width: 40vw;
     height: 80vh;
     margin-left: auto;
     margin-right: auto;
@@ -37,4 +37,24 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.promotion {
+    position: absolute;
+    border: 1px solid black;
+    background-color: white;
+    z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    transform: scale(.7, .7);
+}
+
+.promotion img {
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.promotion img:hover {
+    background: lightgray;
 }
