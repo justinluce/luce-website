@@ -63,13 +63,13 @@ export const Chess = () => {
     function isInCheck(currentTurn) {
         const king = pieces.find(piece => piece.src.includes(currentTurn + "King"));
         if (!king) {
-            console.log(`${currentTurn === "White" ? "Black" : "White"} wins`);
             setWinner(currentTurn === "White" ? "Black" : "White");
             return;
         }
         let kingPosition = king.currentPosition;
 
         return pieces.some(item => {
+            // Ternary operator
             if (item.src.includes(currentTurn === "White" ? "Black" : "White")) {
                 return movePieces(item, { currentPosition: kingPosition, src: `${currentTurn}King` });
             }
@@ -123,7 +123,7 @@ export const Chess = () => {
         }
 
         if (item.src.includes('Pawn')) {
-            if (turn === 'White') {
+            if (item.src.includes("White")) {
                 let moveAmount;
                 item.currentPosition.substring(1, 2) == 2 ? moveAmount = 2 : moveAmount = 1;
                 // Vertical Movement
@@ -136,16 +136,16 @@ export const Chess = () => {
                     // Diagonal Movement
                     Math.abs(target.currentPosition.substring(0, 1).charCodeAt(0) - item.currentPosition.substring(0, 1).charCodeAt(0)) == 1 &&
                     (target.currentPosition.substring(1, 2) - item.currentPosition.substring(1, 2)) == 1 &&
-                    target.src !== "null" 
+                    target.src.includes("Black") 
                     ) {
                         return true;
                     } else {
-                    return false;
+                        return false;
                 }
             } else {
                 let moveAmount;
                 item.currentPosition.substring(1, 2) == 7 ? moveAmount = -2 : moveAmount = -1;
-                if (target.currentPosition.substring(1, 2) - item.currentPosition.substring(1, 2) <= Math.abs(moveAmount) &&
+                if (target.currentPosition.substring(1, 2) - item.currentPosition.substring(1, 2) >= moveAmount &&
                     target.currentPosition.substring(1, 2) - item.currentPosition.substring(1, 2) !== 1 &&
                     Math.abs(target.currentPosition.substring(0, 1).charCodeAt(0) - item.currentPosition.substring(0, 1).charCodeAt(0)) === 0 &&
                     target.src == "null" &&
@@ -153,7 +153,7 @@ export const Chess = () => {
                     ||
                     Math.abs(target.currentPosition.substring(0, 1).charCodeAt(0) - item.currentPosition.substring(0, 1).charCodeAt(0)) == 1 &&
                     (target.currentPosition.substring(1, 2) - item.currentPosition.substring(1, 2)) == -1 &&
-                    target.src !== "null" 
+                    target.src.includes("White")
                     ) {
                     return true;
                 } else {
