@@ -17,7 +17,7 @@ export const Chess = () => {
     // const imageList = images.keys().map(image => images(image));
 
     // Each piece needs its current position, the name, image source
-    const coordinates = [
+    let coordinates = [
         { currentPosition: 'A8', src: "BlackRook0"}, {currentPosition: 'B8', src: "BlackKnight0"},
         { currentPosition: 'C8', src: "BlackBishop0"}, {currentPosition: 'D8', src: "BlackQueen"},
         { currentPosition: 'E8', src: "BlackKing"}, {currentPosition: 'F8', src: "BlackBishop1"},
@@ -53,40 +53,40 @@ export const Chess = () => {
     ];
 
     // testing coords
-    // const coordinates = [
-    //     { currentPosition: 'A8', src: "BlackRook0"}, {currentPosition: 'B8', src: "null"},
-    //     { currentPosition: 'C8', src: "null"}, {currentPosition: 'D8', src: "null"},
-    //     { currentPosition: 'E8', src: "BlackKing"}, {currentPosition: 'F8', src: "null"},
-    //     { currentPosition: 'G8', src: "null"}, {currentPosition: 'H8', src: "BlackRook1"},
-    //     { currentPosition: 'A7', src: "BlackPawn0"}, {currentPosition: 'B7', src: "BlackPawn1"},
-    //     { currentPosition: 'C7', src: "BlackPawn2"}, {currentPosition: 'D7', src: "BlackPawn3"},
-    //     { currentPosition: 'E7', src: "BlackPawn4"}, {currentPosition: 'F7', src: "BlackPawn5"},
-    //     { currentPosition: 'G7', src: "BlackPawn6"}, {currentPosition: 'H7', src: "BlackPawn7"},
-    //     { currentPosition: 'A6', src: "null"}, {currentPosition: 'B6', src: "null"},
-    //     { currentPosition: 'C6', src: "null"}, {currentPosition: 'D6', src: "null"},
-    //     { currentPosition: 'E6', src: "null"}, {currentPosition: 'F6', src: "null"},
-    //     { currentPosition: 'G6', src: "null"}, {currentPosition: 'H6', src: "null"},
-    //     { currentPosition: 'A5', src: "null"}, {currentPosition: 'B5', src: "null"},
-    //     { currentPosition: 'C5', src: "null"}, {currentPosition: 'D5', src: "null"},
-    //     { currentPosition: 'E5', src: "null"}, {currentPosition: 'F5', src: "null"},
-    //     { currentPosition: 'G5', src: "null"}, {currentPosition: 'H5', src: "null"},
-    //     { currentPosition: 'A4', src: "null"}, {currentPosition: 'B4', src: "null"},
-    //     { currentPosition: 'C4', src: "null"}, {currentPosition: 'D4', src: "null"},
-    //     { currentPosition: 'E4', src: "null"}, {currentPosition: 'F4', src: "null"},
-    //     { currentPosition: 'G4', src: "null"}, {currentPosition: 'H4', src: "null"},
-    //     { currentPosition: 'A3', src: "null"}, {currentPosition: 'B3', src: "null"},
-    //     { currentPosition: 'C3', src: "null"}, {currentPosition: 'D3', src: "null"},
-    //     { currentPosition: 'E3', src: "null"}, {currentPosition: 'F3', src: "null"},
-    //     { currentPosition: 'G3', src: "null"}, {currentPosition: 'H3', src: "null"},
-    //     { currentPosition: 'A2', src: "WhitePawn0"}, {currentPosition: 'B2', src: "WhitePawn1"},
-    //     { currentPosition: 'C2', src: "WhitePawn2"}, {currentPosition: 'D2', src: "WhitePawn3"},
-    //     { currentPosition: 'E2', src: "WhitePawn4"}, {currentPosition: 'F2', src: "WhitePawn5"},
-    //     { currentPosition: 'G2', src: "WhitePawn6"}, {currentPosition: 'H2', src: "WhitePawn7"},
-    //     { currentPosition: 'A1', src: "WhiteRook0"}, {currentPosition: 'B1', src: "null"},
-    //     { currentPosition: 'C1', src: "null"}, {currentPosition: 'D1', src: "null"},
-    //     { currentPosition: 'E1', src: "WhiteKing"}, {currentPosition: 'F1', src: "null"},
-    //     { currentPosition: 'G1', src: "null"}, {currentPosition: 'H1', src: "WhiteRook1"},
-    // ];
+    coordinates = [
+        { currentPosition: 'A8', src: "BlackRook0"}, {currentPosition: 'B8', src: "null"},
+        { currentPosition: 'C8', src: "null"}, {currentPosition: 'D8', src: "null"},
+        { currentPosition: 'E8', src: "BlackKing"}, {currentPosition: 'F8', src: "null"},
+        { currentPosition: 'G8', src: "null"}, {currentPosition: 'H8', src: "BlackRook1"},
+        { currentPosition: 'A7', src: "BlackPawn0"}, {currentPosition: 'B7', src: "BlackPawn1"},
+        { currentPosition: 'C7', src: "BlackPawn2"}, {currentPosition: 'D7', src: "BlackPawn3"},
+        { currentPosition: 'E7', src: "BlackPawn4"}, {currentPosition: 'F7', src: "BlackPawn5"},
+        { currentPosition: 'G7', src: "BlackPawn6"}, {currentPosition: 'H7', src: "BlackPawn7"},
+        { currentPosition: 'A6', src: "null"}, {currentPosition: 'B6', src: "null"},
+        { currentPosition: 'C6', src: "null"}, {currentPosition: 'D6', src: "null"},
+        { currentPosition: 'E6', src: "null"}, {currentPosition: 'F6', src: "null"},
+        { currentPosition: 'G6', src: "null"}, {currentPosition: 'H6', src: "null"},
+        { currentPosition: 'A5', src: "null"}, {currentPosition: 'B5', src: "null"},
+        { currentPosition: 'C5', src: "null"}, {currentPosition: 'D5', src: "null"},
+        { currentPosition: 'E5', src: "null"}, {currentPosition: 'F5', src: "null"},
+        { currentPosition: 'G5', src: "null"}, {currentPosition: 'H5', src: "null"},
+        { currentPosition: 'A4', src: "null"}, {currentPosition: 'B4', src: "null"},
+        { currentPosition: 'C4', src: "null"}, {currentPosition: 'D4', src: "null"},
+        { currentPosition: 'E4', src: "null"}, {currentPosition: 'F4', src: "null"},
+        { currentPosition: 'G4', src: "null"}, {currentPosition: 'H4', src: "null"},
+        { currentPosition: 'A3', src: "null"}, {currentPosition: 'B3', src: "null"},
+        { currentPosition: 'C3', src: "null"}, {currentPosition: 'D3', src: "null"},
+        { currentPosition: 'E3', src: "null"}, {currentPosition: 'F3', src: "null"},
+        { currentPosition: 'G3', src: "null"}, {currentPosition: 'H3', src: "null"},
+        { currentPosition: 'A2', src: "WhitePawn0"}, {currentPosition: 'B2', src: "WhitePawn1"},
+        { currentPosition: 'C2', src: "WhitePawn2"}, {currentPosition: 'D2', src: "WhitePawn3"},
+        { currentPosition: 'E2', src: "WhitePawn4"}, {currentPosition: 'F2', src: "WhitePawn5"},
+        { currentPosition: 'G2', src: "WhitePawn6"}, {currentPosition: 'H2', src: "WhitePawn7"},
+        { currentPosition: 'A1', src: "WhiteRook0"}, {currentPosition: 'B1', src: "null"},
+        { currentPosition: 'C1', src: "null"}, {currentPosition: 'D1', src: "null"},
+        { currentPosition: 'E1', src: "WhiteKing"}, {currentPosition: 'F1', src: "null"},
+        { currentPosition: 'G1', src: "null"}, {currentPosition: 'H1', src: "WhiteRook1"},
+    ];
 
     const [pieces, setPieces] = useState(coordinates);
 
@@ -305,6 +305,7 @@ export const Chess = () => {
             if (turn === "White") {
                 if (selectedPiece.currentPosition === "E1" && (item.currentPosition === "A1" || item.currentPosition === "H1")) {
                     const validMove = movePieces(selectedPiece, item);
+                    console.log("runnign this");
                     if (validMove) {
                         setPieces(prevPieces => prevPieces.map(piece => {
                             if (piece.currentPosition === item.currentPosition) {
@@ -321,6 +322,7 @@ export const Chess = () => {
                             }
                             return piece;
                         }));
+                        setSelectedPiece(null);
                         turn === 'White' ? setTurn('Black') : setTurn('White');
                     }
                 }
@@ -343,6 +345,7 @@ export const Chess = () => {
                             }
                             return piece;
                         }));
+                        setSelectedPiece(null);
                         turn === 'White' ? setTurn('Black') : setTurn('White');
                     }
                 }
