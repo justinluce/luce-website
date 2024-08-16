@@ -1,0 +1,12 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.mainContainer > * {
+    font-size: 100%;
+    text-align: center;
+    margin: 10px;
+    width: 20vw;
+    height: 5vh;
+}

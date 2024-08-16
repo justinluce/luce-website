@@ -13,7 +13,7 @@ export const ChessDetails = () => {
             <h4>Chess</h4>
             </Typography>
             <div className='downloadLinks'>
-                <a href='https://www.justinlucedev.com/chess'>Hosted on this site</a>
+                <a href='https://www.justinlucedev.com/chessSingle'>Hosted on this site</a>
             </div>
         </div>
     );
