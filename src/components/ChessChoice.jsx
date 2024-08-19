@@ -19,7 +19,7 @@ export const ChessChoice = () => {
         <div className="mainContainer">
             <button onClick={() => singlePlayer()}>Single Player</button>
             {selectMulti ? (
-                <p>Multiplayer doesn't work yet. Choose single player 😁 </p>   
+                <p>Multiplayer doesn't work yet. Choose single player 😁</p>   
             ) : (
                 <button onClick={() => multiplayer()}>Multiplayer</button>
             )}

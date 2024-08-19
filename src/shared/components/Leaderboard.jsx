@@ -12,7 +12,6 @@ const formatUserTime = (time) => {
 
 const generateFakeUsers = (userTime, numUsers = 9) => {
     const fakeUsers = [
-        "xyoloswaglordx",
         "PrinterPaper",
         "NuclearChocolate",
         "xX_Giga_Blaster20_Xx",
@@ -35,7 +34,8 @@ const generateFakeUsers = (userTime, numUsers = 9) => {
         "FaZe_Quickscope_G0d",
         "ShadowAssassin_07",
         "[BANNED USER]",
-        "Lvl70FeralDruid"
+        "Lvl70FeralDruid",
+        "Cycl0n3 Sw0rd",
     ];
     
     const selectedUsernames = getRandomUsers(fakeUsers, numUsers);
