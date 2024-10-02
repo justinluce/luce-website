@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { useNavigate } from 'react-router-dom';
@@ -8,50 +8,73 @@ import './Menu.css';
 //TODO Put CSS in CSS file
 
 function LinkTab(props) {
-  const { setValue } = useMenuContext();
-  const navigate = useNavigate();
-  return (
-      <Tab
-          sx={{
-              fontSize: '2rem', 
-              height: '3rem', 
-              marginTop: '1rem',
-              width: '100vw',
-              color: 'default',
-              '&.Mui-selected': { 
-                color: 'black',
-              }
-          }}
-          component="a"
-          onClick={(event) => {
-              event.preventDefault();
-              const href = event.currentTarget.getAttribute('href');
-              const value = parseInt(event.currentTarget.getAttribute('data-value', 10));
-              navigate(href);
-              setValue(value);
-          }}
-          {...props}
-      />
-  );
+    const { setValue } = useMenuContext();
+    const navigate = useNavigate();
+
+    return (
+        <Tab
+            sx={{
+                fontSize: '2rem', 
+                height: '4rem', 
+                marginTop: '1rem',
+                color: 'default',
+                '&.Mui-selected': { 
+                    color: 'black',
+                }
+            }}
+            component="a"
+            onClick={(event) => {
+                event.preventDefault();
+                const href = event.currentTarget.getAttribute('href');
+                const value = parseInt(event.currentTarget.getAttribute('data-value', 10));
+                navigate(href);
+                setValue(value);
+            }}
+            {...props}
+        />
+    );
 }
 
   
 export const Menu = () => {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const { value, handleChange } = useMenuContext();
+
+    const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    const variant = windowWidth >= 1200 ? 'fullWidth' : 'scrollable';
 
     return (
         <Tabs 
-        value={value} 
-        onChange={handleChange} 
-        variant="scrollable"
-        scrollButtons="auto"
-        className='main'
-        sx={{
-            '.MuiTabs-indicator': {
-                backgroundColor: 'black',
-            },
-            flexGrow: 1,
-        }}
+            value={value} 
+            onChange={handleChange} 
+            // scrollButtons="auto"
+            className='main'
+            centered
+            variant={variant}
+            scrollButtons
+            allowScrollButtonsMobile
+            sx={{
+                '.MuiTabs-scrollButtons': {
+                    '& .MuiSvgIcon-root': {
+                        fontSize: '2rem',
+                    }
+                },
+                '.MuiTabs-indicator': {
+                    backgroundColor: 'black',
+                },
+                flexGrow: 1,
+            }}
         >
             <LinkTab label="Home" href="/home" data-value={0}/>
             <LinkTab label="Projects" href="projects" data-value={1}/>

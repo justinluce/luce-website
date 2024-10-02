@@ -54,7 +54,7 @@ export const Home = () => {
         //     document.body.style.height = '';
         // });
     }, []);
-
+    
     return (
         <div style={{fontSize: '30px', display: 'flex', flexDirection: 'column'}}>
         {/*//!TODO: Put styling elsewhere*/}
