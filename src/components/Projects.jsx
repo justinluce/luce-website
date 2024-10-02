@@ -18,6 +18,7 @@ export const Projects = () => {
     ];
     const projectCount = projectList.length;
     const galleryRef = useRef(null);
+    const arrowRef = useRef(null);
 
     const handleClick = (index) => {
         setProjectOpen(index);
@@ -38,7 +39,7 @@ export const Projects = () => {
         return 'projectCard';
     };
 
-    function handleArrowKeys(e) {
+    const handleArrowKeys = (e) => {
         if (e.key == "ArrowLeft") {
             e.preventDefault();
             handleLeftArrowClick();
@@ -48,6 +49,16 @@ export const Projects = () => {
             handleRightArrowClick();
         }
         galleryRef.current.focus();
+    }
+
+    const handleArrowEnter = (e) => {
+        arrowRef.current = e.target;
+        arrowRef.current.src = '/images/leftArrowYellow.png';
+    }
+
+    const handleArrowLeave = (e) => {
+        arrowRef.current = e.target;
+        arrowRef.current.src = '/images/leftArrow.png';
     }
 
     return (
@@ -73,11 +84,15 @@ export const Projects = () => {
                         src='/images/leftArrow.png'
                         className='arrow leftArrow'
                         onClick={handleLeftArrowClick}
+                        onMouseEnter={(e) => handleArrowEnter(e)}
+                        onMouseLeave={(e) => handleArrowLeave(e)}
                     />
                     <img
                         src='/images/leftArrow.png'
                         className='arrow rightArrow'
                         onClick={handleRightArrowClick}
+                        onMouseEnter={(e) => handleArrowEnter(e)}
+                        onMouseLeave={(e) => handleArrowLeave(e)}
                     />
                 </div>
             </FlexContainer>
