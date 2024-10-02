@@ -36,12 +36,10 @@
 
 .projectCard.left {
     transform: translateX(-100%) scale(0.5);
-    z-index: -10;
 }
 
 .projectCard.right {
     transform: translateX(100%) scale(0.5);
-    z-index: -10;
 }
 
 .arrow {
@@ -50,9 +48,9 @@
     z-index: 10;
 }
 
-/* .arrow:hover {
-    box-shadow: 0 0 40px 10px rgba(255, 255, 0, 0.7);
-} */
+.projectCard:hover {
+    box-shadow: 0 0 50px 10px rgba(255, 255, 0, 0.7);
+}
 
 .arrowContainer {
     margin-top: 450px;

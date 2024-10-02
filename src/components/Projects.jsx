@@ -21,6 +21,7 @@ export const Projects = () => {
     const arrowRef = useRef(null);
 
     const handleClick = (index) => {
+        console.log(index);
         setProjectOpen(index);
     }
 
