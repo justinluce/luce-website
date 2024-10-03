@@ -5,15 +5,17 @@ import io from 'socket.io-client';
 
 export const Chatroom = () => {
 
-    const socket = io('http://localhost:5000');
-
+    let socket;
+    
     useEffect(() => {
+        socket = io('http://localhost:5000');
         socket.on('chat message', (msg) => {
             console.log('Received message: ', msg);
         });
 
         return () => {
             socket.off('chat message');
+            socket.disconnect();
         };
     }, []);
 
