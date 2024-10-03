@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useReducer } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Typography } from '@mui/material';
 import { FlexContainer } from '../shared/styled/FlexContainer';
 import { Img } from '../shared/styled/Img';
@@ -37,7 +37,7 @@ export const Projects = () => {
         if (index === projectOpen) return 'projectCard active';
         if ((index + 1) % projectCount === projectOpen) return 'projectCard left';
         if ((index - 1 + projectCount) % projectCount === projectOpen) return 'projectCard right';
-        return 'projectCard';
+        return 'projectCard behind';
     };
 
     const handleArrowKeys = (e) => {
