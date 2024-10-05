@@ -77,7 +77,7 @@ export const Projects = () => {
                         <div style={{ borderBottom: '2px solid black' }}>
                             {project.charAt(0).toUpperCase() + project.slice(1)}
                         </div>
-                        <Img src={`/images/${project}.png`} height={'350px'} width={'400px'} />
+                        <Img src={`/images/${project}.webp`} height={'350px'} width={'400px'} />
                     </div>
                 ))}
                 <div className='arrowContainer'>

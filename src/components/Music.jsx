@@ -66,7 +66,7 @@ export const Music = () => {
                     </Typography>
                     <a href='https://justinluce.bandcamp.com/album/remless' target='_blank'>
                         <Img 
-                            src="/images/remless.jpg"
+                            src="/images/remless.webp"
                             title="REMLESS"
                             alt="EP titled REMLESS"
                             width="400"
@@ -79,7 +79,7 @@ export const Music = () => {
                     </Typography>
                     <a href='https://justinluce.bandcamp.com/album/lethological' target='_blank'>
                         <Img 
-                            src="/images/lethological.jpg"
+                            src="/images/lethological.webp"
                             title="Lethological"
                             alt="EP titled Lethological"
                             width="400"
@@ -92,7 +92,7 @@ export const Music = () => {
                     </Typography> 
                     <a href='https://justinluce.bandcamp.com/album/welcome-to-the-aether' target='_blank'>
                         <Img 
-                            src="/images/welcomeToTheAether.jpg"
+                            src="/images/welcomeToTheAether.webp"
                             title="Welcome to the Aether"
                             alt="EP titled Welcome to the Aether"
                             width="400"
@@ -106,13 +106,13 @@ export const Music = () => {
                 <FlexContainer flexDirection={'row'} justifyContent={'center'}>
                     <FlexContainer>
                         <Typography variant='h5' textAlign={'center'}>
-                            Spontaneous Parallelism
+                            Parallelism
                         </Typography>
-                        <a href='https://justinluce.bandcamp.com/track/spontaneous-parallelism' target='_blank'>
+                        <a href='https://justinluce.bandcamp.com/track/parallelism-2' target='_blank'>
                             <Img 
-                                src="/images/spontaneousParallelism.jpg"
-                                title="Spontaneous Paralellism"
-                                alt="Single titled Spontaneous Parallelism"
+                                src="/images/parallelism.webp"
+                                title="Paralellism"
+                                alt="Single titled Parallelism"
                                 width="400"
                             />
                         </a>
@@ -123,7 +123,7 @@ export const Music = () => {
                     </Typography>
                     <a href='https://justinluce.bandcamp.com/track/out-of-my-mind' target='_blank'>
                         <Img 
-                            src="/images/outOfMyMind.jpg"
+                            src="/images/outOfMyMind.webp"
                             title="Out Of My Mind"
                             alt="Single titled Out Of My Mind"
                             width="400"
@@ -136,7 +136,7 @@ export const Music = () => {
                         </Typography>
                         <a href='https://justinluce.bandcamp.com/track/spontaneous-recovery-2' target='_blank'>
                             <Img 
-                                src="/images/spontaneousRecovery.jpg"
+                                src="/images/spontaneousRecovery.webp"
                                 title="Spontaneous Recovery"
                                 alt="Single titled Spontaneous Recovery"
                                 width="400"
