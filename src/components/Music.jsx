@@ -33,6 +33,14 @@ export const Music = () => {
             </Typography>
             <Typography variant='h5'>
                 <FlexContainer>
+                    Luce's Medley
+                    <div style={{ transform: 'scale(1.5)', marginTop: '30px' }}>
+                    <audio controls>
+                        <source src="/music/Luce'sMedley.mp3"></source>
+                    </audio>
+                    </div>
+                </FlexContainer>
+                <FlexContainer>
                     Spontaneous Recovery
                     <div style={{ transform: 'scale(1.5)', marginTop: '30px'}}>
                     <audio controls>
@@ -41,18 +49,10 @@ export const Music = () => {
                     </div>
                 </FlexContainer>
                 <FlexContainer>
-                    Housekeeping
+                    Paralellism
                     <div style={{ transform: 'scale(1.5)', marginTop: '30px' }}>
                     <audio controls>
-                        <source src="/music/Housekeeping.mp3"></source>
-                    </audio>
-                    </div>
-                </FlexContainer>
-                <FlexContainer>
-                    Spontaneous Combustion
-                    <div style={{ transform: 'scale(1.5)', marginTop: '30px' }}>
-                    <audio controls>
-                        <source src="/music/SpontaneousCombustion.mp3"></source>
+                        <source src="/music/Parallelism.mp3"></source>
                     </audio>
                     </div>
                 </FlexContainer>
