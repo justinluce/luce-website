@@ -12,7 +12,7 @@ export const Projects = () => {
     const [projectOpen, setProjectOpen] = useState(1);
     const projectList = [
         'minesweeper',
-        'feverDream',
+        'fever Dream',
         'website',
         'chess',
     ];
