@@ -32,10 +32,15 @@ const Minesweeper = () => {
 
     if (board[row][col].value === -1) {
         setGameOver(true);
+        for (let i = 0; i < newBoard.length; i++) {
+          let outer = newBoard[i];
+          for (let j = 0; j < outer.length; j++) {
+            newBoard[i][j].revealed = true;
+          }
+        }
         setBoard(newBoard);
         return;
     }
-
     setBoard(newBoard);
   };
 
