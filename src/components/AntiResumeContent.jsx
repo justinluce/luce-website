@@ -277,7 +277,7 @@ export const AntiResumeContent = () => {
                         />
                 </label>
                 <br />
-                <label style={{marginRight: '10px'}}>
+                <label style={{marginRight: '10px', marginBottom: '20px'}}>
                     Email:
                     <input
                         ref={emailRef}
@@ -297,8 +297,9 @@ export const AntiResumeContent = () => {
                     />
                 </label>
                 <br />
+                <br />
                 <label>
-                    Phone Number:
+                    Phone Number
                     <input 
                         disabled={done}
                         type="range"
@@ -307,7 +308,7 @@ export const AntiResumeContent = () => {
                         step="1"
                         value={number}
                         onChange={handleNumber}
-                        style={{width: '20vw', height: '50px', marginLeft: '10px', marginRight: '10px'}}
+                        style={{ width: '20vw', height: '50px', display: 'block', margin: '10px auto' }}
                     />
                     {formatNumber(number)}
                 </label>
