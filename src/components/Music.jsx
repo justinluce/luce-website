@@ -33,7 +33,7 @@ export const Music = () => {
             </Typography>
             <Typography variant='h5'>
                 <FlexContainer>
-                    Luce's Medley
+                    Luce's Dream
                     <div style={{ transform: 'scale(1.5)', marginTop: '30px' }}>
                     <audio controls>
                         <source src="/music/Luce'sDream.mp3"></source>
