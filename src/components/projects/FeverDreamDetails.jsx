@@ -12,10 +12,11 @@ export const FeverDreamDetails = () => {
             >
             <h4>Fever Dream 1999</h4>
             </Typography>
-            <p style={{ textAlign: 'center' }}>
-                A video game comprised of a bunch of small mini-games, each one being a parody of a different genre.
-                <br /><br />
-                Currently version 0.1.5.
+            <p style={{ textAlign: 'center', marginRight: '20px' }}>
+            Justin Luce's Fever Dream 1999 is a collection of parody games about the creative process. 
+            Justin will create games for you to play, and you will provide feedback for him.
+            <br /><br />
+            Currently version 0.1.5.
             </p>
             <br />
             <div className='downloadLinks'>
