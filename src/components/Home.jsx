@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { FlexContainer } from '../shared/styled/FlexContainer';
 import { Typography } from '@mui/material';
-import html2canvas from 'html2canvas';
+import '../shared/styled/Home.css';
 
 export const Home = () => {
 
@@ -58,18 +58,20 @@ export const Home = () => {
     return (
         <div style={{fontSize: '30px', display: 'flex', flexDirection: 'column'}}>
         {/*//!TODO: Put styling elsewhere*/}
-        <FlexContainer style={{marginTop: '0'}} flexDirection="column" alignItems="flex-start" justifyContent="flex-start" width="auto">
+        <FlexContainer style={{marginTop: '0'}} alignItems="flex-start" justifyContent="flex-start" width="auto">
             <Typography variant="h1">
-                Justin Luce
-                <a href="https://github.com/justinluce">
-                    <img 
-                        title="GitHub Logo"
-                        alt="GitHub Logo"
-                        width={50}
-                        height={50}
-                        src="/images/github-mark.png"
-                    />
-                </a>
+                <p textAlign='center'>
+                    Justin Luce
+                    <a href="https://github.com/justinluce">
+                        <img 
+                            title="GitHub Logo"
+                            alt="GitHub Logo"
+                            width={50}
+                            height={50}
+                            src="/images/github-mark.png"
+                        />
+                    </a>
+                </p>
             </Typography>
             <div style={{ width: "400px", height: "400px", overflow: "hidden", borderRadius: "50%", marginBottom: "20px" }}>
                 <img 
@@ -100,15 +102,15 @@ export const Home = () => {
                 , as I'll continue creating new things over time.
             </p>
         </FlexContainer>
-            <footer style={{marginTop: '50px', textAlign: 'center'}}>
-                Contact:
-                <br />
-                <a href="mailto: justinlucedev@gmail.com">
-                justinlucedev@gmail.com
-                </a>
-                <br/>
-                <a href="www.linkedin.com/in/justinlucedev">My LinkedIn</a>
-            </footer>
+        {/* Column gap doesn't work here? Fuck it put line breaks */}
+        <FlexContainer style={{marginTop: '50px', textAlign: 'center'}}>
+            Contact:
+            <br/>
+            <br/>
+            <a href="mailto: justinlucedev@gmail.com">justinlucedev@gmail.com</a>
+            <br/>
+            <a href="www.linkedin.com/in/justinlucedev">My LinkedIn</a>
+        </FlexContainer>
         </div>
     );
 }

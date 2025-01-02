@@ -31,10 +31,10 @@ export const FlexContainer = styled.div((props) => ({
     justifyContent: props.justifyContent || 'space-evenly',
     }));
 
-    function getBasis(props, size) {
+function getBasis(props, size) {
     const prefix = size ? `${size}-` : "";
     if (props[`${prefix}third`]) return "calc(100% / 3 - 10px)";
     if (props[`${prefix}quarter`]) return "calc(25% - 10px)";
     if (props[`${prefix}half`]) return "calc(50% - 10px)";
     if (props[`${prefix}full`]) return "calc(100% - 10px)";
-    }
+}
