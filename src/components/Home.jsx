@@ -85,7 +85,7 @@ export const Home = () => {
                 />
             </div>
             <p style={{marginBottom: "20px"}}>
-                Hello! I'm Justin Luce. I am currently an instructor for Midland's Code Academy 
+                Hello! I'm Justin Luce. I am currently an instructor for Midland University's Code Academy 
                 that is focused on full-stack web development. I teach the Re-Entry Program, 
                 a coding bootcamp designed for incarcerated individuals, 
                 as well as an online course. I have created multiple video games 
