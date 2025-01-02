@@ -101,10 +101,13 @@ export const Home = () => {
             </p>
         </FlexContainer>
             <footer style={{marginTop: '50px', textAlign: 'center'}}>
-                To contact me, please do so at&nbsp;
+                Contact:
+                <br />
                 <a href="mailto: justinlucedev@gmail.com">
                 justinlucedev@gmail.com
                 </a>
+                <br/>
+                <a href="www.linkedin.com/in/justinlucedev">My LinkedIn</a>
             </footer>
         </div>
     );
