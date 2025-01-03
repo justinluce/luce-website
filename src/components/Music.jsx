@@ -41,18 +41,18 @@ export const Music = () => {
                     </div>
                 </FlexContainer>
                 <FlexContainer>
-                    Spontaneous Recovery
-                    <div style={{ transform: 'scale(1.5)', marginTop: '30px'}}>
-                    <audio controls>
-                        <source src="/music/SpontaneousRecovery.mp3"></source>
-                    </audio>
-                    </div>
-                </FlexContainer>
-                <FlexContainer>
                     Paralellism
                     <div style={{ transform: 'scale(1.5)', marginTop: '30px' }}>
                     <audio controls>
                         <source src="/music/Parallelism.mp3"></source>
+                    </audio>
+                    </div>
+                </FlexContainer>
+                <FlexContainer>
+                    Housekeeping
+                    <div style={{ transform: 'scale(1.5)', marginTop: '30px'}}>
+                    <audio controls>
+                        <source src="/music/Housekeeping.mp3"></source>
                     </audio>
                     </div>
                 </FlexContainer>
