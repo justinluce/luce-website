@@ -10,11 +10,13 @@ export const ChessSingle = () => {
     const [showPromotion, setShowPromotion] = useState(false);
     const [promotionColor ,setPromotionColor] = useState("");
 
-    // Imports the images from the cards folder. 'true' is telling it to include all folders within the cards folder
-    const images = require.context('../ChessPieces', true);
+    // Importing the images
+    const images = import.meta.glob('../ChessPieces/*.png', { eager: true });
 
-    // Loops through the images and puts all of them in an array
-    // const imageList = images.keys().map(image => images(image));
+    const getImagePath = (src) => {
+        const imageKey = `../ChessPieces/${src}.png`;
+        return images[imageKey]?.default || images[imageKey];
+    };
 
     // Each piece needs its current position, the name, image source
     let coordinates = [
@@ -141,7 +143,7 @@ export const ChessSingle = () => {
                 currentSquare = String.fromCharCode(currentCol) + currentRow;
                 
                 if (currentSquare === target.currentPosition) {
-                    console.log("currentSquare === target.currentPosition: ", target.currentPosition);
+                    // console.log("currentSquare === target.currentPosition: ", target.currentPosition);
                     return true;
                 }
                 
@@ -259,7 +261,7 @@ export const ChessSingle = () => {
     useEffect(() => {
         const currentTurn = turn;
         if (isInCheck(currentTurn)) {
-            console.log(`${currentTurn} is in check`);
+            // console.log(`${currentTurn} is in check`);
         }
     }, [turn]);
 
@@ -298,62 +300,101 @@ export const ChessSingle = () => {
                 setSelectedPiece(item);
             }
         }
+
+        const handleCastling = (king, rook) => {
+            const positions = {
+                White: { kingStart: "E1", rookStarts: ["A1", "H1"], kingMoves: ["C1", "G1"], rookMoves: ["D1", "F1"] },
+                Black: { kingStart: "E8", rookStarts: ["A8", "H8"], kingMoves: ["C8", "G8"], rookMoves: ["D8", "F8"] },
+            };
         
-        // They're trying to castle
-        if (selectedPiece && selectedPiece.src.includes("King") && item.src.includes("Rook")) {
-            // Check to see if the king and rook are on their starting positions
-            if (turn === "White") {
-                if (selectedPiece.currentPosition === "E1" && (item.currentPosition === "A1" || item.currentPosition === "H1")) {
-                    const validMove = movePieces(selectedPiece, item);
-                    console.log("runnign this");
-                    if (validMove) {
-                        setPieces(prevPieces => prevPieces.map(piece => {
-                            if (piece.currentPosition === item.currentPosition) {
-                                return { ...piece, src: 'null' }
+            const { kingStart, rookStarts, kingMoves, rookMoves } = positions[turn];
+
+            if (king.currentPosition === kingStart && rookStarts.includes(rook.currentPosition)) {
+                const rookIndex = rookStarts.indexOf(rook.currentPosition);
+                const validMove = movePieces(king, rook);
+
+                if (validMove) {
+                    setPieces(prevPieces =>
+                        prevPieces.map(piece => {
+                            if (piece.currentPosition === rook.currentPosition) {
+                                return { ...piece, src: 'null' };
                             }
-                            if (item.currentPosition === "H1" ? piece.currentPosition === "F1" : piece.currentPosition === "C1") {
-                                return { ...piece, src: item.src }
+                            if (piece.currentPosition === king.currentPosition) {
+                                return { ...piece, src: 'null' };
                             }
-                            if (piece.currentPosition === selectedPiece.currentPosition) {
-                                return { ...piece, src: 'null' }
+                            if (piece.currentPosition === kingMoves[rookIndex]) {
+                                return { ...piece, src: king.src };
                             }
-                            if (item.currentPosition === "H1" ? piece.currentPosition === "G1" : piece.currentPosition === "B1") {
-                                return { ...piece, src: selectedPiece.src }
-                            }
-                            return piece;
-                        }));
-                        setSelectedPiece(null);
-                        turn === 'White' ? setTurn('Black') : setTurn('White');
-                    }
-                }
-            } else {
-                if (selectedPiece.currentPosition === "E8" && (item.currentPosition === "A8" || item.currentPosition === "H8")) {
-                    const validMove = movePieces(selectedPiece, item);
-                    if (validMove) {
-                        setPieces(prevPieces => prevPieces.map(piece => {
-                            if (piece.currentPosition === item.currentPosition) {
-                                return { ...piece, src: 'null' }
-                            }
-                            if (item.currentPosition === "H8" ? piece.currentPosition === "F8" : piece.currentPosition === "C8") {
-                                return { ...piece, src: item.src }
-                            }
-                            if (piece.currentPosition === selectedPiece.currentPosition) {
-                                return { ...piece, src: 'null' }
-                            }
-                            if (item.currentPosition === "H8" ? piece.currentPosition === "G8" : piece.currentPosition === "B8") {
-                                return { ...piece, src: selectedPiece.src }
+                            if (piece.currentPosition === rookMoves[rookIndex]) {
+                                return { ...piece, src: rook.src };
                             }
                             return piece;
-                        }));
-                        setSelectedPiece(null);
-                        turn === 'White' ? setTurn('Black') : setTurn('White');
-                    }
+                        })
+                    );
+                    setSelectedPiece(null);
+                    setTurn(turn === 'White' ? 'Black' : 'White');
                 }
             }
         }
+
+        if (selectedPiece && selectedPiece.src.includes("King") && item.src.includes("Rook")) {
+            handleCastling(selectedPiece, item);
+        }
+        
+        // Old castling logic
+        // if (selectedPiece && selectedPiece.src.includes("King") && item.src.includes("Rook")) {
+        //     // Check to see if the king and rook are on their starting positions
+        //     if (turn === "White") {
+        //         if (selectedPiece.currentPosition === "E1" && (item.currentPosition === "A1" || item.currentPosition === "H1")) {
+        //             const validMove = movePieces(selectedPiece, item);
+        //             if (validMove) {
+        //                 setPieces(prevPieces => prevPieces.map(piece => {
+        //                     if (piece.currentPosition === item.currentPosition) {
+        //                         return { ...piece, src: 'null' }
+        //                     }
+        //                     if (item.currentPosition === "H1" ? piece.currentPosition === "F1" : piece.currentPosition === "C1") {
+        //                         return { ...piece, src: item.src }
+        //                     }
+        //                     if (piece.currentPosition === selectedPiece.currentPosition) {
+        //                         return { ...piece, src: 'null' }
+        //                     }
+        //                     if (item.currentPosition === "H1" ? piece.currentPosition === "G1" : piece.currentPosition === "B1") {
+        //                         return { ...piece, src: selectedPiece.src }
+        //                     }
+        //                     return piece;
+        //                 }));
+        //                 setSelectedPiece(null);
+        //                 turn === 'White' ? setTurn('Black') : setTurn('White');
+        //             }
+        //         }
+        //     } else {
+        //         if (selectedPiece.currentPosition === "E8" && (item.currentPosition === "A8" || item.currentPosition === "H8")) {
+        //             const validMove = movePieces(selectedPiece, item);
+        //             if (validMove) {
+        //                 setPieces(prevPieces => prevPieces.map(piece => {
+        //                     if (piece.currentPosition === item.currentPosition) {
+        //                         return { ...piece, src: 'null' }
+        //                     }
+        //                     if (item.currentPosition === "H8" ? piece.currentPosition === "F8" : piece.currentPosition === "C8") {
+        //                         return { ...piece, src: item.src }
+        //                     }
+        //                     if (piece.currentPosition === selectedPiece.currentPosition) {
+        //                         return { ...piece, src: 'null' }
+        //                     }
+        //                     if (item.currentPosition === "H8" ? piece.currentPosition === "G8" : piece.currentPosition === "B8") {
+        //                         return { ...piece, src: selectedPiece.src }
+        //                     }
+        //                     return piece;
+        //                 }));
+        //                 setSelectedPiece(null);
+        //                 turn === 'White' ? setTurn('Black') : setTurn('White');
+        //             }
+        //         }
+        //     }
+        // }
         // 2. If they have a selectedPiece, move the piece to where they clicked
         if (selectedPiece && !item.src.includes(turn)) {
-            console.log(`${selectedPiece.src} from ${selectedPiece.currentPosition} to ${item.currentPosition}`)
+            // console.log(`${selectedPiece.src} from ${selectedPiece.currentPosition} to ${item.currentPosition}`)
             const validMove = movePieces(selectedPiece, item);
             if (!validMove) return;
             setPieces(prevPieces => prevPieces.map(piece => {
@@ -372,7 +413,7 @@ export const ChessSingle = () => {
 
     function promotePawn(type) {
         promotionPiece.src = `${promotionColor}${type}`;
-        console.log(`${promotionColor}${type}`);
+        // console.log(`${promotionColor}${type}`);
         setShowPromotion(false);
     }
 
@@ -389,9 +430,9 @@ export const ChessSingle = () => {
                                 style={{ backgroundColor: selectedPiece === item ? 'green' : setBackgroundColor(index) }} 
                                 data-position={item.currentPosition}
                                 onClick={() => squareClicked(item)}>
-                                <img
-                                    src={ require(`../ChessPieces/${item.src}.png`)}
-                                />
+                                {item.src !== 'null' && (
+                                    <img src={getImagePath(item.src)} alt={`${item.src}`} />
+                                )}
                             </div>
                         )
                         :
