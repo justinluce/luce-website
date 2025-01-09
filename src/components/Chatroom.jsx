@@ -35,7 +35,7 @@ export const Chatroom = () => {
             <div style={{display: 'flex', justifyContent: 'center', marginTop: '50px'}}>
                 <img height={400} src='images/underConstruction2.png' alt='Page is under construction'/>
             </div>
-            <button onClick={() => sendMessage("Hello World!")}>Send Message</button>
+            {/* <button onClick={() => sendMessage("Hello World!")}>Send Message</button> */}
         </div>
     );
 }
