@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 export const LandingPage = () =>  {
     const [pHeight, setPheight] = useState(0);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
     const pRef = useRef(null);
     const catRef= useRef(null);
 
@@ -15,11 +16,21 @@ export const LandingPage = () =>  {
             }
         }
 
+        const checkScreenSize = () => {
+            setIsMobile(window.innerWidth <= 900);
+        };
+
         updateHeight();
+        checkScreenSize();
 
         window.addEventListener('resize', updateHeight);
+        window.addEventListener('resize', checkScreenSize);
 
-        return () => window.removeEventListener('resize', updateHeight);
+        return () => {
+            window.removeEventListener('resize', updateHeight);
+            window.removeEventListener('resize', checkScreenSize);
+
+        }
     }, []);
 
     return (
@@ -56,7 +67,7 @@ export const LandingPage = () =>  {
                 className="meta-link" 
                 to='/cat' 
                 ref={catRef}
-                style={{ marginBottom: `-${pHeight / 1.5}px` }}
+                style={isMobile ? { marginBottom: `-${pHeight / 1.5}px` } : {}}
             >
                 <span>Cat</span>
             </Link>
