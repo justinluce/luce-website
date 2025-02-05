@@ -76,7 +76,7 @@ export const Menu = () => {
                 flexGrow: 1,
             }}
         >
-            <LinkTab label="Home" href="/home" data-value={0}/>
+            <LinkTab label="Home" href="/" data-value={0}/>
             <LinkTab label="Projects" href="projects" data-value={1}/>
             <LinkTab label="Music" href="music" data-value={2}/>
             <LinkTab label="Chatroom" href="chatroom" data-value={3} />
