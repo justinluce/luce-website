@@ -124,6 +124,10 @@ body {
     margin-bottom: 2em;
 }
 
+#about-paragraph h1 {
+    font-size: 3em;
+}
+
 #headshot {
     border-radius: 50%;
     object-fit: cover;
