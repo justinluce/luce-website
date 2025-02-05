@@ -42,6 +42,14 @@ export const LandingPage = () =>  {
                     <Link className="menu-item" to='/antiresume'>Anti-Resume</Link>
                 </div>
                 <div id='about-paragraph' ref={pRef}>
+                    <img src='/images/luceHeadshot.webp' id='headshot' />  
+                    <a href="https://github.com/justinluce" id='github-logo'>
+                        <img
+                            title="Justin Luce's GitHub"
+                            alt="Justin Luce's GitHub"
+                            src="/images/github-mark-white.png"
+                        />
+                    </a>
                     <p>
                         Hello! I'm Justin Luce. I am currently an instructor for Midland University's Code Academy 
                         that is focused on full-stack web development. I teach the Re-Entry Program, 
@@ -50,6 +58,7 @@ export const LandingPage = () =>  {
                         using Unity and Gamemaker Studio. 
                         I also have extensive experience working with JavaScript/TypeScript, Java, and C#.
                     </p>
+                    <br />
                     <p>
                         This is my website, where you can find a collection of things I've made.
                         This ranges from coding projects, to music, to web development 
