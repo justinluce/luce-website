@@ -16,7 +16,7 @@ const generateFakeUsers = (userTime, numUsers = 9) => {
         "NuclearChocolate",
         "xX_Giga_Blaster20_Xx",
         "i_PwNeD_u",
-        "Extra_Albatross52",
+        "ExtraAlbatross52",
         "Hexic211",
         "Wristrest",
         "Waterjug",

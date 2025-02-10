@@ -1,5 +1,7 @@
 import { createTheme } from "@mui/material/styles";
 
+// I don't remember why i have this file or if i'm even using it
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -11,7 +13,6 @@ const theme = createTheme({
     warning: {
       main: "#FF4242",
     },
-    // Add more color configurations if needed
   },
   customColors: {
     accent: "#1F487E",
@@ -31,7 +32,6 @@ const theme = createTheme({
       tertiary: "#EDD892",
     },
   },
-  // Add typography, spacing, and other configurations if needed
 });
 
 export default theme;

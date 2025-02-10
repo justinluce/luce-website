@@ -4,7 +4,7 @@ import { Typography } from '@mui/material';
 export const FeverDreamDetails = () => {
 
     return (
-        <div>
+        <div className='mainProjectContainer'>
             <Typography 
                 variant='h4'
                 textAlign={'center'}
