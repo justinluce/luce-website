@@ -3,8 +3,11 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
+  useLocation
 } from "react-router-dom";
+import { useState, useEffect } from 'react'
 import { Menu } from "./shared/components/Menu";
+import { LandingPage } from './components/LandingPage';
 import { Home } from './components/Home';
 import { Projects } from './components/Projects';
 import { AntiResume } from './components/AntiResume';
@@ -19,27 +22,40 @@ import { ChessSingle } from './components/ChessSingle';
 // import { ChessMulti } from './components/ChessMulti';
 
 function App() {
+
+  return (
+    <Router>
+      <MainLayout />
+    </Router>
+  )
+}
+
+function MainLayout() {
+  const location = useLocation();
+  const [showMenu, setShowMenu] = useState();
+
+  useEffect(() => {
+    setShowMenu(location.pathname !== '/');
+  }, [location]);
+
   return (
     <>
       <Analytics />
-      <Router>
-        <Menu />
-          <Routes>
-            <Route path='/home' element={<Home />} />
-            <Route path='/projects' element={<Projects />} />
-            <Route path='/music' element={<Music />} />
-            <Route path='/chatroom' element={<Chatroom />} />
-            <Route path='/antiresume' element={<AntiResume />} />
-            <Route path='/minesweeper' element={<Minesweeper />} />
-            <Route path='/cat' element={<Cat />} />
-            <Route path='/chess' element={<ChessChoice />} />
-            <Route path='/chessSingle' element={<ChessSingle />} />
-            {/* <Route path='/chessMulti' element={<ChessMulti />} /> */}
-            <Route path='/penny' element={<PennyBot />} />
-            <Route path='/' element={<Home />} />
-            {/* <Route path='*' element={<Navigate to='home' />} /> */}
-          </Routes>
-      </Router>
+      {showMenu && <Menu />}
+        <Routes>
+          <Route path='/' exact element={<LandingPage />} />
+          <Route path='/projects' element={<Projects />} />
+          <Route path='/music' element={<Music />} />
+          <Route path='/chatroom' element={<Chatroom />} />
+          <Route path='/antiresume' element={<AntiResume />} />
+          <Route path='/minesweeper' element={<Minesweeper />} />
+          <Route path='/cat' element={<Cat />} />
+          <Route path='/chess' element={<ChessChoice />} />
+          <Route path='/chessSingle' element={<ChessSingle />} />
+          {/* <Route path='/chessMulti' element={<ChessMulti />} /> */}
+          <Route path='/penny' element={<PennyBot />} />
+          {/* <Route path='*' element={<Navigate to='home' />} /> */}
+        </Routes>
     </>
   );
 }

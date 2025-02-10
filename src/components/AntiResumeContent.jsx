@@ -216,6 +216,7 @@ export const AntiResumeContent = () => {
                    setShowCookiesModal(false)
                 }}
                 cookie={"cookie"}
+                className='modal-text'
             >
                 <h2>This site uses cookies</h2>
                 <br />
@@ -246,6 +247,7 @@ export const AntiResumeContent = () => {
                 onClose={() => {
                     handleModalClose();
                 }}
+                className='modal-text'
                 >
                 <h2>Are You Ready?</h2>
                 <p>

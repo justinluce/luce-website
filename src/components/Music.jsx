@@ -7,7 +7,7 @@ export const Music = () => {
 
     //!TODO: Put all styling in a CSS file
     return (
-        <div style={{marginLeft: '10px', marginRight: '10px', marginTop: '10px', fontSize: '30px'}}>
+        <div className='musicContainer'>
             <Typography 
             variant='h1'
             textAlign={'center'}
@@ -16,15 +16,17 @@ export const Music = () => {
                 <Typography 
                 display={'flex'}
                 gap={5}
-                justifyContent={'center'}>
+                justifyContent={'center'}
+                className='logos'
+                >
                     <a href="https://justinluce.bandcamp.com/">
-                        <img height={'50px'} width={'50px'} src='/images/bandcampLogo.png' alt='Bandcamp Logo'/>
+                        <img src='/images/bandcampLogoWhite.png' alt='Bandcamp Logo'/>
                     </a>
                     <a href="https://open.spotify.com/artist/573dtuK21aJkt06VtA2hB1?si=x9cBXYPlSFGNylB-DcsodQ">
-                        <img height={'50px'} width={'50px'} src='/images/spotifyLogo.png' alt='Spotify Logo' />
+                        <img src='/images/spotifyLogoWhite.png' alt='Spotify Logo' />
                     </a>
                     <a href="https://music.apple.com/us/artist/justin-luce/1615409470">
-                        <img height={'50px'} width={'50px'} src='/images/appleMusicLogo.png' alt='Apple Music Logo' />
+                        <img src='/images/appleMusicLogoWhite.png' alt='Apple Music Logo' />
                     </a>
                 </Typography>
             </Typography>
@@ -34,7 +36,7 @@ export const Music = () => {
             <Typography variant='h5'>
                 <FlexContainer>
                     Luce's Dream
-                    <div style={{ transform: 'scale(1.5)', marginTop: '30px' }}>
+                    <div className='faves'>
                     <audio controls>
                         <source src="/music/Luce'sDream.mp3"></source>
                     </audio>
@@ -42,17 +44,17 @@ export const Music = () => {
                 </FlexContainer>
                 <FlexContainer>
                     Paralellism
-                    <div style={{ transform: 'scale(1.5)', marginTop: '30px' }}>
+                    <div className='faves'>
                     <audio controls>
                         <source src="/music/Parallelism.mp3"></source>
                     </audio>
                     </div>
                 </FlexContainer>
                 <FlexContainer>
-                    Housekeeping
-                    <div style={{ transform: 'scale(1.5)', marginTop: '30px'}}>
+                    ShadowBoxing
+                    <div className='faves'>
                     <audio controls>
-                        <source src="/music/Housekeeping.mp3"></source>
+                        <source src="/music/ShadowBoxing.mp3"></source>
                     </audio>
                     </div>
                 </FlexContainer>

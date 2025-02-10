@@ -2,17 +2,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    height: 600px;
+    /* overflow: hidden; */
+    min-height: 600px;
     position: relative;
 }
 
+h1 {
+    width: 100%;
+}
+
 .mainProjectContainer {
-    margin-left: 10px;
     margin-top: 10px;
-    margin-right: 10px;
+    padding-bottom: 5px;
     font-size: 30px;
-    width: 100vw;
+    width: 100%;
+    color: white;
 }
 
 .mainProjectContainer:focus {
