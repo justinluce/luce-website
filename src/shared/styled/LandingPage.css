@@ -23,13 +23,17 @@ body {
 }
 
 .menu-item {
-    color: white;
+    color: rgb(120, 224, 224);
     cursor: pointer;
     font-family: 'Ibarra Real Nova', serif;
     font-size: clamp(3rem, 8vw, 16rem);
     padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
     text-decoration: none;
     transition: opacity 400ms ease;
+}
+
+.menu-item:hover {
+    border-bottom: 2px solid rgb(120, 224, 224);
 }
   
 #menu[data-active-index="0"] > #menu-background-pattern {

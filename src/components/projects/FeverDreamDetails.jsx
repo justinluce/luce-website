@@ -22,7 +22,7 @@ export const FeverDreamDetails = () => {
             <div className='downloadLinks'>
                 <h4>Download Links</h4>
                 Direct Download (coming soon)
-                <a href='https://2x4printerpaper.itch.io'>Itch.io</a>
+                <a className='blueLink' href='https://2x4printerpaper.itch.io'>Itch.io</a>
             </div>
             <div style={{display: 'flex', justifyContent: 'center', marginTop: '50px', marginBottom: '50px'}}>
                 <img height={400} src='images/feverDreamDetails.webp' alt='A small, square house with a mountain in the background' title='Fever Dream'/>

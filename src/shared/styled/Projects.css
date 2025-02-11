@@ -84,3 +84,7 @@ h1 {
     flex-direction: column;
     gap: 10px;
 }
+
+.blueLink:link, .blueLink:visited {
+    color: rgb(120, 224, 224);
+}
