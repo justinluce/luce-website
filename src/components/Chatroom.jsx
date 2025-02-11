@@ -25,7 +25,7 @@ export const Chatroom = () => {
     };
 
     return (
-        <div style={{marginLeft: '10px', marginRight: '10px', marginTop: '10px', fontSize: '30px'}}>
+        <div style={{marginLeft: '10px', marginRight: '10px', marginTop: '10px', fontSize: '30px', color: "white"}}>
             <Typography 
             variant='h1'
             textAlign={'center'}
