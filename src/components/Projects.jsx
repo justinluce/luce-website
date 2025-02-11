@@ -54,7 +54,7 @@ export const Projects = () => {
 
     const handleArrowEnter = (e) => {
         arrowRef.current = e.target;
-        arrowRef.current.src = '/images/leftArrowYellow.png';
+        arrowRef.current.src = '/images/leftArrowWhite.png';
     }
 
     const handleArrowLeave = (e) => {
