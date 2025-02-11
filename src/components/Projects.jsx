@@ -74,7 +74,7 @@ export const Projects = () => {
                         onClick={() => handleClick(index)}
                         className={getClassName(index)}
                     >
-                        <div style={{ borderBottom: '2px solid black' }}>
+                        <div style={{ borderBottom: '2px solid rgb(120, 224, 224)' }}>
                             {project.charAt(0).toUpperCase() + project.slice(1)}
                         </div>
                         <Img src={`/images/${project}.webp`} height={'350px'} width={'400px'} />
