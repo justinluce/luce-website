@@ -2,6 +2,21 @@ body {
     background-color: rgb(20, 20, 20);
     margin: 0px;
 }
+
+@keyframes moveDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animate-landing-text {
+    animation: moveDown 0.8s ease-out forwards;
+}
   
 #menu {  
     align-items: center;

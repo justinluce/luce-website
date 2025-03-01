@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom';
 export const LandingPage = () =>  {
     const [pHeight, setPheight] = useState(0);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
+    const [shouldAnimate, setShouldAnimate] = useState(localStorage.getItem('shouldAnimate') || 'true');
     const pRef = useRef(null);
-    const catRef= useRef(null);
 
     // Couldn't figure out how to do this with CSS so whatever fml
     useEffect(() => {
+        localStorage.setItem('shouldAnimate', 'false');
         const updateHeight = () => {
             if (pRef.current) {
                 setPheight(pRef.current.clientHeight);
@@ -35,7 +36,7 @@ export const LandingPage = () =>  {
 
     return (
         <>
-            <div id="menu">
+            <div id="menu" className={shouldAnimate.toString() == 'true' ? 'animate-landing-text' : ''}>
                 <div id="menu-items">
                     <Link className="menu-item" to='/projects'>Projects</Link>
                     <Link className="menu-item" to='/music'>Music</Link>
@@ -75,8 +76,7 @@ export const LandingPage = () =>  {
                 id="cat-link" 
                 className="meta-link" 
                 to='/cat' 
-                ref={catRef}
-                style={isMobile ? { marginBottom: `-${pHeight / 1.5}px` } : {}}
+                style={isMobile ? { marginBottom: `-${pHeight / .95}px` } : {}}
             >
                 <span>Cat</span>
             </Link>
