@@ -5,12 +5,31 @@ import { Link } from 'react-router-dom';
 export const LandingPage = () =>  {
     const [pHeight, setPheight] = useState(0);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
-    const [shouldAnimate, setShouldAnimate] = useState(localStorage.getItem('shouldAnimate') || 'true');
+    const [shouldAnimate, setShouldAnimate] = useState(
+        JSON.parse(localStorage.getItem('shouldAnimate')) || {
+            value: true,
+            timestamp: new Date().getTime()
+        }
+    );
     const pRef = useRef(null);
 
-    // Couldn't figure out how to do this with CSS so whatever fml
-    useEffect(() => {
-        localStorage.setItem('shouldAnimate', 'false');
+    // Couldn't figure out how to update the height with CSS so whatever fml
+    useEffect(() => { 
+        const time = Date.now();
+        const sevenDaysMS = 604800000;
+        // If they've never visited the website, or if they haven't visited in 7 days,
+        // play the landing page animation and reset the timer
+        if (shouldAnimate.value === true || (shouldAnimate.value === false && time - shouldAnimate.timestamp >= sevenDaysMS)) {
+            setShouldAnimate({
+                value: true,
+                timestamp: new Date().getTime()
+            });
+            const data = {
+                value: false,
+                timestamp: new Date().getTime()
+            }
+            localStorage.setItem('shouldAnimate', JSON.stringify(data))
+        } 
         const updateHeight = () => {
             if (pRef.current) {
                 setPheight(pRef.current.clientHeight);
@@ -36,7 +55,7 @@ export const LandingPage = () =>  {
 
     return (
         <>
-            <div id="menu" className={shouldAnimate.toString() == 'true' ? 'animate-landing-text' : ''}>
+            <div id="menu" className={shouldAnimate.value === true ? 'animate-landing-text' : ''}>
                 <div id="menu-items">
                     <Link className="menu-item" to='/projects'>Projects</Link>
                     <Link className="menu-item" to='/music'>Music</Link>
