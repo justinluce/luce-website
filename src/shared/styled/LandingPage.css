@@ -214,6 +214,7 @@ body.menu-toggled > .meta-link > span {
     #menu {
         flex-direction: column;
         position: relative;
+        font-size: 10px;
     }
 
     #menu-items {
@@ -231,6 +232,8 @@ body.menu-toggled > .meta-link > span {
     #about-paragraph {
         margin-top: 2em;
         font-size: 3em;
+        margin-right: .5em;
+        margin-left: .5em;
     }
 
     #cat-link {

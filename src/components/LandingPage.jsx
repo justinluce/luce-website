@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import '../shared/styled/LandingPage.css';
 import { Link } from 'react-router-dom';
+import { ThemeIcon } from '../shared/components/ThemeIcon';
+
+// Add theme switcher
+// Check if it works on mobile
 
 export const LandingPage = () =>  {
     const [pHeight, setPheight] = useState(0);
@@ -56,6 +60,7 @@ export const LandingPage = () =>  {
     return (
         <>
             <div id="menu" className={shouldAnimate.value === true ? 'animate-landing-text' : ''}>
+                {/* <ThemeIcon /> */}
                 <div id="menu-items">
                     <Link className="menu-item" to='/projects'>Projects</Link>
                     <Link className="menu-item" to='/music'>Music</Link>
