@@ -64,7 +64,6 @@ export const LandingPage = () =>  {
                 <div id="menu-items">
                     <Link className="menu-item" to='/projects'>Projects</Link>
                     <Link className="menu-item" to='/music'>Music</Link>
-                    <Link className="menu-item" to='/antiresume'>Anti-Resume</Link>
                 </div>
                 <div id='about-paragraph' ref={pRef}>
                     <h1>Justin Luce</h1>

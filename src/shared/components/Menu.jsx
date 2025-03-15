@@ -3,7 +3,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { useNavigate } from 'react-router-dom';
 import { useMenuContext } from '../../context/MenuContext';
-import './Menu.css';
+import '../styled/Menu.css';
 
 //TODO Put CSS in CSS file
 
@@ -52,7 +52,7 @@ export const Menu = () => {
         };
     }, []);
 
-    const variant = windowWidth >= 1200 ? 'fullWidth' : 'scrollable';
+    const variant = windowWidth >= 600 ? 'fullWidth' : 'scrollable';
 
     return (
         <Tabs 
@@ -79,9 +79,6 @@ export const Menu = () => {
             <LinkTab label="Home" href="/" data-value={0}/>
             <LinkTab label="Projects" href="projects" data-value={1}/>
             <LinkTab label="Music" href="music" data-value={2}/>
-            <LinkTab label="Chatroom" href="chatroom" data-value={3} />
-            <LinkTab label="Anti-Resume" href="antiresume" data-value={4}/>
-            <LinkTab label="Cat" href="cat" data-value={5}/>
         </Tabs>
     );
 }

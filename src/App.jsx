@@ -8,7 +8,6 @@ import {
 import { useState, useEffect } from 'react'
 import { Menu } from "./shared/components/Menu";
 import { LandingPage } from './components/LandingPage';
-import { Home } from './components/Home';
 import { Projects } from './components/Projects';
 import { AntiResume } from './components/AntiResume';
 import { Music } from './components/Music';
@@ -43,7 +42,7 @@ function MainLayout() {
       <Analytics />
       {showMenu && <Menu />}
         <Routes>
-          <Route path='/' exact element={<LandingPage />} />
+          <Route path='/' element={<LandingPage />} />
           <Route path='/projects' element={<Projects />} />
           <Route path='/music' element={<Music />} />
           <Route path='/chatroom' element={<Chatroom />} />
