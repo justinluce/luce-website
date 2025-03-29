@@ -31,7 +31,7 @@ export const Music = () => {
                 </Typography>
             </Typography>
             <Typography variant='h3' textAlign={'center'}>
-                Personal Favorites
+                Personal Favorite Tracks
             </Typography>
             <Typography variant='h5'>
                 <FlexContainer>
@@ -58,10 +58,21 @@ export const Music = () => {
                     </audio>
                     </div>
                 </FlexContainer>
-                <Typography variant='h3' textAlign={'center'}>
-                    EPs
-                </Typography>   
                 <FlexContainer flexDirection={'row'} justifyContent={'center'}>
+                <FlexContainer>
+                    <Typography variant='h5' textAlign={'center'}>
+                        Fever Dream 1990 OST
+                    </Typography>
+                    <a href='https://justinluce.bandcamp.com/album/fever-dream-1999-ost' target='_blank'>
+                        <Img 
+                            src="/images/feverDream.webp"
+                            title="Fever Dream 1999 OST"
+                            alt="Fever Dream 1999 OST"
+                            width="400"
+                            height="400"
+                        />
+                    </a>
+                    </FlexContainer>
                 <FlexContainer>
                     <Typography variant='h5' textAlign={'center'}>
                         REMLESS
@@ -70,7 +81,7 @@ export const Music = () => {
                         <Img 
                             src="/images/remless.webp"
                             title="REMLESS"
-                            alt="EP titled REMLESS"
+                            alt="REMLESS EP"
                             width="400"
                         />
                     </a>
@@ -83,7 +94,7 @@ export const Music = () => {
                         <Img 
                             src="/images/lethological.webp"
                             title="Lethological"
-                            alt="EP titled Lethological"
+                            alt="Lethological EP"
                             width="400"
                         />
                     </a>
@@ -96,54 +107,10 @@ export const Music = () => {
                         <Img 
                             src="/images/welcomeToTheAether.webp"
                             title="Welcome to the Aether"
-                            alt="EP titled Welcome to the Aether"
+                            alt="Welcome to the Aether EP"
                             width="400"
                         />
                     </a>
-                    </FlexContainer>
-                </FlexContainer>
-                <Typography variant='h3' textAlign={'center'}>
-                    Singles
-                </Typography> 
-                <FlexContainer flexDirection={'row'} justifyContent={'center'}>
-                    <FlexContainer>
-                        <Typography variant='h5' textAlign={'center'}>
-                            Parallelism
-                        </Typography>
-                        <a href='https://justinluce.bandcamp.com/track/parallelism-2' target='_blank'>
-                            <Img 
-                                src="/images/parallelism.webp"
-                                title="Paralellism"
-                                alt="Single titled Parallelism"
-                                width="400"
-                            />
-                        </a>
-                    </FlexContainer>
-                    <FlexContainer>
-                    <Typography variant='h5' textAlign={'center'}>
-                        Out Of My Mind
-                    </Typography>
-                    <a href='https://justinluce.bandcamp.com/track/out-of-my-mind' target='_blank'>
-                        <Img 
-                            src="/images/outOfMyMind.webp"
-                            title="Out Of My Mind"
-                            alt="Single titled Out Of My Mind"
-                            width="400"
-                        />
-                    </a>
-                    </FlexContainer>
-                    <FlexContainer>
-                        <Typography variant='h5' textAlign={'center'}>
-                            Spontaneous Recovery
-                        </Typography>
-                        <a href='https://justinluce.bandcamp.com/track/spontaneous-recovery-2' target='_blank'>
-                            <Img 
-                                src="/images/spontaneousRecovery.webp"
-                                title="Spontaneous Recovery"
-                                alt="Single titled Spontaneous Recovery"
-                                width="400"
-                            />
-                        </a>
                     </FlexContainer>
                 </FlexContainer>
             </Typography>
