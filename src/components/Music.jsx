@@ -61,7 +61,7 @@ export const Music = () => {
                 <FlexContainer flexDirection={'row'} justifyContent={'center'}>
                 <FlexContainer>
                     <Typography variant='h5' textAlign={'center'}>
-                        Fever Dream 1990 OST
+                        Fever Dream 1999 OST
                     </Typography>
                     <a href='https://justinluce.bandcamp.com/album/fever-dream-1999-ost' target='_blank'>
                         <Img 
