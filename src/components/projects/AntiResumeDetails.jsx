@@ -16,7 +16,7 @@ export const AntiResumeDetails = () => {
                 A bunch of (very funny) jokes crammed into one place.
             </p>
             <div className='downloadLinks'>
-                <a href='https://www.justinlucedev.com/anti-resume'>Hosted on this site</a>
+                <a href='https://www.justinlucedev.com/antiresume'>Hosted on this site</a>
             </div>
         </div>
     );
