@@ -20,6 +20,7 @@ import { ChessChoice } from './components/ChessChoice';
 import { ChessSingle } from './components/ChessSingle';
 import { Sidebar } from './shared/components/Sidebar';
 // import { ChessMulti } from './components/ChessMulti';
+import { TicTacToe } from './components/TicTacToe';
 
 function App() {
 
@@ -56,6 +57,7 @@ function MainLayout() {
           {/* <Route path='/chessMulti' element={<ChessMulti />} /> */}
           <Route path='/penny' element={<PennyBot />} />
           {/* <Route path='*' element={<Navigate to='home' />} /> */}
+          <Route path='/tic-tac-toe' element={<TicTacToe />} />
         </Routes>
     </>
   );
