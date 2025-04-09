@@ -43,13 +43,13 @@ export const MiscDetails = () => {
                         <div>
                             <h3><a href='https://www.justinlucedev.com/tic-tac-toe'>Tic-Tac-Toe</a></h3>
                             <p>An unbeatable Tic-Tac-Toe game.</p>
-                            <p>Utilizes the <a href='https://en.wikipedia.org/wiki/Minimax'>Minimax algorithm</a> to always win (or draw) games.</p>
+                            <p>Utilizes the <a href='https://en.wikipedia.org/wiki/Minimax' target='_blank' rel='noopener noreferrer'>Minimax algorithm</a> to always win (or draw) games.</p>
                         </div>
                     )} 
                     {projectOpen === 3 && (
                         <div>
-                            <h3><a href='https://github.com/justinluce/eisenhower-matrix'>Eisenhower Matrix</a></h3>
-                            <p>A to-do list app inspired by the <a href='https://asana.com/resources/eisenhower-matrix'>Eisenhower Matrix</a></p>
+                            <h3><a href='https://github.com/justinluce/eisenhower-matrix' target='_blank' rel='noopener noreferrer'>Eisenhower Matrix</a></h3>
+                            <p>A to-do list app inspired by the <a href='https://asana.com/resources/eisenhower-matrix' target='_blank' rel='noopener noreferrer'>Eisenhower Matrix</a></p>
                         </div>
                     )} 
                 </div>
