@@ -1,10 +1,10 @@
 #sidebar-main {
+    position: fixed;
     width: 0;
     transition: all .5s ease-in-out;
     border-right: 2px solid black;
     background-color: #1a1a1a;
     height: 100%;
-    position: absolute;
     top: 0;
     left: 0;
     z-index: 10;

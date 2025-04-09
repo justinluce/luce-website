@@ -6,7 +6,6 @@ export const Sidebar = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     const toggleSidebar = () => {
-        console.log('clicking sidebar');
         setSidebarOpen(prev => !prev);
     }
 
