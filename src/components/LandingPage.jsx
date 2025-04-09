@@ -71,7 +71,7 @@ export const LandingPage = () =>  {
                     <img src='/images/luceHeadshot.webp' id='headshot' />
                     <div id='logo-container'>
                         <div id='resume-container'>
-                            <a href='/images/LuceResume.pdf' id='resume'>
+                            <a href='/images/LuceResume.pdf' target='_blank' rel='noopener noreferrer' id='resume'>
                                 <img    
                                         id='resume-img'
                                         title="Justin Luce's Resume"
@@ -81,7 +81,7 @@ export const LandingPage = () =>  {
                                 />
                             </a>
                         </div>
-                        <a href='https://github.com/justinluce' id='github-logo'>
+                        <a href='https://github.com/justinluce' target='_blank' rel='noopener noreferrer' id='github-logo'>
                             <img
                                 title="Justin Luce's GitHub"
                                 alt="Justin Luce's GitHub"
