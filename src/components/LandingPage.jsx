@@ -68,14 +68,27 @@ export const LandingPage = () =>  {
                 </div> */}
                 <div id='about-paragraph' ref={pRef}>
                     <h1>Justin Luce</h1>
-                    <img src='/images/luceHeadshot.webp' id='headshot' />  
-                    <a href="https://github.com/justinluce" id='github-logo'>
-                        <img
-                            title="Justin Luce's GitHub"
-                            alt="Justin Luce's GitHub"
-                            src="/images/github-mark-white.png"
-                        />
-                    </a>
+                    <img src='/images/luceHeadshot.webp' id='headshot' />
+                    <div id='logo-container'>
+                        <div id='resume-container'>
+                            <a href='/images/LuceResume.pdf' id='resume'>
+                                <img    
+                                        id='resume-img'
+                                        title="Justin Luce's Resume"
+                                        alt="Justin Luce's Resume"
+                                        src='/images/resume.svg'
+                                        style={{ filter: 'invert(100%)' }}
+                                />
+                            </a>
+                        </div>
+                        <a href='https://github.com/justinluce' id='github-logo'>
+                            <img
+                                title="Justin Luce's GitHub"
+                                alt="Justin Luce's GitHub"
+                                src="/images/github-mark-white.png"
+                            />
+                        </a>
+                    </div>
                     <p>
                         Hello! I'm Justin Luce. I am currently the director for Midland University's Code Academy 
                         that is focused on full-stack web development. I teach the Re-Entry Program, 
