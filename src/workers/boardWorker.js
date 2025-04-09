@@ -1,4 +1,4 @@
-onmessage = function(e) {
+self.addEventListener('message', (e) => {
     const { size, mines } = e.data;
   
     const incrementAdjacentTiles = (board, row, col, size) => {
@@ -32,5 +32,5 @@ onmessage = function(e) {
 
     const board = createBoard(size, mines);
     postMessage(board);
-  }
+});
   

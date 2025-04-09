@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Typography } from '@mui/material';
 import { FlexContainer } from '../shared/styled/FlexContainer';
 import { Img } from '../shared/styled/Img';
@@ -7,14 +7,16 @@ import { WebsiteDetails } from './projects/WebsiteDetails';
 import { FeverDreamDetails } from './projects/FeverDreamDetails';
 import { ChessDetails } from './projects/ChessDetails';
 import '../shared/styled/Projects.css';
+import { MiscDetails } from './projects/MiscDetails';
+import { AntiResumeDetails } from './projects/AntiResumeDetails';
 
 export const Projects = () => {
     const [projectOpen, setProjectOpen] = useState(1);
     const projectList = [
-        'minesweeper',
+        'misc',
         'feverDream',
         'website',
-        'chess',
+        'anti-resume'
     ];
     const projectCount = projectList.length;
     const galleryRef = useRef(null);
@@ -98,10 +100,10 @@ export const Projects = () => {
                 </div>
             </FlexContainer>
 
-            {projectOpen === 0 && <MinesweeperDetails />}
+            {projectOpen === 0 && <MiscDetails />}
             {projectOpen === 1 && <FeverDreamDetails />}
             {projectOpen === 2 && <WebsiteDetails />}
-            {projectOpen === 3 && <ChessDetails />}
+            {projectOpen === 3 && <AntiResumeDetails />}
         </div>
     );
 };

@@ -18,6 +18,7 @@ import { PennyBot } from './components/projects/PennyBot';
 import { Analytics } from "@vercel/analytics/react"
 import { ChessChoice } from './components/ChessChoice';
 import { ChessSingle } from './components/ChessSingle';
+import { Sidebar } from './shared/components/Sidebar';
 // import { ChessMulti } from './components/ChessMulti';
 
 function App() {
@@ -40,7 +41,8 @@ function MainLayout() {
   return (
     <>
       <Analytics />
-      {showMenu && <Menu />}
+      {/* {showMenu && <Menu />} */}
+      <Sidebar />
         <Routes>
           <Route path='/' element={<LandingPage />} />
           <Route path='/projects' element={<Projects />} />

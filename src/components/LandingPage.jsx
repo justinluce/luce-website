@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import '../shared/styled/LandingPage.css';
 import { Link } from 'react-router-dom';
 import { ThemeIcon } from '../shared/components/ThemeIcon';
+import { Sidebar } from '../shared/components/Sidebar.jsx';
 
 // Add theme switcher
 // Check if it works on mobile
@@ -61,10 +62,10 @@ export const LandingPage = () =>  {
         <>
             <div id="menu" className={shouldAnimate.value === true ? 'animate-landing-text' : ''}>
                 {/* <ThemeIcon /> */}
-                <div id="menu-items">
+                {/* <div id="menu-items">
                     <Link className="menu-item" to='/projects'>Projects</Link>
                     <Link className="menu-item" to='/music'>Music</Link>
-                </div>
+                </div> */}
                 <div id='about-paragraph' ref={pRef}>
                     <h1>Justin Luce</h1>
                     <img src='/images/luceHeadshot.webp' id='headshot' />  
@@ -80,7 +81,7 @@ export const LandingPage = () =>  {
                         that is focused on full-stack web development. I teach the Re-Entry Program, 
                         a coding bootcamp designed for incarcerated individuals.
                         I have created multiple video games using Unity and Gamemaker Studio. 
-                        I also have extensive experience working with JavaScript/TypeScript, Java, and C#.
+                        I also have extensive experience working with JavaScript/TypeScript, Java, and C#/.NET.
                     </p>
                     <br />
                     <p>

@@ -1,6 +1,7 @@
 import { Typography } from "@mui/material";
 import React, { useState, useEffect, useRef } from 'react';
 import '../App.css';
+import BoardWorker from '../workers/boardWorker?worker&inline';
   
 const Minesweeper = () => {
   const [size, setSize] = useState(10);
@@ -11,7 +12,7 @@ const Minesweeper = () => {
   const worker = useRef(null);
 
   useEffect(() => {
-    worker.current = new Worker(`${process.env.PUBLIC_URL}/workers/boardWorker.js`);
+    worker.current = new BoardWorker();
 
     worker.current.onmessage = function(e) {
       setBoard(e.data);
@@ -74,7 +75,7 @@ return (
         <Typography 
             variant='h1'
             textAlign={'center'}>
-            Minesweeper(WIP)
+            Minesweeper
         </Typography>
         <button onMouseUp={() => resetBoard(size, mines)} style={{ margin: '20px', height: '40px', width: '160px' }}>Reset</button>
         <div className="game-options">
@@ -83,7 +84,6 @@ return (
             <option value="10,10">10x10, 10 mines</option>
             <option value="16,40">16x16, 40 mines</option>
             <option value="22,99">22x22, 99 mines</option>
-            <option value="custom">Custom</option>
           </select>
         </div>
         <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
@@ -100,12 +100,12 @@ return (
                     {col.revealed ? 
                       (
                       col.value === -1 ? 
-                        <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/TileExploded.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Mine" /> : 
-                        <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/Tile${col.value}.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Tile" />
+                        <img draggable="false" src={`${import.meta.env.BASE_URL}images/minesweeper/TileExploded.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Mine" /> : 
+                        <img draggable="false" src={`${import.meta.env.BASE_URL}images/minesweeper/Tile${col.value}.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Tile" />
                       ) 
                       : col.flagged ? 
-                        <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/TileFlag.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Flag" /> :
-                        <img draggable="false" src={`${process.env.PUBLIC_URL}/images/minesweeper/TileUnknown.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Empty Tile" />
+                        <img draggable="false" src={`${import.meta.env.BASE_URL}images/minesweeper/TileFlag.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Flag" /> :
+                        <img draggable="false" src={`${import.meta.env.BASE_URL}images/minesweeper/TileUnknown.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Empty Tile" />
                     }
                   </button>
                 ))}
