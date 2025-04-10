@@ -145,6 +145,15 @@ export const TicTacToe = () => {
         }
     }
 
+    const resetGame = () => {
+        setBoard([
+            [null, null, null],
+            [null, null, null],
+            [null, null, null]
+        ]);
+        setTurn(true);
+    }
+
     return (
         <div id='main-container'>
             <h1>Tic-Tac-Toe</h1>
@@ -160,6 +169,10 @@ export const TicTacToe = () => {
                     ))
                 ))}
             </div>
+            <button onClick={resetGame} style={{
+                width: '150px',
+                height: '75px'
+            }}>Reset</button>
             <div className='markdown-body explanation'>
                 <ReactMarkdown>{MinimaxDoc}</ReactMarkdown>
             </div>
