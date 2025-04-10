@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../shared/styled/TicTacToe.css';
 import ReactMarkdown from 'react-markdown';
 import MinimaxDoc from '/Minimax.md?url&raw'; 
@@ -10,6 +10,23 @@ export const TicTacToe = () => {
         [null, null, null]
     ]);
     const [turn, setTurn] = useState(true);
+    const [result, setResult] = useState(null);
+
+    useEffect(() => {
+        const symbol = checkWinner(board);
+
+        if (symbol === 'O') {
+            setResult('You lost!');
+            return;
+        }
+        
+        const boardFull = board.every(row => row.every(cell => cell !== null));
+        if (!symbol && boardFull) {
+            setResult('Draw!');
+        } else {
+            setResult(null);
+        }
+    }, [board]);
 
     // Check if there's a winner on the board.
     // Scan each row, column, diagonal for three identical non-null entries.
@@ -124,7 +141,7 @@ export const TicTacToe = () => {
     }
 
     function handleClick(row, col) {
-        if (!turn) return; // Prevents the user from clicking if it's not their turn
+        if (!turn || result) return; // Prevents the user from clicking if it's not their turn
         if (board[row][col]) return; // Prevents the user from overwriting what's already in a cell
 
         console.log(row, col);
@@ -134,7 +151,6 @@ export const TicTacToe = () => {
         newBoard[row][col] = "X";
 
         if (checkWinner(newBoard)) {
-            console.log("you won")
             setBoard(newBoard);
         } else {
             setBoard(newBoard);
@@ -160,6 +176,7 @@ export const TicTacToe = () => {
             <p>
                 A Tic-Tac-Toe game I made to teach my students about the Minimax aglorithm, explained below.
             </p>
+            {result}
             <div id='container'>
                 {board.map((row, rowIndex) => (
                     row.map((cell, colIndex) => (
