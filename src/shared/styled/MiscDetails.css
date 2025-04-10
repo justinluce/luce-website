@@ -32,6 +32,7 @@ h3 {
     align-items: flex-end;
     margin: 0;
     padding: 0;
+    cursor: pointer;
 }
 
 #left-container > div.active {
@@ -40,6 +41,6 @@ h3 {
     border-left: 2px solid grey;
 }
 
-.minesweeper.active {
+.tic-tac-toe.active {
     border-top: 2px solid grey;
 }
