@@ -42,15 +42,15 @@ Let's take the main `minimax` function from our Tic-Tac-Toe game:
 function minimax(board, depth, isMaximizing) {
     const score = evaluateBoard(board);
 
-    if (score == 10) return score - depth;
-    if (score == -10) return score + depth;
+    if (score === 10) return score - depth;
+    if (score === -10) return score + depth;
     if (!isMovesLeft(board)) return 0;
 
     if (isMaximizing) {
         let best = -Infinity;
         for (let i = 0; i < board.length; i++) {
             for (let j = 0; j < board[i].length; j++) {
-                if (board[i][j] == null) {
+                if (board[i][j] === null) {
                     board[i][j] = 'O';
                     best = Math.max(best, minimax(board, depth + 1, false));
                     board[i][j] = null;
@@ -62,7 +62,7 @@ function minimax(board, depth, isMaximizing) {
         let best = Infinity;
         for (let i = 0; i < board.length; i++) {
             for (let j = 0; j < board[i].length; j++) {
-                if (board[i][j] == null) {
+                if (board[i][j] === null) {
                     board[i][j] = 'X';
                     best = Math.min(best, minimax(board, depth + 1, true));
                     board[i][j] = null;
@@ -85,13 +85,13 @@ const score = evaluateBoard(board);
 ### 2. Terminal state cases
 
 ```js
-if (score == 10) return score - depth;
-if (score == -10) return score + depth;
+if (score === 10) return score - depth;
+if (score === -10) return score + depth;
 if (!isMovesLeft(board)) return 0;
 ```
 
-- When the computer wins `(score == 10)`, returning `score - depth` ensures that winning in fewer moves (lower depth) results in a higher score.
-- When the player wins `(score == -10)`, returning `score + depth` lowers the score for moves that allow an early loss.
+- When the computer wins `(score === 10)`, returning `score - depth` ensures that winning in fewer moves (lower depth) results in a higher score.
+- When the player wins `(score === -10)`, returning `score + depth` lowers the score for moves that allow an early loss.
 - If there are no moves left, the game is a draw, so the function returns 0.
 
 These are base cases for the recursion; when one is met, it doesn't need to simulate further and stops running the function.
@@ -105,7 +105,7 @@ if (isMaximizing) {
     let best = -Infinity;
     for (let i = 0; i < board.length; i++) {
         for (let j = 0; j < board[i].length; j++) {
-            if (board[i][j] == null) {
+            if (board[i][j] === null) {
                 board[i][j] = 'O';
                 best = Math.max(best, minimax(board, depth + 1, false));
                 board[i][j] = null;
@@ -134,7 +134,7 @@ else {
     let best = Infinity;
     for (let i = 0; i < board.length; i++) {
         for (let j = 0; j < board[i].length; j++) {
-            if (board[i][j] == null) {
+            if (board[i][j] === null) {
                 board[i][j] = 'X';
                 best = Math.min(best, minimax(board, depth + 1, true));
                 board[i][j] = null;
@@ -158,7 +158,7 @@ Process:
 - The `Math.min` function ensures that the lowest score among all simulated moves is chosen.
 - Return the best move.
 
-Effectively, this function recursively evaluates every possible sequence of moves until a terminal state is reached. Then, it chooses the move with the highest score, effectively making the optimal play.
+Effectively, this function recursively evaluates every possible sequence of moves until a terminal state is reached. Then, it chooses the move with the highest score, ensuring that it makes the optimal play.
 
 ### Computer's Turn
 
@@ -171,7 +171,7 @@ function computerTurn(board) {
 
     for (let i = 0; i < board.length; i++) {
         for (let j = 0; j < board[i].length; j++) {
-            if (board[i][j] == null) {
+            if (board[i][j] === null) {
                 board[i][j] = 'O';
                 const moveVal = minimax(board, 0, false);
                 board[i][j] = null;
@@ -207,7 +207,7 @@ let bestMove = null;
 ```js
 for (let i = 0; i < board.length; i++) {
     for (let j = 0; j < board[i].length; j++) {
-        if (board[i][j] == null) {
+        if (board[i][j] === null) {
             board[i][j] = 'O';
             const moveVal = minimax(board, 0, false);
             board[i][j] = null;
