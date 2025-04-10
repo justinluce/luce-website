@@ -108,7 +108,7 @@ export const Headshot = () => {
             position: 'absolute',
             width: '40px',
             height: '40px',
-            top: '30%',
+            top: '31%',
             left: '62%'
           }}
         >
