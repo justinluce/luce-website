@@ -18,6 +18,10 @@ html, body {
   border-radius: 50%;
 }
 
+#resume.bubble-hover:hover {
+  border-radius: 25%;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
