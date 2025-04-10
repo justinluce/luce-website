@@ -141,10 +141,8 @@ export const TicTacToe = () => {
     }
 
     function handleClick(row, col) {
-        if (!turn || result) return; // Prevents the user from clicking if it's not their turn
+        if (!turn || result) return; // Prevents the user from clicking if it's not their turn OR if the game ended
         if (board[row][col]) return; // Prevents the user from overwriting what's already in a cell
-
-        console.log(row, col);
 
         // Copies the board to a newBoard so we don't edit the current one
         const newBoard = board.map(r => [...r]);
