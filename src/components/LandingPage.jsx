@@ -1,16 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import '../shared/styled/LandingPage.css';
 import { Link } from 'react-router-dom';
-import { ThemeIcon } from '../shared/components/ThemeIcon';
 import { Headshot } from './Headshot';
-
-// Add theme switcher
-// Check if it works on mobile
 
 export const LandingPage = () =>  {
     const [pHeight, setPheight] = useState(0);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
-    const [googlyEyes, setGooglyEyes] = useState(true);
     const [shouldAnimate, setShouldAnimate] = useState(
         JSON.parse(localStorage.getItem('shouldAnimate')) || {
             value: true,
@@ -63,10 +58,6 @@ export const LandingPage = () =>  {
         <>
             <div id="menu" className={shouldAnimate.value === true ? 'animate-landing-text' : ''}>
                 {/* <ThemeIcon /> */}
-                {/* <div id="menu-items">
-                    <Link className="menu-item" to='/projects'>Projects</Link>
-                    <Link className="menu-item" to='/music'>Music</Link>
-                </div> */}
                 <div id='about-paragraph' ref={pRef}>
                     <h1>Justin Luce</h1>
                     <Headshot />
