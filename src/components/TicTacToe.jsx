@@ -19,6 +19,11 @@ export const TicTacToe = () => {
             setResult('You lost!');
             return;
         }
+
+        if (symbol === 'X') {
+            setResult('You... won?... somehow?');
+            return;
+        }
         
         const boardFull = board.every(row => row.every(cell => cell !== null));
         if (!symbol && boardFull) {
