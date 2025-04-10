@@ -18,7 +18,7 @@ export const Sidebar = () => {
                     <NavLink onClick={toggleSidebar} className='link-item' to={'/music'}>Music</NavLink>
                 </div>
             </div>
-            <button id='hamburger' onClick={toggleSidebar}>{sidebarOpen ? '\u2716' : '\u2630'}</button>
+            <button className='bubble-hover' id='hamburger' onClick={toggleSidebar}>{sidebarOpen ? '\u2716' : '\u2630'}</button>
         </div>
     )
 }

@@ -41,15 +41,33 @@
 }
 
 .link-item {
+    position: relative;
+    display: inline-block;
     color: rgb(120, 224, 224);
     cursor: pointer;
     font-family: 'Ibarra Real Nova', serif;
-    /* font-size: clamp(3rem, 8vw, 16rem); */
     font-size: 4em;
-    /* padding: clamp(0.25rem, 0.5vw, 1rem) 0rem; */
     text-decoration: none;
-    transition: opacity 400ms ease;
+    transition: all 0.2s ease-in-out;
 }
+
+.link-item::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(120, 224, 224);
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.2s ease;
+}
+  
+.link-item:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
 
 #sidebar-container.sidebar-open #link-container {
     transform: translateX(0vw);

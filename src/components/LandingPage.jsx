@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import '../shared/styled/LandingPage.css';
 import { Link } from 'react-router-dom';
 import { ThemeIcon } from '../shared/components/ThemeIcon';
-import { Sidebar } from '../shared/components/Sidebar.jsx';
+import { Headshot } from './Headshot';
 
 // Add theme switcher
 // Check if it works on mobile
@@ -10,6 +10,7 @@ import { Sidebar } from '../shared/components/Sidebar.jsx';
 export const LandingPage = () =>  {
     const [pHeight, setPheight] = useState(0);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
+    const [googlyEyes, setGooglyEyes] = useState(true);
     const [shouldAnimate, setShouldAnimate] = useState(
         JSON.parse(localStorage.getItem('shouldAnimate')) || {
             value: true,
@@ -68,20 +69,20 @@ export const LandingPage = () =>  {
                 </div> */}
                 <div id='about-paragraph' ref={pRef}>
                     <h1>Justin Luce</h1>
-                    <img src='/images/luceHeadshot.webp' id='headshot' />
+                    <Headshot />
                     <div id='logo-container'>
                         <div id='resume-container'>
-                            <a href='/images/LuceResume.pdf' target='_blank' rel='noopener noreferrer' id='resume'>
+                            <a href='/images/LuceResume.pdf' target='_blank' rel='noopener noreferrer' className='bubble-hover' id='resume'>
                                 <img    
-                                        id='resume-img'
-                                        title="Justin Luce's Resume"
-                                        alt="Justin Luce's Resume"
-                                        src='/images/resume.svg'
-                                        style={{ filter: 'invert(100%)' }}
+                                    id='resume-img'
+                                    title="Justin Luce's Resume"
+                                    alt="Justin Luce's Resume"
+                                    src='/images/resume.svg'
+                                    style={{ filter: 'invert(100%)' }}
                                 />
                             </a>
                         </div>
-                        <a href='https://github.com/justinluce' target='_blank' rel='noopener noreferrer' id='github-logo'>
+                        <a href='https://github.com/justinluce' target='_blank' rel='noopener noreferrer' className='bubble-hover' id='github-logo'>
                             <img
                                 title="Justin Luce's GitHub"
                                 alt="Justin Luce's GitHub"
