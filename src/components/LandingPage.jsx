@@ -18,18 +18,13 @@ export const LandingPage = () =>  {
     useEffect(() => { 
         const time = Date.now();
         const sevenDaysMS = 604800000;
+        const hasExpired = time - shouldAnimate.timestamp >= sevenDaysMS;
         // If they've never visited the website, or if they haven't visited in 7 days,
         // play the landing page animation and reset the timer
-        if (shouldAnimate.value === true || (shouldAnimate.value === false && time - shouldAnimate.timestamp >= sevenDaysMS)) {
-            setShouldAnimate({
-                value: true,
-                timestamp: new Date().getTime()
-            });
-            const data = {
-                value: false,
-                timestamp: new Date().getTime()
-            }
-            localStorage.setItem('shouldAnimate', JSON.stringify(data))
+        if (shouldAnimate.value || hasExpired) {
+            const newState = { value: true, timestamp: time };
+            setShouldAnimate(newState);
+            localStorage.setItem('shouldAnimate', JSON.stringify({ ...newState, value: false }));
         } 
         const updateHeight = () => {
             if (pRef.current) {
@@ -50,7 +45,6 @@ export const LandingPage = () =>  {
         return () => {
             window.removeEventListener('resize', updateHeight);
             window.removeEventListener('resize', checkScreenSize);
-
         }
     }, []);
 
