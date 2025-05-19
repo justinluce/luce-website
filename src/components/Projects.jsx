@@ -9,6 +9,7 @@ import { ChessDetails } from './projects/ChessDetails';
 import '../shared/styled/Projects.css';
 import { MiscDetails } from './projects/MiscDetails';
 import { AntiResumeDetails } from './projects/AntiResumeDetails';
+import { NotesAppDetails } from './projects/NotesAppDetails';
 
 export const Projects = () => {
     const [projectOpen, setProjectOpen] = useState(1);
@@ -16,7 +17,8 @@ export const Projects = () => {
         'misc',
         'feverDream',
         'website',
-        'anti-resume'
+        'anti-resume',
+        'notesApp'
     ];
     const projectCount = projectList.length;
     const galleryRef = useRef(null);
@@ -104,6 +106,7 @@ export const Projects = () => {
             {projectOpen === 1 && <FeverDreamDetails />}
             {projectOpen === 2 && <WebsiteDetails />}
             {projectOpen === 3 && <AntiResumeDetails />}
+            {projectOpen === 4 && <NotesAppDetails />}
         </div>
     );
 };

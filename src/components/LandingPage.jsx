@@ -51,10 +51,9 @@ export const LandingPage = () =>  {
     return (
         <>
             <div id="menu" className={shouldAnimate.value === true ? 'animate-landing-text' : ''}>
-                {/* <ThemeIcon /> */}
-                <div id='about-paragraph' ref={pRef}>
+                <div id='top-header'>
                     <h1>Justin Luce</h1>
-                    <Headshot />
+                    {/* <ThemeIcon /> */}
                     <div id='logo-container'>
                         <div id='resume-container'>
                             <a href='/images/LuceResume.pdf' target='_blank' rel='noopener noreferrer' className='bubble-hover' id='resume'>
@@ -75,6 +74,9 @@ export const LandingPage = () =>  {
                             />
                         </a>
                     </div>
+                </div>
+                <div id='about-paragraph' ref={pRef}>
+                    <Headshot />
                     <p>
                         Hello! I'm Justin Luce. I am currently the director for Midland University's Code Academy 
                         that is focused on full-stack web development. I teach the Re-Entry Program, 
