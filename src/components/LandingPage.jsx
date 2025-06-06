@@ -78,11 +78,10 @@ export const LandingPage = () =>  {
                 <div id='about-paragraph' ref={pRef}>
                     <Headshot />
                     <p>
-                        Hello! I'm Justin Luce. I am currently the director for Midland University's Code Academy 
-                        that is focused on full-stack web development. I teach the Re-Entry Program, 
-                        a coding bootcamp designed for incarcerated individuals.
-                        I have created multiple video games using Unity and Gamemaker Studio. 
-                        I also have extensive experience working with JavaScript/TypeScript, Java, and C#/.NET.
+                        Hello! I'm Justin Luce. I am currently a software developer for Hotlines Inc, 
+                        and the former director for Midland University's Code Academy.
+                        As a hobbyist game dev, I have created multiple video games using Unity and Gamemaker Studio. 
+                        I primarily specialize in JavaScript/TypeScript, Python, and C#/.NET.
                     </p>
                     <br />
                     <p>
