@@ -84,22 +84,6 @@ body {
     background-position: 0% -100%;
 }
   
-#menu[data-active-index="0"] > #menu-background-image {
-    background-position: center 45%;
-}
-  
-#menu[data-active-index="1"] > #menu-background-image {
-    background-position: center 50%;
-}
-  
-#menu[data-active-index="2"] > #menu-background-image {
-    background-position: center 55%;
-  } 
-  
-#menu[data-active-index="3"] > #menu-background-image {
-    background-position: center 60%;
-}
-  
 #menu-background-pattern {
     background-image: radial-gradient(
     rgba(120, 224, 224, .05) 9%, 
@@ -121,11 +105,6 @@ body {
 #menu-items:hover ~ #menu-background-pattern {
     background-size: 11vmin 11vmin;
     opacity: 0.5;
-}
-  
-#menu-items:hover ~ #menu-background-image {
-    background-size: 100vmax;
-    opacity: 0.1;
 }
   
 #menu-items:hover > .menu-item {

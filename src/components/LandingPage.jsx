@@ -48,6 +48,10 @@ export const LandingPage = () =>  {
         }
     }, []);
 
+    const clickedLogo = () => {
+       console.log('clicked');  
+    }
+
     return (
         <>
             <div id="menu" className={shouldAnimate.value === true ? 'animate-landing-text' : ''}>
@@ -57,7 +61,7 @@ export const LandingPage = () =>  {
                     <div id='logo-container'>
                         <div id='resume-container'>
                             <a href='/images/LuceResume.pdf' target='_blank' rel='noopener noreferrer' className='bubble-hover' id='resume'>
-                                <img    
+                                <img
                                     id='resume-img'
                                     title="Justin Luce's Resume"
                                     alt="Justin Luce's Resume"
@@ -66,7 +70,7 @@ export const LandingPage = () =>  {
                                 />
                             </a>
                         </div>
-                        <a href='https://github.com/justinluce' target='_blank' rel='noopener noreferrer' className='bubble-hover' id='github-logo'>
+                        <a onClick={() => clickedLogo()} href='https://github.com/justinluce' target='_blank' rel='noopener noreferrer' className='bubble-hover' id='github-logo'>
                             <img
                                 title="Justin Luce's GitHub"
                                 alt="Justin Luce's GitHub"
@@ -92,8 +96,6 @@ export const LandingPage = () =>  {
                         as I'll continue creating new things over time.
                     </p>
                 </div>
-                <div id="menu-background-pattern"></div>
-                <div id="menu-background-image"></div>
             </div>
 
             <Link 

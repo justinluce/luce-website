@@ -19,7 +19,7 @@ export const ThemeProvider = ({ children }) => {
 
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
-            <div className={theme}>
+            <div className={theme} id='menu-background-pattern'>
                 {children}
             </div>
         </ThemeContext.Provider>
