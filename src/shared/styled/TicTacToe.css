@@ -13,6 +13,15 @@ h1 {
     margin-bottom: 10px;
 }
 
+#result {
+    padding-top: 10px;
+}
+
+#result:empty::before {
+    content: "\00a0";    /* Unicode for non-breaking space */
+    display: block;
+}
+
 #container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

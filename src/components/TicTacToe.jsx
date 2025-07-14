@@ -179,7 +179,7 @@ export const TicTacToe = () => {
             <p>
                 A Tic-Tac-Toe game I made to teach my students about the Minimax aglorithm, explained below.
             </p>
-            {result}
+            <p id='result'>{result}</p>
             <div id='container'>
                 {board.map((row, rowIndex) => (
                     row.map((cell, colIndex) => (
