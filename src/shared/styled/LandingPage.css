@@ -91,7 +91,8 @@ body {
     );
     background-position: 0% 0%;
     background-size: 12vmin 12vmin;
-    height: 100vh;
+    background-repeat: repeat;
+    min-height: 100vh;
     left: 0px;
     position: absolute;
     top: 0px;
