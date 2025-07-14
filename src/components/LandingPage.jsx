@@ -55,7 +55,7 @@ export const LandingPage = () =>  {
                     <h1>Justin Luce</h1>
                     {/* <ThemeIcon /> */}
                     <div id='logo-container'>
-                        <div id='resume-container'>
+                        {/* <div id='resume-container'>
                             <a href='/images/LuceResume.pdf' target='_blank' rel='noopener noreferrer' className='bubble-hover' id='resume'>
                                 <img
                                     id='resume-img'
@@ -65,7 +65,7 @@ export const LandingPage = () =>  {
                                     style={{ filter: 'invert(100%)' }}
                                 />
                             </a>
-                        </div>
+                        </div> */}
                         <a href='https://github.com/justinluce' target='_blank' rel='noopener noreferrer' className='bubble-hover' id='github-logo'>
                             <img
                                 title="Justin Luce's GitHub"
