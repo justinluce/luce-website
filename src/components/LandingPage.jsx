@@ -48,10 +48,6 @@ export const LandingPage = () =>  {
         }
     }, []);
 
-    const clickedLogo = () => {
-       console.log('clicked');  
-    }
-
     return (
         <>
             <div id="menu" className={shouldAnimate.value === true ? 'animate-landing-text' : ''}>
@@ -70,7 +66,7 @@ export const LandingPage = () =>  {
                                 />
                             </a>
                         </div>
-                        <a onClick={() => clickedLogo()} href='https://github.com/justinluce' target='_blank' rel='noopener noreferrer' className='bubble-hover' id='github-logo'>
+                        <a href='https://github.com/justinluce' target='_blank' rel='noopener noreferrer' className='bubble-hover' id='github-logo'>
                             <img
                                 title="Justin Luce's GitHub"
                                 alt="Justin Luce's GitHub"
