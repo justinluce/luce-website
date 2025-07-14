@@ -38,6 +38,7 @@
     transition: transform 0.5s ease-in-out;
     justify-content: center;
     align-items: center;
+    z-index: 10;
 }
 
 .link-item {
@@ -63,29 +64,32 @@
     transform-origin: center;
     transition: transform 0.2s ease;
 }
+
+.link-item:hover {
+    color: rgb(120, 255, 255);
+}
   
 .link-item:hover::after {
     transform: translateX(-50%) scaleX(1);
 }
 
-
 #sidebar-container.sidebar-open #link-container {
     transform: translateX(0vw);
 }
 
-@media (min-width: 800px) {
+@media (min-width: 900px) {
     #sidebar-container.sidebar-open #hamburger {
         transform: translateX(15vw);
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
     #sidebar-main {
         width: 100%;
         height: 0;
     }
     #link-container {
-        transform: translateY(-20vh);
+        transform: translateY(-60vh);
         width: 100vw;
         background-color: #1a1a1a;
     }

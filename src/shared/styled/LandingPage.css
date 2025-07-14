@@ -165,7 +165,7 @@ body {
     align-items: center;
     justify-content: center;
     color: white;
-    z-index: 10;
+    z-index: 5;
     font-size: clamp(1em, 1.8em, 2em);
     margin-right: clamp(1em, 2em, 2em);
     margin-bottom: clamp(1em, 1em, 2em);
