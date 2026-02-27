@@ -22,12 +22,12 @@ export const Music = () => {
                     <a href="https://justinluce.bandcamp.com/">
                         <img src='/images/bandcampLogoWhite.png' alt='Bandcamp Logo'/>
                     </a>
-                    <a href="https://open.spotify.com/artist/573dtuK21aJkt06VtA2hB1?si=x9cBXYPlSFGNylB-DcsodQ">
+                    {/* <a href="https://open.spotify.com/artist/573dtuK21aJkt06VtA2hB1?si=x9cBXYPlSFGNylB-DcsodQ">
                         <img src='/images/spotifyLogoWhite.png' alt='Spotify Logo' />
                     </a>
                     <a href="https://music.apple.com/us/artist/justin-luce/1615409470">
                         <img src='/images/appleMusicLogoWhite.png' alt='Apple Music Logo' />
-                    </a>
+                    </a> */}
                 </Typography>
             </Typography>
             <Typography variant='h3' textAlign={'center'}>
@@ -35,10 +35,10 @@ export const Music = () => {
             </Typography>
             <Typography variant='h5'>
                 <FlexContainer>
-                    Luce's Dream
+                    ShadowBoxing
                     <div className='faves'>
                     <audio controls>
-                        <source src="/music/Luce'sDream.mp3"></source>
+                        <source src="/music/ShadowBoxing.mp3"></source>
                     </audio>
                     </div>
                 </FlexContainer>
@@ -51,10 +51,10 @@ export const Music = () => {
                     </div>
                 </FlexContainer>
                 <FlexContainer>
-                    ShadowBoxing
+                    Luce's Dream
                     <div className='faves'>
                     <audio controls>
-                        <source src="/music/ShadowBoxing.mp3"></source>
+                        <source src="/music/Luce'sDream.mp3"></source>
                     </audio>
                     </div>
                 </FlexContainer>

@@ -10,10 +10,10 @@ export const FeverDreamDetails = () => {
                 textAlign={'center'}
                 style={{ marginBottom: '30px' }}
             >
-            <h4>Fever Dream 1999</h4>
+            <h4>Lucid Dream 1999</h4>
             </Typography>
             <p style={{ textAlign: 'center', marginRight: '20px' }}>
-                Justin Luce's Fever Dream 1999 is a collection of parody games about the creative process. 
+                Justin's Lucid Dream 1999 is a collection of parody games about the creative process. 
                 Justin will create games for you to play, and you will provide feedback for him.
             <br /><br />
                 Currently version 0.1.5.

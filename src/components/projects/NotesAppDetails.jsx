@@ -18,7 +18,7 @@ export const NotesAppDetails = () => {
         </ul>
       </div>
       <div className="downloadLinks">
-        <a href="https://notes.justinlucedev.com">Hosted on notes.justinlucedev.com</a>
+        <a href="https://notes.justinlucedev.com">Hosted on notes.justinlucedev.com (not anymore because I did not renew my Oracle cluster 😊)</a>
       </div>
     </div>
   );
