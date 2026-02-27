@@ -44,3 +44,16 @@ h3 {
 .tic-tac-toe.active {
     border-top: 2px solid grey;
 }
+
+@media (max-width: 900px) {
+    #misc-container {
+        width: 90%;
+        flex-direction: column;
+        gap: 1.5em;
+    }
+
+    #left-container,
+    #right-container {
+        width: 100%;
+    }
+}

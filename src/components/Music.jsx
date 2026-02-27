@@ -64,12 +64,12 @@ export const Music = () => {
                         Fever Dream 1999 OST
                     </Typography>
                     <a href='https://justinluce.bandcamp.com/album/fever-dream-1999-ost' target='_blank'>
-                        <Img 
+                        <Img
                             src="/images/feverDream.webp"
                             title="Fever Dream 1999 OST"
                             alt="Fever Dream 1999 OST"
                             width="400"
-                            height="400"
+                            style={{ aspectRatio: '1 / 1', objectFit: 'cover' }}
                         />
                     </a>
                     </FlexContainer>

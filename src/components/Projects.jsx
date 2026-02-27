@@ -84,23 +84,23 @@ export const Projects = () => {
                         <Img src={`/images/${project}.webp`} height={'350px'} width={'400px'} />
                     </div>
                 ))}
-                <div className='arrowContainer'>
-                    <img
-                        src='/images/leftArrow.png'
-                        className='arrow leftArrow'
-                        onClick={handleLeftArrowClick}
-                        onMouseEnter={(e) => handleArrowEnter(e)}
-                        onMouseLeave={(e) => handleArrowLeave(e)}
-                    />
-                    <img
-                        src='/images/leftArrow.png'
-                        className='arrow rightArrow'
-                        onClick={handleRightArrowClick}
-                        onMouseEnter={(e) => handleArrowEnter(e)}
-                        onMouseLeave={(e) => handleArrowLeave(e)}
-                    />
-                </div>
             </FlexContainer>
+            <div className='arrowContainer'>
+                <img
+                    src='/images/leftArrow.png'
+                    className='arrow leftArrow'
+                    onClick={handleLeftArrowClick}
+                    onMouseEnter={(e) => handleArrowEnter(e)}
+                    onMouseLeave={(e) => handleArrowLeave(e)}
+                />
+                <img
+                    src='/images/leftArrow.png'
+                    className='arrow rightArrow'
+                    onClick={handleRightArrowClick}
+                    onMouseEnter={(e) => handleArrowEnter(e)}
+                    onMouseLeave={(e) => handleArrowLeave(e)}
+                />
+            </div>
 
             {projectOpen === 0 && <MiscDetails />}
             {projectOpen === 1 && <FeverDreamDetails />}

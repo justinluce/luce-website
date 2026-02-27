@@ -17,10 +17,11 @@ body {
 #top-header {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     padding: 1em;
     width: 60%;
+    position: relative;
 }
 
 #top-header h1 {
@@ -139,8 +140,8 @@ body {
 }
 
 #logo-container {
-    margin-top: .5em;
-    margin-bottom: .5em;
+    position: absolute;
+    right: 0;
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -165,6 +166,7 @@ body {
     max-height: 100%;
     align-items: center;
     justify-content: center;
+    gap: 1.5em;
     color: white;
     z-index: 5;
     font-size: clamp(1em, 1.8em, 2em);
@@ -183,8 +185,8 @@ body {
     object-fit: cover;
     object-position: 20% 50%;
     border: .2em solid white;
-    width: 400px;
-    height: 400px;
+    width: min(400px, 60vw);
+    height: min(400px, 60vw);
 }
   
 body.menu-toggled > .meta-link > span {
@@ -241,7 +243,18 @@ body.menu-toggled > .meta-link > span {
     #menu {
         flex-direction: column;
         position: relative;
-        font-size: 10px;
+        min-height: auto;
+        padding: 1rem 0;
+    }
+
+    #top-header {
+        width: 90%;
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+
+    #top-header h1 {
+        font-size: 2rem;
     }
 
     #menu-items {
@@ -251,26 +264,31 @@ body.menu-toggled > .meta-link > span {
     }
 
     .menu-item {
-        font-size: 10em;
+        font-size: 6rem;
         padding: 0;
         width: 20%;
     }
 
     #about-paragraph {
-        margin-top: 2em;
-        font-size: 3em;
-        margin-right: .5em;
-        margin-left: .5em;
+        margin-top: 1rem;
+        font-size: 1rem;
+        margin-right: 1rem;
+        margin-left: 1rem;
+        width: 90%;
+    }
+
+    #about-paragraph h1 {
+        font-size: 2rem;
     }
 
     #cat-link {
-        height: 4em;
-        width: 4em;
-        font-size: 2em;
+        position: relative;
+        margin-top: 1rem;
     }
 
     .meta-link {
-        position: absolute;
-        bottom: 0;
+        position: relative;
+        bottom: auto;
+        left: auto;
     }
 }

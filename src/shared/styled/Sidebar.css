@@ -8,6 +8,7 @@
     top: 0;
     left: 0;
     z-index: 10;
+    overflow: hidden;
 }
 
 #sidebar-main.sidebar-open {
@@ -23,7 +24,7 @@
     border: none;
     font-size: 3em;
     transition: transform 0.5s ease-in-out;
-    z-index: 10;
+    z-index: 11;
 }
 
 #hamburger:focus {
@@ -68,7 +69,7 @@
 .link-item:hover {
     color: rgb(120, 255, 255);
 }
-  
+
 .link-item:hover::after {
     transform: translateX(-50%) scaleX(1);
 }
@@ -84,16 +85,34 @@
 }
 
 @media (max-width: 900px) {
+    #hamburger {
+        font-size: 2em;
+    }
+
     #sidebar-main {
         width: 100%;
         height: 0;
+        border-right: none;
     }
+
+    #sidebar-main.sidebar-open {
+        width: 100%;
+        height: 100vh;
+    }
+
     #link-container {
         transform: translateY(-60vh);
         width: 100vw;
         background-color: #1a1a1a;
+        margin-top: 4em;
     }
-    #sidebar-container.sidebar-open #login-container {
-        transform: translateY(0vh);
+
+    .link-item {
+        font-size: 2.5em;
+        padding: 0.3em 0;
+    }
+
+    #sidebar-container.sidebar-open #link-container {
+        transform: translateY(0);
     }
 }

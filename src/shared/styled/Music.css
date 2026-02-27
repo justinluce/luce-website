@@ -5,7 +5,8 @@ audio::-webkit-media-controls-panel {
 .musicContainer {
     color: white;
     margin: 10px;
-    font-size: 10em;
+    font-size: clamp(3em, 8vw, 10em);
+    overflow-x: hidden;
 }
 
 .logos > a > img {
@@ -16,4 +17,20 @@ audio::-webkit-media-controls-panel {
 .faves {
     transform: scale(1.5);
     margin-top: 30px;
+}
+
+@media (max-width: 900px) {
+    .musicContainer {
+        padding: 0 1rem;
+    }
+
+    .faves {
+        transform: none;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .faves audio {
+        width: 100%;
+    }
 }
