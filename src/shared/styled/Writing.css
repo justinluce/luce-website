@@ -1,0 +1,103 @@
+.writingContainer {
+    color: white;
+    margin: 10px;
+}
+
+.writing-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.writing-link {
+    color: rgb(120, 224, 224);
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 12px 30px;
+    border: 1px solid rgba(120, 224, 224, 0.3);
+    border-radius: 4px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    letter-spacing: 0.05em;
+}
+
+.writing-type {
+    display: block;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 4px;
+}
+
+.writing-link:hover {
+    border-color: rgb(120, 224, 224);
+    background-color: rgba(120, 224, 224, 0.05);
+}
+
+.writing-wip {
+    position: relative;
+    cursor: default;
+    opacity: 0.5;
+    border-color: rgba(120, 224, 224, 0.15);
+}
+
+.writing-wip:hover {
+    opacity: 0.7;
+    background-color: transparent;
+    border-color: rgba(120, 224, 224, 0.3);
+}
+
+.wip-badge {
+    display: none;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background-color: rgba(120, 224, 224, 0.15);
+    color: rgb(120, 224, 224);
+    padding: 2px 8px;
+    border-radius: 3px;
+}
+
+.writing-wip:hover .wip-badge {
+    display: block;
+}
+
+.writing-content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.writing-content h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    color: rgb(120, 224, 224);
+}
+
+.writing-content p {
+    font-size: 1.15rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.writing-content hr {
+    border: none;
+    width: 90%;
+    height: 1px;
+    background-color: rgba(120, 224, 224, 0.4);
+    margin: 2rem auto;
+}
+
+.writing-content em {
+    font-style: italic;
+}

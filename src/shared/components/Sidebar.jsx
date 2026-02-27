@@ -14,8 +14,9 @@ export const Sidebar = () => {
             <div id='sidebar-main' className={sidebarOpen ? 'sidebar-open' : ''}>
                 <div id='link-container'>
                     <NavLink onClick={toggleSidebar} className='link-item' to={'/'}>Home</NavLink>
-                    <NavLink onClick={toggleSidebar} className='link-item' to={'/projects'}>Projects</NavLink>
+                    <NavLink onClick={toggleSidebar} className='link-item' to={'/projects'}>Dev</NavLink>
                     <NavLink onClick={toggleSidebar} className='link-item' to={'/music'}>Music</NavLink>
+                    <NavLink onClick={toggleSidebar} className='link-item' to={'/writing'}>Writing</NavLink>
                 </div>
             </div>
             <button className='bubble-hover' id='hamburger' onClick={toggleSidebar}>{sidebarOpen ? '\u2716' : '\u2630'}</button>
