@@ -1,5 +1,3 @@
-# Beyond the Realm
-
 Beyond the realm, it wakes
 Between the rift, it waits
 Wrath to be unleashed
