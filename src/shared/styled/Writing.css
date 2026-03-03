@@ -82,6 +82,7 @@
     margin-bottom: 0.5rem;
     color: rgb(120, 224, 224);
     border-bottom: none !important;
+    padding-bottom: 0;
 }
 
 .writing-content p {
