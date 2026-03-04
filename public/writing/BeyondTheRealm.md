@@ -13,16 +13,16 @@ The eldest of its age
 Though graceful as it grows
 The whispers hiss from those
 Sculpting for their needs
-A sheep to fuel their creed
+A lamb to fuel their creed
 
 With passing years it changed
 Repulsed by all their rage
 Cautious, scared, and cold
-Refused to fit their mold
+Refused their ill furlough
 
 In time, at last, it grew
 Crowned king of all it knew
-Doctrines fill its brain
+Rumors fill its brain
 Too much to be contained
 
 It turned to its empire
@@ -37,11 +37,11 @@ It joined their dark bloodlet
 
 It fights throughout the land
 Crushed heads and severed hands
-Ev’ry war that ends
+Ev’ry war it ends
 Two more spring up again
 
 It blinks and cent’ries pass
-It treads through fields of ash
+Alone in fields of ash
 Somber, worn, and drained
 Succumbed to its own pain
 
