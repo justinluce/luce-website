@@ -13,15 +13,15 @@ The eldest of its age
 Though graceful as it grows
 The whispers hiss from those
 Sculpting for their needs
-A lamb to fuel their creed
+A sheep to fuel their creed
 
 With passing years it changed
 Repulsed by all their rage
 Cautious, scared, and cold
-Refused their ill furlough
+Refused their iron fold
 
 In time, at last, it grew
-Crowned king of all it knew
+Crowned King of all it knew
 Rumors fill its brain
 Too much to be contained
 
