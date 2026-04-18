@@ -1,16 +1,454 @@
 .antiContainer {
-    margin: 20px;
+    --anti-page-text: #ffffff;
+    --anti-page-muted: rgba(255, 255, 255, 0.72);
+    --anti-border: rgba(255, 255, 255, 0.12);
+    --anti-panel-bg: #101010;
+    --anti-hero-bg: #141414;
+    --anti-button-bg: #e7e7e7;
+    --anti-button-text: #111111;
+    --anti-button-border: rgba(255, 255, 255, 0.2);
+    --anti-input-bg: #f3f3f3;
+    --anti-input-text: #111111;
+    --anti-meter-bg: rgba(255, 255, 255, 0.04);
+    --anti-meter-fill: linear-gradient(90deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.92));
+    --anti-link: #8dc3ff;
+    --anti-modal-bg: #111111;
+    --anti-modal-button-bg: #181818;
+    --anti-modal-button-hover: #202020;
+    --anti-modal-button-text: #f3f3f3;
+    width: min(1100px, calc(100% - 32px));
+    margin: 24px auto 48px;
     font-size: 30px;
-    color: white;
+    color: var(--anti-page-text);
+    position: relative;
+}
+
+.antiContainer a {
+    color: var(--anti-link);
+}
+
+.antiContainer.pinkMode {
+    --anti-page-text: #fff1f7;
+    --anti-page-muted: rgba(255, 229, 240, 0.88);
+    --anti-border: rgba(255, 112, 173, 0.65);
+    --anti-panel-bg: #ff4fa3;
+    --anti-hero-bg: #ff68b1;
+    --anti-button-bg: #ffe94d;
+    --anti-button-text: #7a003f;
+    --anti-button-border: rgba(163, 0, 94, 0.45);
+    --anti-input-bg: #ffd0ec;
+    --anti-input-text: #7a003f;
+    --anti-meter-bg: rgba(124, 0, 70, 0.22);
+    --anti-meter-fill: linear-gradient(90deg, #fff26f, #fffbcb 55%, #fff26f);
+    --anti-link: #7dffea;
+    --anti-modal-bg: #ff57a8;
+    --anti-modal-button-bg: #fff36a;
+    --anti-modal-button-hover: #ffea36;
+    --anti-modal-button-text: #7a003f;
+    background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.35), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(255, 255, 0, 0.18), transparent 20%),
+        repeating-linear-gradient(
+            -45deg,
+            rgba(255, 255, 255, 0.08) 0,
+            rgba(255, 255, 255, 0.08) 12px,
+            rgba(255, 78, 163, 0.05) 12px,
+            rgba(255, 78, 163, 0.05) 24px
+        );
+    padding: 18px;
+    border: 3px solid #ff9ad0;
+    box-shadow: 0 0 0 6px rgba(255, 255, 0, 0.18);
 }
 
 .contentContainer {
-    margin: 10px;
+    display: grid;
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.antiResumeHero {
+    display: grid;
+    gap: 14px;
+    padding: 28px 30px;
+    border: 1px solid var(--anti-border);
+    border-radius: 4px;
+    background: var(--anti-hero-bg);
+    box-shadow: none;
+}
+
+.antiResumeThemeToggleRow {
+    position: fixed;
+    top: 18px;
+    right: 22px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0;
+    z-index: 25;
+}
+
+.antiResumeThemeToggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--anti-page-text);
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.antiResumeThemeToggle input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.antiResumeThemeToggleLabel {
+    line-height: 1;
+}
+
+.antiResumeThemeToggleTrack {
+    position: relative;
+    width: 56px;
+    height: 30px;
+    border: 1px solid var(--anti-button-border);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.antiResumeThemeToggleThumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    background: var(--anti-button-bg);
+    transition: transform 0.18s ease, background-color 0.18s ease;
+}
+
+.antiResumeThemeToggle input:checked + .antiResumeThemeToggleTrack {
+    background: rgba(255, 255, 0, 0.18);
+}
+
+.antiResumeThemeToggle input:checked + .antiResumeThemeToggleTrack .antiResumeThemeToggleThumb {
+    transform: translateX(26px);
+}
+
+.antiResumePinkBanner {
+    margin: 0 0 6px;
+    text-align: center;
+    font-size: clamp(1.6rem, 3.6vw, 3.25rem);
+    font-weight: 900;
+    letter-spacing: 0.22em;
+    color: #fff36a;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 #a1005f, 5px 5px 0 rgba(255, 255, 255, 0.18);
+}
+
+.antiResumeTitle {
+    letter-spacing: 0.02em;
+}
+
+.antiResumeIntro {
+    max-width: 68ch;
+    margin: 0 auto;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    line-height: 1.7;
+    text-align: center;
+}
+
+.antiResumeIntroMuted {
+    color: var(--anti-page-muted);
+}
+
+.antiContainer.pinkMode .antiResumeThemeToggleTrack {
+    background: rgba(122, 0, 63, 0.28);
+}
+
+.antiContainer.pinkMode .antiResumeThemeToggle input:checked + .antiResumeThemeToggleTrack {
+    background: rgba(255, 243, 106, 0.55);
+}
+
+.antiContainer.pinkMode .antiResumeThemeToggleThumb {
+    box-shadow: 0 0 0 2px rgba(163, 0, 94, 0.22);
+}
+
+.antiResumeStart {
+    margin-top: 28px;
+}
+
+.antiResumeStartAction {
+    display: flex;
+    justify-content: center;
+}
+
+.antiResumeStartButton {
+    min-width: 180px;
+    padding: 14px 24px;
+    border: 1px solid var(--anti-button-border);
+    border-radius: 2px;
+    background: var(--anti-button-bg);
+    color: var(--anti-button-text);
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: none;
+}
+
+.antiResumePanel {
+    padding: 22px 24px;
+    border: 1px solid var(--anti-border);
+    border-radius: 4px;
+    background: var(--anti-panel-bg);
+    box-shadow: none;
+}
+
+.antiResumePanelIntro,
+.antiResumePanelCaptcha,
+.antiResumePanelLeaderboard,
+.antiResumePanelChallenge,
+.antiResumeLoadingScreen {
+    display: grid;
+    gap: 16px;
+}
+
+.antiResumeSectionTitle {
+    margin: 0;
+    text-align: center;
+    font-size: clamp(1.4rem, 2vw, 2rem);
+}
+
+.antiResumeBody {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+.antiResumeBodyMuted {
+    color: var(--anti-page-muted);
+}
+
+.antiResumeInlineAside {
+    display: inline;
+    margin: 0;
+}
+
+.antiResumeForm {
+    display: grid;
+    gap: 24px;
+    text-align: left;
+}
+
+.antiResumePanelForm {
+    display: grid;
+    gap: 24px;
+}
+
+.antiResumeFields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.antiResumeField,
+.antiResumeRangeField {
+    display: grid;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.antiResumeInput {
+    width: 100%;
+    min-height: 56px;
+    padding: 0 16px;
+    border: 1px solid var(--anti-button-border);
+    border-radius: 2px;
+    background: var(--anti-input-bg);
+    color: var(--anti-input-text);
+    font-size: 1rem;
+}
+
+.antiResumeRange {
+    width: 100%;
+    min-height: 50px;
+}
+
+.antiResumeRangeValue {
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+}
+
+.antiResumeTimer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.antiResumeKeyboardWrap {
+    display: grid;
+    gap: 16px;
+}
+
+.antiResumeDoneWrap {
+    margin-top: 8px;
+}
+
+.antiResumeLoadingScreen {
+    justify-items: center;
+    text-align: center;
+    padding: 48px 24px;
+    min-height: 420px;
+    align-content: center;
+}
+
+.antiResumeLoadingEyebrow {
+    margin: 0;
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--anti-page-muted);
+}
+
+.antiResumeLoadingMessage {
+    margin: 0;
+    min-height: 1.5em;
+    color: var(--anti-page-text);
+}
+
+.antiResumeLoadingMeter {
+    width: min(100%, 620px);
+    height: 18px;
+    border: 1px solid var(--anti-border);
+    background: var(--anti-meter-bg);
+    overflow: hidden;
+}
+
+.antiResumeLoadingFill {
+    height: 100%;
+    background: var(--anti-meter-fill);
+    transition: width 1.2s ease;
+}
+
+.antiResumeLoadingPercent,
+.antiResumeLoadingNote,
+.antiResumeLoadingConfirmation {
+    margin: 0;
+}
+
+.antiResumeLoadingPercent {
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.antiResumeLoadingNote {
+    color: var(--anti-page-muted);
+}
+
+.antiResumeLoadingConfirmation {
+    color: var(--anti-page-text);
+    font-weight: 700;
+}
+
+.modal-content.antiResumeModal {
+    width: min(560px, calc(100% - 32px));
+    padding: 28px 28px 24px;
+    border: 1px solid var(--anti-border);
+    border-radius: 0;
+    background: var(--anti-modal-bg);
+    color: var(--anti-page-text);
+    box-shadow: none;
+}
+
+.modal-content.antiResumeModal h2 {
+    margin: 0 0 10px;
+    font-size: clamp(1.4rem, 2vw, 1.9rem);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.modal-content.antiResumeModal p {
+    margin: 0;
+    line-height: 1.45;
+}
+
+.modal-content.antiResumeModal .small {
+    margin-top: 12px;
+    color: var(--anti-page-muted);
+}
+
+.modal-content.antiResumeModal .antiResumeModalButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 22px;
+    padding: 10px 16px;
+    border: 1px solid var(--anti-button-border);
+    background: var(--anti-modal-button-bg);
+    color: var(--anti-modal-button-text);
+    font-weight: 700;
+}
+
+.modal-content.antiResumeModal .antiResumeModalButton p {
+    margin: 0;
+    color: inherit;
+    line-height: 1;
+}
+
+.modal-content.antiResumeModal .antiResumeModalButton:hover:not(:disabled) {
+    background: var(--anti-modal-button-hover);
+    filter: none;
+}
+
+.captchaSection {
+    display: grid;
+    gap: 14px;
+    justify-items: center;
+    text-align: center;
+}
+
+.captchaImage {
+    width: min(100%, 500px);
+    height: auto;
+    border-radius: 2px;
+    border: 1px solid var(--anti-border);
+}
+
+.captchaLabel {
+    font-weight: 700;
+}
+
+.captchaTextarea {
+    width: min(100%, 500px);
+    min-height: 200px;
+    padding: 16px;
+    border: 1px solid var(--anti-button-border);
+    border-radius: 2px;
+    background: var(--anti-input-bg);
+    color: var(--anti-input-text);
+    font-size: 1.1rem;
+    resize: vertical;
 }
 
 button {
     cursor: pointer;
-    color: black;
+    color: var(--anti-button-text);
+    border: none;
+    transition: transform 0.18s ease, background-color 0.18s ease, filter 0.18s ease;
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    filter: brightness(0.98);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 .form {
@@ -18,28 +456,77 @@ button {
 }
 
 .signUp {
-    width: 150px;
-    height: auto;
-    padding: 10px;
-    margin-bottom: 10px;
+    width: fit-content;
+    min-width: 160px;
+    padding: 14px 24px;
+    margin-top: 8px;
+    justify-self: center;
+    border-radius: 2px;
+    background: var(--anti-button-bg);
+    color: var(--anti-button-text);
+    font-size: 1rem;
+    font-weight: 700;
 }
 
 .small {
     display: block;
-    margin-top: 20px;
+    margin-top: 8px;
     font-size: 12px;
-    white-space: nowrap;
+    white-space: normal;
 }
 
 .doneButton {
     width: auto;
     height: auto;
-    scale: 2;
-    background-color: yellow;
-    border-radius: 50%;
-    padding: 20px;
+    background: var(--anti-button-bg);
+    color: var(--anti-button-text);
+    border-radius: 2px;
+    padding: 16px 24px;
+    font-weight: 800;
+    box-shadow: none;
 }
 
 .center {
     text-align: center;
+}
+
+@media (max-width: 900px) {
+    .antiContainer {
+        width: calc(100% - 20px);
+        margin: 16px auto 32px;
+        font-size: 24px;
+    }
+
+    .antiContainer.pinkMode {
+        padding: 12px;
+    }
+
+    .antiResumeHero,
+    .antiResumePanel {
+        padding: 20px;
+    }
+
+    .antiResumeFields {
+        grid-template-columns: 1fr;
+    }
+
+    .antiResumeThemeToggle {
+        gap: 10px;
+        font-size: 0.78rem;
+    }
+
+    .antiResumeThemeToggleRow {
+        top: 14px;
+        right: 14px;
+    }
+
+    .antiResumeTimer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .signUp {
+        width: 100%;
+        justify-self: stretch;
+    }
 }

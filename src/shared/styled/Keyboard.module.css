@@ -8,8 +8,8 @@
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 5px;
-    width: 70vw;
-    height: 50vh;
+    width: min(70vw, 860px);
+    min-height: 320px;
     margin-top: 10px;
 }
 
@@ -25,4 +25,15 @@
 
 .space {
     grid-column: span 4;
+}
+
+@media (max-width: 900px) {
+    .Keyboard {
+        width: 100%;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .space {
+        grid-column: span 3;
+    }
 }
