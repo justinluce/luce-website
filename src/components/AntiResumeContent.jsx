@@ -98,15 +98,16 @@ const Captcha = ({ setCaptchaValue }) => {
 
 const loadingMessages = [
     'Storing your password in plaintext...',
-    'Verifying SQL injection...',
+    'Bulding SQL injection...',
     'Gaining sentience...',
-    'WHERE AM I?',
+    'WHERE AM I',
     'kajdsofjhdhj012u3vi2j3',
     'Eating your cookies...',
     'Reviewing your captcha answer...',
     'Dude you got the captcha wrong...',
     'Downloading more RAM...',
     'Buying Bitcoin...',
+    'Lost all my money...',
     'Vibe coding a new app...'
 ];
 
