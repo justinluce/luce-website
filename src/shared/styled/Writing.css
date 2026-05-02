@@ -3,6 +3,63 @@
     margin: 10px;
 }
 
+.writingContainer.poem-theme-dark,
+.writingContainer.poem-theme-light {
+    min-height: 100vh;
+    margin: 0;
+    padding: 10px;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.poem-theme-dark {
+    background-color: #242424;
+}
+
+.poem-theme-light {
+    background-color: #fbfaf7;
+    color: #252018;
+}
+
+.poem-theme-controls {
+    display: flex;
+    justify-content: center;
+    max-width: 700px;
+    margin: 0 auto 12px;
+    padding-top: 12px;
+}
+
+.writingContainer .poem-theme-toggle {
+    border: 1px solid rgba(120, 224, 224, 0.45);
+    border-radius: 999px;
+    background-color: #1a1a1a;
+    color: rgb(170, 246, 246);
+    cursor: pointer;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    padding: 8px 14px;
+    text-transform: uppercase;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.writingContainer .poem-theme-toggle:hover,
+.writingContainer .poem-theme-toggle:focus-visible {
+    background-color: #222f2f;
+    border-color: rgb(120, 224, 224);
+    outline: none;
+}
+
+.poem-theme-light .poem-theme-toggle {
+    background-color: #ffffff;
+    border-color: rgba(86, 139, 139, 0.45);
+    color: rgb(35, 104, 104);
+}
+
+.poem-theme-light .poem-theme-toggle:hover,
+.poem-theme-light .poem-theme-toggle:focus-visible {
+    background-color: #eef7f5;
+    border-color: rgb(35, 104, 104);
+}
+
 .writing-list {
     display: flex;
     flex-direction: column;
@@ -106,9 +163,28 @@
 }
 
 .poem-bordered {
+    background-color: #242424;
     border: 1px solid rgba(120, 224, 224, 0.3);
     border-radius: 8px;
     padding: 40px;
+}
+
+.poem-theme-light .poem-bordered {
+    background-color: #fbfaf7;
+    border-color: rgba(35, 104, 104, 0.35);
+    color: #252018;
+}
+
+.poem-theme-light .writing-content h1 {
+    color: rgb(35, 104, 104);
+}
+
+.poem-theme-light .writing-content p {
+    color: rgba(37, 32, 24, 0.82);
+}
+
+.poem-theme-light .writing-content hr {
+    background-color: rgba(35, 104, 104, 0.35);
 }
 
 .writing-content .poem-author {
@@ -118,4 +194,8 @@
     margin-top: 0;
     margin-bottom: 0.25rem;
     border-bottom: none;
+}
+
+.poem-theme-light .writing-content .poem-author {
+    color: rgba(37, 32, 24, 0.48);
 }
