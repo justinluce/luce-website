@@ -126,7 +126,7 @@ const LoadingScreen = ({ progress, message, isConfirmed }) => {
             {isConfirmed ? (
                 <div className='antiResumeLoadingConfirmationGroup'>
                     <p className='antiResumeLoadingConfirmation'>
-                        Confirmation received. You will now receive daily emails for the rest of your life.
+                        Confirmation confirmed. You will now receive daily emails for the rest of your life.
                     </p>
                     <br />
                     <p className='antiResumeLoadingUnsubscribe'>No, you cannot unsubscribe.</p>
