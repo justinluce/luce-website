@@ -2,6 +2,44 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import '../styled/Sidebar.css';
 
+const HomeIcon = () => (
+    <svg viewBox='0 0 24 24' aria-hidden='true'>
+        <path d='M3 10.8 12 3l9 7.8' />
+        <path d='M5.5 9.5V21h13V9.5' />
+        <path d='M9.5 21v-6h5v6' />
+    </svg>
+);
+
+const CodeIcon = () => (
+    <svg viewBox='0 0 24 24' aria-hidden='true'>
+        <path d='m8 8-4 4 4 4' />
+        <path d='m16 8 4 4-4 4' />
+        <path d='m14 4-4 16' />
+    </svg>
+);
+
+const MusicIcon = () => (
+    <svg viewBox='0 0 24 24' aria-hidden='true'>
+        <path d='M9 18V5l11-2v13' />
+        <circle cx='6' cy='18' r='3' />
+        <circle cx='17' cy='16' r='3' />
+    </svg>
+);
+
+const WritingIcon = () => (
+    <svg viewBox='0 0 24 24' aria-hidden='true'>
+        <path d='M4 20h4l11-11a2.8 2.8 0 0 0-4-4L4 16v4Z' />
+        <path d='m13.5 6.5 4 4' />
+    </svg>
+);
+
+const navItems = [
+    { to: '/', label: 'Home', Icon: HomeIcon },
+    { to: '/projects', label: 'Dev', Icon: CodeIcon },
+    { to: '/music', label: 'Music', Icon: MusicIcon },
+    { to: '/writing', label: 'Writing', Icon: WritingIcon }
+];
+
 export const Sidebar = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -11,15 +49,40 @@ export const Sidebar = () => {
 
     return (
         <div id='sidebar-container' className={sidebarOpen ? 'sidebar-open' : ''}>
-            <div id='sidebar-main' className={sidebarOpen ? 'sidebar-open' : ''}>
-                <div id='link-container'>
-                    <NavLink onClick={toggleSidebar} className='link-item' to={'/'}>Home</NavLink>
-                    <NavLink onClick={toggleSidebar} className='link-item' to={'/projects'}>Dev</NavLink>
-                    <NavLink onClick={toggleSidebar} className='link-item' to={'/music'}>Music</NavLink>
-                    <NavLink onClick={toggleSidebar} className='link-item' to={'/writing'}>Writing</NavLink>
-                </div>
-            </div>
-            <button className='bubble-hover' id='hamburger' onClick={toggleSidebar}>{sidebarOpen ? '\u2716' : '\u2630'}</button>
+            <aside
+                id='sidebar-main'
+                className={sidebarOpen ? 'sidebar-open' : ''}
+                aria-label='Primary navigation'
+            >
+                <button
+                    id='hamburger'
+                    type='button'
+                    onClick={toggleSidebar}
+                    aria-label={sidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'}
+                    aria-expanded={sidebarOpen}
+                >
+                    <span className='hamburger-icon' aria-hidden='true'>
+                        {sidebarOpen ? '\u00d7' : '\u2630'}
+                    </span>
+                </button>
+                <nav id='link-container'>
+                    {navItems.map(({ to, label, Icon }) => (
+                        <NavLink
+                            key={to}
+                            onClick={() => setSidebarOpen(false)}
+                            className='link-item'
+                            to={to}
+                            aria-label={label}
+                            title={!sidebarOpen ? label : undefined}
+                        >
+                            <span className='link-icon'>
+                                <Icon />
+                            </span>
+                            <span className='link-label'>{label}</span>
+                        </NavLink>
+                    ))}
+                </nav>
+            </aside>
         </div>
     )
 }

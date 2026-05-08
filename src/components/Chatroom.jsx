@@ -29,6 +29,7 @@ export const Chatroom = () => {
             <Typography 
             variant='h1'
             textAlign={'center'}
+            className='pageTitle'
             >
             Chatroom
             </Typography>

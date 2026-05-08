@@ -1,32 +1,20 @@
 import React from 'react';
-import { Typography } from '@mui/material';
 
 export const FeverDreamDetails = () => {
 
     return (
-        <div className='mainProjectContainer'>
-            <Typography 
-                variant='h4'
-                textAlign={'center'}
-                style={{ marginBottom: '30px' }}
-            >
-            <h4>Lucid Dream 1999</h4>
-            </Typography>
-            <p style={{ textAlign: 'center', marginRight: '20px' }}>
-                Justin's Lucid Dream 1999 is a collection of parody games about the creative process. 
+        <section className='projectDetails'>
+            <h2 className='projectDetailsTitle'>Fever Dream 1999</h2>
+            <p>
+                Justin's Fever Dream 1999 is a collection of parody games about the creative process. 
                 Justin will create games for you to play, and you will provide feedback for him.
-            <br /><br />
-                Currently version 0.1.5.
             </p>
-            <br />
-            <div className='downloadLinks'>
-                <h4>Download Links</h4>
-                Direct Download (coming soon)
-                {/* <a className='blueLink' href='https://2x4printerpaper.itch.io'>Itch.io</a> */}
+            <p className='projectDetailsSubtitle'>
+                Currently working on version 0.2.0.
+            </p>
+            <div className='projectDetailsImageWrap'>
+                <img className='projectDetailsImage' src='images/feverDreamDetails.webp' alt='A small, square house with a mountain in the background' title='Fever Dream'/>
             </div>
-            <div style={{display: 'flex', justifyContent: 'center', marginTop: '50px', marginBottom: '50px'}}>
-                <img height={400} src='images/feverDreamDetails.webp' alt='A small, square house with a mountain in the background' title='Fever Dream'/>
-            </div>
-        </div>
+        </section>
     );
 }

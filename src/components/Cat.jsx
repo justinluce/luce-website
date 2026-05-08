@@ -7,6 +7,7 @@ export const Cat = () => {
             <Typography 
                 variant='h1'
                 textAlign={'center'}
+                className='pageTitle pageTitleCompact'
                 style={{marginBottom: '0', lineHeight: '1'}}
             >
                 Cat

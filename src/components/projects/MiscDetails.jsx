@@ -12,20 +12,22 @@ export const MiscDetails = () => {
     ]
 
     return (
-        <div id='misc-main'>
+        <section className='projectDetails' id='misc-main'>
+            <h2 className='projectDetailsTitle'>Misc Projects</h2>
             <p>
                 Random projects I've made that are smaller in scope.
             </p>
-            <br />
             <div id='misc-container'>
                 <div id='left-container'>
                     {projectList.map((item, index) => (
-                        <div 
+                        <button
+                            type='button'
+                            key={item}
                             className={`${projectOpen === index ? 'active' : ''} ${item === 'Tic-Tac-Toe' ? 'tic-tac-toe' : ''}`} 
                             onClick={() => setProjectOpen(index)}
                         >
                             {item}
-                        </div>
+                        </button>
                     ))}
                 </div>
                 <div id='right-container'>
@@ -54,6 +56,6 @@ export const MiscDetails = () => {
                     )} 
                 </div>
             </div>
-        </div>
+        </section>
     )
 }

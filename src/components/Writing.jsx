@@ -5,7 +5,7 @@ import '../shared/styled/Writing.css';
 export const Writing = () => {
     return (
         <div className='writingContainer'>
-            <Typography variant='h1' textAlign={'center'}>
+            <Typography variant='h1' textAlign={'center'} className='pageTitle'>
                 Writing
             </Typography>
             <div className='writing-list'>

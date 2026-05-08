@@ -46,6 +46,7 @@ function MainLayout() {
       <Analytics />
       {/* {showMenu && <Menu />} */}
       <Sidebar />
+      <main className='app-content'>
         <Routes>
           <Route path='/' element={<LandingPage />} />
           <Route path='/projects' element={<Projects />} />
@@ -63,6 +64,7 @@ function MainLayout() {
           <Route path='/writing' element={<Writing />} />
           <Route path='/writing/beyond-the-realm' element={<BeyondTheRealm />} />
         </Routes>
+      </main>
     </>
   );
 }

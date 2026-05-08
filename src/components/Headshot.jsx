@@ -54,6 +54,8 @@ export const Headshot = () => {
         id='headshot'
         style={{ display: 'block' }}
         alt="Headshot"
+        decoding='async'
+        fetchPriority='high'
       />
 
       <div

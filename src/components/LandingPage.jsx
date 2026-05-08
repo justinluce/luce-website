@@ -16,6 +16,17 @@ export const LandingPage = () =>  {
 
     // Couldn't figure out how to update the height with CSS so whatever fml
     useEffect(() => { 
+        [
+            '/images/luceHeadshot.webp',
+            '/images/github-mark-white.png',
+            '/images/whiteCircle.png',
+            '/images/blackCircle.png',
+            '/images/georgeBehindPlant.jpg'
+        ].forEach((src) => {
+            const image = new Image();
+            image.src = src;
+        });
+
         const time = Date.now();
         const sevenDaysMS = 604800000;
         const hasExpired = time - shouldAnimate.timestamp >= sevenDaysMS;
@@ -52,7 +63,7 @@ export const LandingPage = () =>  {
         <>
             <div id="menu" className={shouldAnimate.value === true ? 'animate-landing-text' : ''}>
                 <div id='top-header'>
-                    <h1>Justin Luce</h1>
+                    <h1 className='pageTitle'>Justin Luce</h1>
                     {/* <ThemeIcon /> */}
                     <div id='logo-container'>
                         {/* <div id='resume-container'>
@@ -83,7 +94,6 @@ export const LandingPage = () =>  {
                         As a hobbyist game dev, I have created multiple video games using Unity and Gamemaker Studio. 
                         I primarily specialize in JavaScript/TypeScript, Python, and C#/.NET.
                     </p>
-                    <br />
                     <p>
                         This is my website, where you can find a collection of things I've made.
                         This ranges from coding projects, to music, to web development 

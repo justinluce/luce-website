@@ -1,20 +1,13 @@
 import React from 'react';
-import { Typography } from '@mui/material';
 
 export const WebsiteDetails = () => {
 
     return (
-        <div className='mainProjectContainer'>
-            <Typography 
-                variant='h4'
-                textAlign={'center'}
-                style={{ marginBottom: '10px' }}
-            >
-            <h4>Portfolio Website</h4>
-            </Typography>
+        <section className='projectDetails'>
+            <h2 className='projectDetailsTitle'>Portfolio Website</h2>
             <div className='downloadLinks'>
                 <a href='https://github.com/justinluce/luce-website'>Github Repository</a>
             </div>
-        </div>
+        </section>
     );
 }

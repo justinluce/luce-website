@@ -5,7 +5,7 @@
 }
 
 @media (max-width: 900px) {
-  h1, .MuiTypography-h1 {
+  h1:not(.pageTitle), .MuiTypography-h1:not(.pageTitle) {
     font-size: 2rem !important;
   }
 

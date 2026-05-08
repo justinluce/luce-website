@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import React, { useState, useEffect, useRef } from 'react';
-import '../App.css';
+import '../shared/styled/Minesweeper.css';
 import BoardWorker from '../workers/boardWorker?worker&inline';
   
 const Minesweeper = () => {
@@ -58,7 +58,6 @@ const toggleFlag = (e, row, col) => {
 
 const resetBoard = (size = 10, mines = 10) => {
     setGameOver(false);
-    console.log(size, mines);
     worker.current.postMessage({ size, mines });
 };
 
@@ -71,41 +70,44 @@ const boardSize = (e) => {
 }
 
 return (
-    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
+    <div className='minesweeperPage'>
         <Typography 
             variant='h1'
+            className='pageTitle pageTitleCompact'
             textAlign={'center'}>
             Minesweeper
         </Typography>
-        <button onMouseUp={() => resetBoard(size, mines)} style={{ margin: '20px', height: '40px', width: '160px' }}>Reset</button>
-        <div className="game-options">
-          <label htmlFor="boardSize">Board size</label>
-          <select onChange={boardSize}>
-            <option value="10,10">10x10, 10 mines</option>
-            <option value="16,40">16x16, 40 mines</option>
-            <option value="22,99">22x22, 99 mines</option>
-          </select>
+        <div className='minesweeperControls'>
+          <button className='minesweeperReset' onMouseUp={() => resetBoard(size, mines)}>Reset</button>
+          <label className='game-options' htmlFor="boardSize">
+            <span>Board size</span>
+            <select id='boardSize' onChange={boardSize}>
+              <option value="10,10">10x10, 10 mines</option>
+              <option value="16,40">16x16, 40 mines</option>
+              <option value="22,99">22x22, 99 mines</option>
+            </select>
+          </label>
         </div>
-        <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-            <div style={{ margin: 'auto', display: 'block', maxWidth: 'fit-content', border: '2px solid black'}}>
+        <div className='minesweeperBoardWrap'>
+            <div className='minesweeperBoard'>
                 {board.map((row, i) => (
-                    <div key={i} style={{ fontSize: 0, lineHeight: 0, textAlign: 'center'}}>
+                    <div key={i} className='minesweeperRow'>
                 {row.map((col, j) => (
                   <button 
                       key={j}
                       onMouseUp={(e) => revealSquare(e, i, j)}
                       onContextMenu={(e) => toggleFlag(e, i, j)}
-                      style={{ border: 'none', background: 'none', padding: 0, margin: 0, fontSize: '1rem', verticalAlign: 'top' }}
+                      className='minesweeperTile'
                     >
                     {col.revealed ? 
                       (
                       col.value === -1 ? 
-                        <img draggable="false" src={`${import.meta.env.BASE_URL}images/minesweeper/TileExploded.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Mine" /> : 
-                        <img draggable="false" src={`${import.meta.env.BASE_URL}images/minesweeper/Tile${col.value}.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Tile" />
+                        <img draggable="false" src={`${import.meta.env.BASE_URL}images/minesweeper/TileExploded.png`} alt="Mine" /> : 
+                        <img draggable="false" src={`${import.meta.env.BASE_URL}images/minesweeper/Tile${col.value}.png`} alt="Tile" />
                       ) 
                       : col.flagged ? 
-                        <img draggable="false" src={`${import.meta.env.BASE_URL}images/minesweeper/TileFlag.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Flag" /> :
-                        <img draggable="false" src={`${import.meta.env.BASE_URL}images/minesweeper/TileUnknown.png`} style={{height: "40px", width: "40px", display: 'block'}} alt="Empty Tile" />
+                        <img draggable="false" src={`${import.meta.env.BASE_URL}images/minesweeper/TileFlag.png`} alt="Flag" /> :
+                        <img draggable="false" src={`${import.meta.env.BASE_URL}images/minesweeper/TileUnknown.png`} alt="Empty Tile" />
                     }
                   </button>
                 ))}

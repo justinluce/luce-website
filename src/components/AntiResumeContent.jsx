@@ -124,9 +124,13 @@ const LoadingScreen = ({ progress, message, isConfirmed }) => {
             </div>
             <p className='antiResumeLoadingPercent'>{progress}%</p>
             {isConfirmed ? (
-                <p className='antiResumeLoadingConfirmation'>
-                    Confirmation received. You will now receive daily emails for the rest of your life.
-                </p>
+                <div className='antiResumeLoadingConfirmationGroup'>
+                    <p className='antiResumeLoadingConfirmation'>
+                        Confirmation received. You will now receive daily emails for the rest of your life.
+                    </p>
+                    <br />
+                    <p className='antiResumeLoadingUnsubscribe'>No, you cannot unsubscribe.</p>
+                </div>
             ) : (
                 <p className='antiResumeLoadingNote'>This may take a while. Do not refresh. It will not help.</p>
             )}
@@ -134,7 +138,7 @@ const LoadingScreen = ({ progress, message, isConfirmed }) => {
     );
 };
 
-export const AntiResumeContent = () => {
+export const AntiResumeContent = ({ onSigningUpChange }) => {
     const [number, setNumber] = useState(0);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -151,10 +155,12 @@ export const AntiResumeContent = () => {
     const [loadingProgress, setLoadingProgress] = useState(0);
     const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
     const [isLoadingConfirmed, setIsLoadingConfirmed] = useState(false);
+    const [showKeyboardWarning, setShowKeyboardWarning] = useState(false);
     const focusedInput = useRef(null);
     const nameRef = useRef(null);
     const emailRef = useRef(null);
     const loadingStartedAtRef = useRef(null);
+    const keyboardWarningTimeoutRef = useRef(null);
 
     const handleNumber = (e) => {
         setNumber(e.target.value);
@@ -207,6 +213,7 @@ export const AntiResumeContent = () => {
         setIsLoadingConfirmed(false);
         loadingStartedAtRef.current = Date.now();
         setIsSigningUp(true);
+        onSigningUpChange?.(true);
     };
 
     const handleModalClose = () => {
@@ -250,6 +257,52 @@ export const AntiResumeContent = () => {
             clearInterval(intervalID);
         };
     }, []);
+
+    useEffect(() => {
+        if (!clicked || done || isSigningUp) {
+            setShowKeyboardWarning(false);
+            return undefined;
+        }
+
+        const handlePhysicalKeyboard = (event) => {
+            const targetTag = event.target.tagName.toLowerCase();
+
+            if (
+                event.ctrlKey ||
+                event.metaKey ||
+                event.altKey ||
+                targetTag === 'textarea' ||
+                targetTag === 'select'
+            ) {
+                return;
+            }
+
+            const isTypingKey = event.key.length === 1 ||
+                ['Backspace', 'Delete', 'Enter', 'Space', 'Tab'].includes(event.key);
+
+            if (!isTypingKey) {
+                return;
+            }
+
+            event.preventDefault();
+            setShowKeyboardWarning(true);
+
+            const currentInputRef = activeInput === 'email' ? emailRef : nameRef;
+            currentInputRef.current?.focus();
+
+            window.clearTimeout(keyboardWarningTimeoutRef.current);
+            keyboardWarningTimeoutRef.current = window.setTimeout(() => {
+                setShowKeyboardWarning(false);
+            }, 2200);
+        };
+
+        document.addEventListener('keydown', handlePhysicalKeyboard);
+
+        return () => {
+            document.removeEventListener('keydown', handlePhysicalKeyboard);
+            window.clearTimeout(keyboardWarningTimeoutRef.current);
+        };
+    }, [activeInput, clicked, done, isSigningUp]);
 
     useEffect(() => {
         if (!isSigningUp) {
@@ -309,7 +362,7 @@ export const AntiResumeContent = () => {
     }, [isSigningUp]);
 
     return (
-        <div className='contentContainer'>
+        <div className={`contentContainer${isSigningUp ? ' contentContainerLoading' : ''}`}>
             {showCookiesModal && (
                 <Modal
                     isOpen={showCookiesModal}
@@ -329,21 +382,23 @@ export const AntiResumeContent = () => {
                 </Modal>
             )}
 
-            <div className='antiResumePanel antiResumePanelIntro'>
-                <h2 className='antiResumeSectionTitle'>You are required to sign up to access the rest of this page.</h2>
-                <p className='antiResumeBody'>
-                    Don&apos;t worry, your information will not be used maliciously.
-                    In fact, it will not even be saved at all. If you&apos;re paranoid,
-                    you can use fake information, or check the&nbsp;
-                    <a href="https://github.com/justinluce/luce-website">source code</a>.&nbsp;
-                    <s className='antiResumeInlineAside'>Please give me your data anyway.</s>
-                </p>
-                {/* <p className='antiResumeBody antiResumeBodyMuted'>
-                    <strong>Currently, this is all of the content for this page.</strong>&nbsp;
-                    In the future, I plan on adding a pop quiz, extra captchas,
-                    a &quot;rate your experience&quot; survey, and mock sign up functionality.
-                </p> */}
-            </div>
+            {!isSigningUp && (
+                <div className='antiResumePanel antiResumePanelIntro'>
+                    <h2 className='antiResumeSectionTitle'>You are required to sign up to access the rest of this page.</h2>
+                    <p className='antiResumeBody'>
+                        Don&apos;t worry, your information will not be used maliciously.
+                        In fact, it will not even be saved at all. If you&apos;re paranoid,
+                        you can use fake information, or check the&nbsp;
+                        <a href="https://github.com/justinluce/luce-website">source code</a>.&nbsp;
+                        <s className='antiResumeInlineAside'>Please give me your data anyway.</s>
+                    </p>
+                    {/* <p className='antiResumeBody antiResumeBodyMuted'>
+                        <strong>Currently, this is all of the content for this page.</strong>&nbsp;
+                        In the future, I plan on adding a pop quiz, extra captchas,
+                        a &quot;rate your experience&quot; survey, and mock sign up functionality.
+                    </p> */}
+                </div>
+            )}
 
             {(showReadyModal && !clicked) && (
                 <Modal
@@ -435,7 +490,15 @@ export const AntiResumeContent = () => {
                                 <strong>How fast can you write your name, email, and phone number?</strong>
                                 <span>Time: {time}</span>
                             </p>
-                            <div onMouseDown={(e) => e.preventDefault()} className='antiResumeKeyboardWrap'>
+                            {showKeyboardWarning && (
+                                <p className='antiResumeKeyboardAlert' role='alert'>
+                                    You must use MY keyboard
+                                </p>
+                            )}
+                            <div
+                                onMouseDown={(e) => e.preventDefault()}
+                                className={`antiResumeKeyboardWrap${showKeyboardWarning ? ' antiResumeKeyboardWrapWarning' : ''}`}
+                            >
                                 <Keyboard
                                     targetInput={focusedInput.current === 'name' ? name : email}
                                     setTargetInput={handleKeyboardInput}

@@ -1,20 +1,13 @@
 import React from 'react';
-import { Typography } from '@mui/material';
 
 export const ChessDetails = () => {
 
     return (
-        <div className='mainProjectContainer'>
-            <Typography 
-                variant='h4'
-                textAlign={'center'}
-                style={{ marginBottom: '10px' }}
-            >
-            <h4>Chess</h4>
-            </Typography>
+        <section className='projectDetails'>
+            <h2 className='projectDetailsTitle'>Chess</h2>
             <div className='downloadLinks'>
                 <a href='https://www.justinlucedev.com/chess'>Hosted on this site</a>
             </div>
-        </div>
+        </section>
     );
 }

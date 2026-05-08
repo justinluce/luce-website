@@ -1,20 +1,13 @@
 import React from 'react';
-import { Typography } from '@mui/material';
 
 export const MinesweeperDetails = () => {
 
     return (
-        <div className='mainProjectContainer'>
-            <Typography 
-                variant='h4'
-                textAlign={'center'}
-                style={{ marginBottom: '10px' }}
-            >
-            <h4>Minesweeper</h4>
-            </Typography>
+        <section className='projectDetails'>
+            <h2 className='projectDetailsTitle'>Minesweeper</h2>
             <div className='downloadLinks'>
                 <a href='https://www.justinlucedev.com/minesweeper'>Hosted on this site</a>
             </div>
-        </div>
+        </section>
     );
 }

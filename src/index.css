@@ -9,6 +9,34 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.app-content {
+  min-height: 100vh;
+  padding-left: 64px;
+}
+
+.pageTitle,
+.MuiTypography-root.pageTitle {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(3rem, 7vw, 5.75rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0;
+  line-height: 0.95 !important;
+  text-align: center;
+}
+
+.pageTitleCompact,
+.MuiTypography-root.pageTitleCompact {
+  font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
 .bubble-hover {
   transition: all .2s ease-in-out;
 }
@@ -51,5 +79,16 @@ code {
   .theme-icon {
     background-color: white;
     border-radius: 50%;
+  }
+}
+
+@media (max-width: 900px) {
+  .app-content {
+    padding-left: 56px;
+  }
+
+  .pageTitle,
+  .MuiTypography-root.pageTitle {
+    font-size: clamp(2.4rem, 13vw, 4rem) !important;
   }
 }

@@ -175,7 +175,7 @@ export const TicTacToe = () => {
 
     return (
         <div id='main-container'>
-            <h1>Tic-Tac-Toe</h1>
+            <h1 className='pageTitle pageTitleCompact'>Tic-Tac-Toe</h1>
             <p>
                 A Tic-Tac-Toe game I made to teach my students about the Minimax aglorithm, explained below.
             </p>
