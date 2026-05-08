@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { SmartImage } from '../shared/components/SmartImage';
 
 export const Headshot = () => {
     const [leftPupil, setLeftPupil] = useState({ x: 0, y: 0 });
@@ -49,13 +50,14 @@ export const Headshot = () => {
       onMouseEnter={() => setShowEyes(true)}
       onMouseLeave={() => setShowEyes(false)}
     >
-      <img
+      <SmartImage
         src='/images/luceHeadshot.webp'
         id='headshot'
         style={{ display: 'block' }}
         alt="Headshot"
         decoding='async'
         fetchPriority='high'
+        loading='eager'
       />
 
       <div

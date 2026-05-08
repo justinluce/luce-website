@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import "../shared/styled/Music.css";
+import { SmartImage } from '../shared/components/SmartImage';
 
 const favoriteTracks = [
     { title: 'ShadowBoxing', src: '/music/ShadowBoxing.mp3' },
@@ -50,7 +51,7 @@ export const Music = () => {
             <header className='musicHeader pageHeader'>
                 <h1 className='pageTitle'>Music</h1>
                 <a className='musicLogoLink' href='https://justinluce.bandcamp.com/'>
-                    <img src='/images/bandcampLogoWhite.png' alt='Bandcamp' decoding='async' />
+                    <SmartImage src='/images/bandcampLogoWhite.png' alt='Bandcamp' />
                 </a>
             </header>
 
@@ -73,7 +74,7 @@ export const Music = () => {
                 <div className='albumGrid'>
                     {albums.map((album) => (
                         <a className='albumCard' href={album.href} target='_blank' rel='noopener noreferrer' key={album.href}>
-                            <img src={album.src} title={album.title} alt={album.alt} decoding='async' />
+                            <SmartImage src={album.src} title={album.title} alt={album.alt} />
                             <span>{album.title}</span>
                         </a>
                     ))}

@@ -42,6 +42,51 @@
     z-index: 10;
 }
 
+.smartImage {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(135deg, rgba(120, 224, 224, 0.08), rgba(255, 255, 255, 0.025)),
+        #101010;
+}
+
+.smartImage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+    transform: translateX(-100%);
+    animation: smartImageSheen 1.2s ease-in-out infinite;
+}
+
+.smartImage img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 180ms ease;
+}
+
+.smartImageLoaded {
+    background: transparent;
+}
+
+.smartImageLoaded::before,
+.smartImageFailed::before {
+    display: none;
+}
+
+.smartImageLoaded img {
+    opacity: 1;
+}
+
+@keyframes smartImageSheen {
+    to {
+        transform: translateX(100%);
+    }
+}
+
 @keyframes fadeInDown {
     from {
         opacity: 0;

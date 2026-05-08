@@ -7,6 +7,7 @@ import '../shared/styled/Projects.css';
 import { MiscDetails } from './projects/MiscDetails';
 import { AntiResumeDetails } from './projects/AntiResumeDetails';
 import { NotesAppDetails } from './projects/NotesAppDetails';
+import { SmartImage } from '../shared/components/SmartImage';
 
 const projects = [
     { id: 'misc', label: 'Misc', Details: MiscDetails },
@@ -78,7 +79,7 @@ export const Projects = () => {
                         aria-label={`Show ${project.label}`}
                     >
                         <span className='projectCardTitle'>{project.label}</span>
-                        <img src={`/images/${project.id}.webp`} alt='' decoding='async' />
+                        <SmartImage src={`/images/${project.id}.webp`} alt='' />
                     </button>
                 ))}
             </div>
@@ -89,7 +90,7 @@ export const Projects = () => {
                     onClick={handleLeftArrowClick}
                     aria-label='Previous project'
                 >
-                    <img src='/images/leftArrow.png' className='arrow leftArrow' alt='' />
+                    <img src='/images/leftArrow.png' className='arrow leftArrow' alt='' decoding='async' />
                 </button>
                 <button
                     type='button'
@@ -97,7 +98,7 @@ export const Projects = () => {
                     onClick={handleRightArrowClick}
                     aria-label='Next project'
                 >
-                    <img src='/images/leftArrow.png' className='arrow rightArrow' alt='' />
+                    <img src='/images/leftArrow.png' className='arrow rightArrow' alt='' decoding='async' />
                 </button>
             </div>
 

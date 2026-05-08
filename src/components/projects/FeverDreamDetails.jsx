@@ -1,4 +1,5 @@
 import React from 'react';
+import { SmartImage } from '../../shared/components/SmartImage';
 
 export const FeverDreamDetails = () => {
 
@@ -13,7 +14,7 @@ export const FeverDreamDetails = () => {
                 Currently working on version 0.2.0.
             </p>
             <div className='projectDetailsImageWrap'>
-                <img className='projectDetailsImage' src='images/feverDreamDetails.webp' alt='A small, square house with a mountain in the background' title='Fever Dream'/>
+                <SmartImage className='projectDetailsImage' src='images/feverDreamDetails.webp' alt='A small, square house with a mountain in the background' title='Fever Dream'/>
             </div>
         </section>
     );

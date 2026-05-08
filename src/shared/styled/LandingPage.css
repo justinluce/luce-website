@@ -181,13 +181,19 @@ body {
     font-size: 3em;
 }
 
-#headshot {
+#headshot,
+#headshot.smartImage {
     border-radius: 50%;
     object-fit: cover;
     object-position: 20% 50%;
     border: .2em solid white;
     width: min(400px, 60vw);
     height: min(400px, 60vw);
+}
+
+#headshot img {
+    object-fit: cover;
+    object-position: 20% 50%;
 }
   
 body.menu-toggled > .meta-link > span {
@@ -204,6 +210,11 @@ body.menu-toggled > .meta-link > span {
   
 #cat-link > i {
     color: rgb(239, 83, 80);
+}
+
+#cat-link {
+    left: auto;
+    right: 10px;
 }
   
 .meta-link {
@@ -299,5 +310,6 @@ body.menu-toggled > .meta-link > span {
         position: relative;
         bottom: auto;
         left: auto;
+        right: auto;
     }
 }

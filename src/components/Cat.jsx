@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+import { SmartImage } from "../shared/components/SmartImage";
 
 export const Cat = () => {
 
@@ -13,7 +14,7 @@ export const Cat = () => {
                 Cat
             </Typography>
             <div style={{display: 'flex', justifyContent: 'center'}}>
-                <img 
+                <SmartImage
                     style={{
                         transform: 'scale(.7)', 
                         display: 'block', 
