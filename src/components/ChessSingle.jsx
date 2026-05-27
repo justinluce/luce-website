@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
 import '../shared/styled/Chess.css';
+import { usePageMeta } from '../shared/hooks/usePageMeta';
 
 export const ChessSingle = () => {
+    usePageMeta({
+        title: 'Chess — Single Player',
+        description: 'Single-player chess in the browser.'
+    });
     const [selectedPiece, setSelectedPiece] = useState();
     const [turn, setTurn] = useState('White');
     const [winner, setWinner] = useState();

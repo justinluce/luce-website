@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Typography } from '@mui/material';
 import { AntiResumeContent } from './AntiResumeContent';
+import { usePageMeta } from '../shared/hooks/usePageMeta';
 
 const StartButton = ({ isSigningUp, onSigningUpChange }) => {
     const [isClicked, setIsClicked] = useState(false);
@@ -24,6 +25,10 @@ const StartButton = ({ isSigningUp, onSigningUpChange }) => {
 };
 
 export const AntiResume = () => {
+    usePageMeta({
+        title: 'Anti-Resume',
+        description: "The anti-resume of Justin Luce — the opposite of a resume."
+    });
     const [isPinkMode, setIsPinkMode] = useState(false);
     const [isSigningUp, setIsSigningUp] = useState(false);
 

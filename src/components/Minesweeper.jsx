@@ -2,8 +2,13 @@ import { Typography } from "@mui/material";
 import React, { useState, useEffect, useRef } from 'react';
 import '../shared/styled/Minesweeper.css';
 import BoardWorker from '../workers/boardWorker?worker&inline';
-  
+import { usePageMeta } from '../shared/hooks/usePageMeta';
+
 const Minesweeper = () => {
+  usePageMeta({
+    title: 'Minesweeper',
+    description: 'Play a browser-based Minesweeper built by Justin Luce.'
+  });
   const [size, setSize] = useState(10);
   const [mines, setMines] = useState(10);
 

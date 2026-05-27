@@ -1,10 +1,15 @@
 import React, { useEffect } from 'react';
 import { Typography } from '@mui/material';
 import { SmartImage } from '../shared/components/SmartImage';
+import { usePageMeta } from '../shared/hooks/usePageMeta';
 
 import io from 'socket.io-client';
 
 export const Chatroom = () => {
+    usePageMeta({
+        title: 'Chatroom',
+        description: 'A real-time chatroom experiment.'
+    });
 
     let socket;
     

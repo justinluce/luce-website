@@ -2,8 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 import '../shared/styled/LandingPage.css';
 import { Link } from 'react-router-dom';
 import { Headshot } from './Headshot';
+import { usePageMeta } from '../shared/hooks/usePageMeta';
 
 export const LandingPage = () =>  {
+    usePageMeta({
+        title: 'Software Developer, Game Dev & Musician',
+        description: "Personal site of Justin Luce — software developer at Hotlines Inc, hobbyist game developer, and musician. Projects, music, web experiments, and more."
+    });
     const [pHeight, setPheight] = useState(0);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
     const [shouldAnimate, setShouldAnimate] = useState(

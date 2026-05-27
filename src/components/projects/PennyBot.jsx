@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
 import './PennyBot.css'
+import { usePageMeta } from '../../shared/hooks/usePageMeta';
 
 export const PennyBot = () => {
+    usePageMeta({
+        title: 'PennyBot',
+        description: 'PennyBot — a chatbot project by Justin Luce.'
+    });
     const [response, setResponse] = useState([]);
     const [userInput, setUserInput] = useState("");
 

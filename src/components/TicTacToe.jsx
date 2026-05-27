@@ -1,9 +1,14 @@
 import { useEffect, useState } from 'react';
 import '../shared/styled/TicTacToe.css';
 import ReactMarkdown from 'react-markdown';
-import MinimaxDoc from '/Minimax.md?url&raw'; 
+import MinimaxDoc from '/Minimax.md?url&raw';
+import { usePageMeta } from '../shared/hooks/usePageMeta';
 
 export const TicTacToe = () => {
+    usePageMeta({
+        title: 'Tic-Tac-Toe',
+        description: 'Play Tic-Tac-Toe against a minimax AI in the browser.'
+    });
     const [board, setBoard] = useState([
         [null, null, null],
         [null, null, null],

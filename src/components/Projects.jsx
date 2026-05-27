@@ -8,6 +8,7 @@ import { MiscDetails } from './projects/MiscDetails';
 import { AntiResumeDetails } from './projects/AntiResumeDetails';
 import { NotesAppDetails } from './projects/NotesAppDetails';
 import { SmartImage } from '../shared/components/SmartImage';
+import { usePageMeta } from '../shared/hooks/usePageMeta';
 
 const projects = [
     { id: 'misc', label: 'Misc', Details: MiscDetails },
@@ -18,6 +19,10 @@ const projects = [
 ];
 
 export const Projects = () => {
+    usePageMeta({
+        title: 'Projects',
+        description: 'Coding and web projects by Justin Luce — games, web apps, and experiments.'
+    });
     const [projectOpen, setProjectOpen] = useState(1);
     const projectCount = projects.length;
     const ActiveProjectDetails = projects[projectOpen].Details;

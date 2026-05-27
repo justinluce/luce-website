@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import "../shared/styled/Music.css";
 import { SmartImage } from '../shared/components/SmartImage';
+import { usePageMeta } from '../shared/hooks/usePageMeta';
 
 const favoriteTracks = [
     { title: 'ShadowBoxing', src: '/music/ShadowBoxing.mp3' },
@@ -36,6 +37,10 @@ const albums = [
 ];
 
 export const Music = () => {
+    usePageMeta({
+        title: 'Music',
+        description: 'Music and albums by Justin Luce — listen on Bandcamp, Spotify, and Apple Music.'
+    });
     useEffect(() => {
         [
             '/images/bandcampLogoWhite.png',

@@ -54,7 +54,7 @@ export const Headshot = () => {
         src='/images/luceHeadshot.webp'
         id='headshot'
         style={{ display: 'block' }}
-        alt="Headshot"
+        alt="Justin Luce headshot"
         decoding='async'
         fetchPriority='high'
         loading='eager'
@@ -87,13 +87,13 @@ export const Headshot = () => {
           <img
             className='white-circle'
             src='/images/whiteCircle.png'
-            alt="White Eye"
+            alt=""
             style={{ width: '100%', height: '100%' }}
           />
           <img
             className='black-circle'
             src='/images/blackCircle.png'
-            alt="Pupil"
+            alt=""
             style={{
               position: 'absolute',
               top: '50%',
@@ -119,13 +119,13 @@ export const Headshot = () => {
           <img
             className='white-circle'
             src='/images/whiteCircle.png'
-            alt="White Eye"
+            alt=""
             style={{ width: '100%', height: '100%' }}
           />
           <img
             className='black-circle'
             src='/images/blackCircle.png'
-            alt="Pupil"
+            alt=""
             style={{
               position: 'absolute',
               top: '50%',

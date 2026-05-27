@@ -1,7 +1,12 @@
 import { Typography } from "@mui/material";
 import { SmartImage } from "../shared/components/SmartImage";
+import { usePageMeta } from "../shared/hooks/usePageMeta";
 
 export const Cat = () => {
+    usePageMeta({
+        title: 'Cat',
+        description: 'A page about George, an orange cat.'
+    });
 
     return (
         <div style={{marginLeft: '10px', marginRight: '10px', marginTop: '10px', fontSize: '30px', color: 'white'}}>
