@@ -7,7 +7,7 @@ const DEFAULT_DESCRIPTION =
 export function usePageMeta({ title, description } = {}) {
   useEffect(() => {
     const previousTitle = document.title;
-    document.title = title ? `${title} — ${SITE_NAME}` : SITE_NAME;
+    document.title = title ? `${SITE_NAME} — ${title}` : SITE_NAME;
 
     const metaDescription = document.querySelector('meta[name="description"]');
     const previousDescription = metaDescription?.getAttribute('content');
