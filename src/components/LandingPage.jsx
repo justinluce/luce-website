@@ -94,10 +94,9 @@ export const LandingPage = () =>  {
                 <div id='about-paragraph' ref={pRef}>
                     <Headshot />
                     <p>
-                        Hello! I'm Justin Luce. I am currently a software developer for Hotlines Inc, 
-                        and the former director for Midland University's Code Academy.
-                        As a hobbyist game dev, I have created multiple video games using Unity and Gamemaker Studio. 
-                        I primarily specialize in JavaScript/TypeScript, Python, and C#/.NET.
+                        Hello! I'm Justin Luce. I am currently a software developer for Hotlines Inc.
+                        As a hobbyist game dev, I have created multiple video games using Unity, Godot, and Gamemaker Studio. 
+                        I primarily specialize in JavaScript/TypeScript, PHP, Python, and C#/.NET.
                     </p>
                     <p>
                         This is my website, where you can find a collection of things I've made.
