@@ -21,6 +21,8 @@ import { ChessSingle } from './components/ChessSingle';
 import { Sidebar } from './shared/components/Sidebar';
 // import { ChessMulti } from './components/ChessMulti';
 import { TicTacToe } from './components/TicTacToe';
+import { Writing } from './components/Writing';
+import { BeyondTheRealm } from './components/BeyondTheRealm';
 
 function App() {
 
@@ -59,6 +61,8 @@ function MainLayout() {
           <Route path='/penny' element={<PennyBot />} />
           {/* <Route path='*' element={<Navigate to='home' />} /> */}
           <Route path='/tic-tac-toe' element={<TicTacToe />} />
+          <Route path='/writing' element={<Writing />} />
+          <Route path='/writing/beyond-the-realm' element={<BeyondTheRealm />} />
         </Routes>
       </main>
     </>

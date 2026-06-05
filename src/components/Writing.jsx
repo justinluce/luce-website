@@ -15,7 +15,7 @@ export const Writing = () => {
                 </NavLink>
                 <span className='writing-link writing-wip'>
                     <span className='writing-type'>Novella</span>
-                    SOMbress: Sideria
+                    SOMbress Stage 1: Sideria
                     <span className='wip-badge'>Coming Next</span>
                 </span>
             </div>

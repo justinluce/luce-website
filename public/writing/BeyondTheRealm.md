@@ -12,28 +12,33 @@ The eldest of its age
 
 Though graceful as it grows
 The whispers hiss from those
-Sculpting for their needs
+Who sculpt it for their needs
 A sheep to fuel their creed
 
 With passing years it changed
-Repulsed by all their rage
+The whispers turned to chains
 Cautious, scared, and cold
-Refused their iron fold
+Refused their iron hold
 
 In time, at last, it grew
 Crowned King of all it knew
-Rumors fill its brain
+Their voices fill its brain
 Too much to be contained
+
+The first was slain that night
+To still the tongues that writhe
+Archons, guards, and 'friends'
+All met their violent ends
 
 It turned to its empire
 And saw a rampant fire
-Subjects dead and felled
+Subjects burned and felled
 Mankind entrapped in hell
 
 Yet try and try it might
 Its kind did naught but fight
-Vengeful, crossed, and stressed
-It joined their dark bloodlet
+Vengeful, crossed, and frayed
+It joined their dark crusade
 
 It fights throughout the land
 Crushed heads and severed hands
