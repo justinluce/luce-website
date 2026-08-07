@@ -1,7 +1,7 @@
 Beyond the realm, it wakes
 Between the rift, it waits
-Wrath to be unleashed
-To steal our God’s heartbeat
+Flesh and bone, it grinds
+To carve out what's inside
 
 ***
 
@@ -64,5 +64,5 @@ It swore They would be next
 
 Beyond the realm, it hates
 Between the rift, it quakes
-Flesh and bone, it grinds
-To carve out what’s inside
+Wrath to be unleashed
+To steal our God's heartbeat
