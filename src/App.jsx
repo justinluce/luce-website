@@ -23,6 +23,8 @@ import { Sidebar } from './shared/components/Sidebar';
 import { TicTacToe } from './components/TicTacToe';
 import { Writing } from './components/Writing';
 import { BeyondTheRealm } from './components/BeyondTheRealm';
+import { Sombress } from './components/Sombress';
+import { SombressChapter } from './components/SombressChapter';
 
 function App() {
 
@@ -63,6 +65,8 @@ function MainLayout() {
           <Route path='/tic-tac-toe' element={<TicTacToe />} />
           <Route path='/writing' element={<Writing />} />
           <Route path='/writing/beyond-the-realm' element={<BeyondTheRealm />} />
+          <Route path='/writing/sombress' element={<Sombress />} />
+          <Route path='/writing/sombress/:slug' element={<SombressChapter />} />
         </Routes>
       </main>
     </>

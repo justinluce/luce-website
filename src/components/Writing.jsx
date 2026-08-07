@@ -13,11 +13,10 @@ export const Writing = () => {
                     <span className='writing-type'>Poem</span>
                     Beyond the Realm
                 </NavLink>
-                <span className='writing-link writing-wip'>
+                <NavLink className='writing-link' to={'/writing/sombress'}>
                     <span className='writing-type'>Novella</span>
-                    SOMbress Stage 1: Sideria
-                    <span className='wip-badge'>Coming Next</span>
-                </span>
+                    SOMbress: Sideria
+                </NavLink>
             </div>
         </div>
     );

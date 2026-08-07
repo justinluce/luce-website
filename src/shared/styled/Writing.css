@@ -23,6 +23,7 @@
 .poem-theme-controls {
     display: flex;
     justify-content: center;
+    gap: 10px;
     max-width: 700px;
     margin: 0 auto 12px;
     padding-top: 12px;
@@ -37,6 +38,7 @@
     font-size: 0.78rem;
     letter-spacing: 0.08em;
     padding: 8px 14px;
+    text-decoration: none;
     text-transform: uppercase;
     transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
@@ -58,6 +60,34 @@
 .poem-theme-light .poem-theme-toggle:focus-visible {
     background-color: #eef7f5;
     border-color: rgb(35, 104, 104);
+}
+
+.writing-back-row {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto 32px;
+    padding-top: 12px;
+}
+
+.writing-back {
+    border: 1px solid rgba(120, 224, 224, 0.35);
+    border-radius: 999px;
+    color: rgb(170, 246, 246);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    padding: 8px 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.writing-back:hover,
+.writing-back:focus-visible {
+    background-color: rgba(120, 224, 224, 0.08);
+    border-color: rgb(120, 224, 224);
+    outline: none;
 }
 
 .writing-list {
@@ -107,7 +137,7 @@
 }
 
 .wip-badge {
-    display: none;
+    display: block;
     position: absolute;
     top: -10px;
     right: -10px;
@@ -118,10 +148,6 @@
     color: rgb(120, 224, 224);
     padding: 2px 8px;
     border-radius: 3px;
-}
-
-.writing-wip:hover .wip-badge {
-    display: block;
 }
 
 .writing-content {
@@ -198,4 +224,146 @@
 
 .poem-theme-light .writing-content .poem-author {
     color: rgba(37, 32, 24, 0.48);
+}
+
+.writing-content.chapter-content {
+    max-width: 900px;
+    padding: 48px 60px;
+    text-align: left;
+}
+
+.writing-content.chapter-content h1,
+.writing-content.chapter-content .poem-author {
+    text-align: center;
+}
+
+.chapter-progress {
+    position: fixed;
+    top: 0;
+    left: 64px;
+    right: 0;
+    height: 3px;
+    background-color: rgba(120, 224, 224, 0.12);
+    z-index: 5;
+}
+
+.chapter-progress-fill {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(120, 224, 224);
+    transform: scaleX(0);
+    transform-origin: left center;
+}
+
+.poem-theme-light .chapter-progress {
+    background-color: rgba(35, 104, 104, 0.15);
+}
+
+.poem-theme-light .chapter-progress-fill {
+    background-color: rgb(35, 104, 104);
+}
+
+.chapter-body {
+    margin-top: 0.5rem;
+}
+
+.writing-content.chapter-content .chapter-body p {
+    font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+    font-size: 1.12rem;
+    font-style: normal;
+    line-height: 1.75;
+    margin-bottom: 1.35rem;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.poem-theme-light .writing-content.chapter-content .chapter-body p {
+    color: rgba(37, 32, 24, 0.9);
+}
+
+.writing-content.chapter-content .chapter-body > p:first-of-type {
+    text-align: center;
+    font-size: 0.95rem;
+    font-style: italic;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(120, 224, 224, 0.75);
+    border-bottom: 1px solid rgba(120, 224, 224, 0.2);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.poem-theme-light .writing-content.chapter-content .chapter-body > p:first-of-type {
+    color: rgba(35, 104, 104, 0.85);
+    border-bottom-color: rgba(35, 104, 104, 0.25);
+}
+
+.chapter-body > p:nth-of-type(2)::first-letter {
+    float: left;
+    font-size: 3.4rem;
+    line-height: 0.85;
+    padding: 0.1rem 0.6rem 0 0;
+    color: rgb(120, 224, 224);
+}
+
+.poem-theme-light .chapter-body > p:nth-of-type(2)::first-letter {
+    color: rgb(35, 104, 104);
+}
+
+.chapter-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    max-width: 900px;
+    margin: 24px auto 40px;
+}
+
+.chapter-nav-link {
+    border: 1px solid rgba(120, 224, 224, 0.35);
+    border-radius: 4px;
+    color: rgb(120, 224, 224);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 45%;
+    padding: 12px 20px;
+    text-decoration: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.chapter-nav-link:hover {
+    border-color: rgb(120, 224, 224);
+    background-color: rgba(120, 224, 224, 0.05);
+}
+
+.chapter-nav-next {
+    margin-left: auto;
+    text-align: right;
+}
+
+.chapter-nav-direction {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.poem-theme-light .chapter-nav-link {
+    border-color: rgba(35, 104, 104, 0.35);
+    color: rgb(35, 104, 104);
+}
+
+.poem-theme-light .chapter-nav-link:hover {
+    border-color: rgb(35, 104, 104);
+    background-color: rgba(35, 104, 104, 0.06);
+}
+
+.poem-theme-light .chapter-nav-direction {
+    color: rgba(37, 32, 24, 0.5);
+}
+
+@media (max-width: 700px) {
+    .writing-content.chapter-content {
+        padding: 28px 22px;
+    }
 }
