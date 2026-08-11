@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import '../styled/Sidebar.css';
 
@@ -40,31 +40,101 @@ const navItems = [
     { to: '/writing', label: 'Writing', Icon: WritingIcon }
 ];
 
+const DRAWER_QUERY = '(max-width: 700px)';
+const HIDE_AFTER = 96;
+const SCROLL_DELTA = 6;
+
 export const Sidebar = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [toggleHidden, setToggleHidden] = useState(false);
 
     const toggleSidebar = () => {
         setSidebarOpen(prev => !prev);
     }
 
+    useEffect(() => {
+        const drawerMode = window.matchMedia(DRAWER_QUERY);
+        let lastY = window.scrollY;
+        let frame = null;
+
+        const evaluate = () => {
+            frame = null;
+            const y = window.scrollY;
+            const delta = y - lastY;
+
+            if (Math.abs(delta) < SCROLL_DELTA) return;
+            lastY = y;
+
+            if (!drawerMode.matches) {
+                setToggleHidden(false);
+                return;
+            }
+
+            setToggleHidden(delta > 0 && y > HIDE_AFTER);
+        };
+
+        const onScroll = () => {
+            if (frame !== null) return;
+            frame = window.requestAnimationFrame(evaluate);
+        };
+
+        const onModeChange = () => {
+            lastY = window.scrollY;
+            setToggleHidden(false);
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        drawerMode.addEventListener('change', onModeChange);
+
+        return () => {
+            window.removeEventListener('scroll', onScroll);
+            drawerMode.removeEventListener('change', onModeChange);
+            if (frame !== null) window.cancelAnimationFrame(frame);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (sidebarOpen) setToggleHidden(false);
+    }, [sidebarOpen]);
+
+    useEffect(() => {
+        if (!sidebarOpen) return;
+
+        const onKeyDown = event => {
+            if (event.key === 'Escape') setSidebarOpen(false);
+        };
+
+        window.addEventListener('keydown', onKeyDown);
+        return () => window.removeEventListener('keydown', onKeyDown);
+    }, [sidebarOpen]);
+
+    const openClass = sidebarOpen ? 'sidebar-open' : '';
+
     return (
-        <div id='sidebar-container' className={sidebarOpen ? 'sidebar-open' : ''}>
+        <div id='sidebar-container' className={openClass}>
+            <button
+                id='hamburger'
+                className={toggleHidden ? 'toggle-hidden' : ''}
+                type='button'
+                onClick={toggleSidebar}
+                aria-label={sidebarOpen ? 'Close navigation' : 'Open navigation'}
+                aria-expanded={sidebarOpen}
+                aria-controls='sidebar-main'
+            >
+                <span className='hamburger-icon' aria-hidden='true'>
+                    {sidebarOpen ? '×' : '☰'}
+                </span>
+            </button>
+            <div
+                id='sidebar-scrim'
+                onClick={() => setSidebarOpen(false)}
+                aria-hidden='true'
+            />
             <aside
                 id='sidebar-main'
-                className={sidebarOpen ? 'sidebar-open' : ''}
+                className={openClass}
                 aria-label='Primary navigation'
             >
-                <button
-                    id='hamburger'
-                    type='button'
-                    onClick={toggleSidebar}
-                    aria-label={sidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'}
-                    aria-expanded={sidebarOpen}
-                >
-                    <span className='hamburger-icon' aria-hidden='true'>
-                        {sidebarOpen ? '\u00d7' : '\u2630'}
-                    </span>
-                </button>
                 <nav id='link-container'>
                     {navItems.map(({ to, label, Icon }) => (
                         <NavLink
