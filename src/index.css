@@ -92,3 +92,9 @@ code {
     font-size: clamp(2.4rem, 13vw, 4rem) !important;
   }
 }
+
+@media (max-width: 700px) {
+  .app-content {
+    padding-left: 0;
+  }
+}
