@@ -12,7 +12,7 @@ The eldest of its age
 
 Though graceful as it grows
 The whispers hiss from those
-Who sculpt it for their needs
+Sculpting for their needs
 A sheep to fuel their creed
 
 With passing years it changed
@@ -22,7 +22,7 @@ Refused their iron hold
 
 In time, at last, it grew
 Crowned King of all it knew
-Their voices fill its brain
+Voices fill its brain
 Too much to be contained
 
 The first was slain that night
@@ -53,7 +53,7 @@ Succumbed to its own pain
 To God it prays and pleads
 To cleanse their bloody sea
 Voice filled with despair
-Echoes in the still air
+It hangs in silent air
 
 A foolish, hollow prayer
 To think a God would care
